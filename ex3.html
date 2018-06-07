@@ -5,40 +5,25 @@
 </style>
 </head>
 <body>
-<button class="accordion">Section 1</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
+<div style="border: 5px solid Peru; max-width: 100vw;">
+<div id="button;" style="display:table-cell;vertical-align:middle;width:33vw;border:none;padding:7px;text-align:center;"">
+<img src="https://assets.webn.mobi/hearthstone/1341590178d40e6a29212445499ca20817f787e9fc499273750f00294ba5b670.png" border="0" width="200px">
 </div>
-
-<button class="accordion">Section 2</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
+<div style="display:table-cell;vertical-align:middle;width:34vw;border:none;padding:7px;text-align:center;"">
+<img src="https://assets.webn.mobi/hearthstone/1341590178d40e6a29212445499ca20817f787e9fc499273750f00294ba5b670.png" border="0" width="200px">
+</div><div style="display:table-cell;vertical-align:middle;width:33vw;border:none;padding:7px;text-align:center;"">
+<img src="https://assets.webn.mobi/hearthstone/1341590178d40e6a29212445499ca20817f787e9fc499273750f00294ba5b670.png" border="0" width="200px">
 </div>
-
-<button class="accordion">Section 3</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
+<div style="clear: left;">
+</div>
+<div id="button; content;" style="display:table-cell;vertical-align:middle;width:100vw;border:none;padding:7px;text-align:center;"">
+<img src="https://assets.webn.mobi/hearthstone/1341590178d40e6a29212445499ca20817f787e9fc499273750f00294ba5b670.png" border="0" width="200px">
+</div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        /* Toggle between adding and removing the "active" class,
-        to highlight the button that controls the panel */
-        this.classList.toggle("active");
-
-        /* Toggle between hiding and showing the active panel */
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
+$("#button").click(funtion () {
+$("#content").toggle();});
 </script>
 </body>
 </html>
