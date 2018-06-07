@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+
+<!-- wrapper element for the first Tabs/panes combination -->
+<div class="wrap">
+ 
+  <!-- the tabs -->
+  <ul class="tabs">
+    <li style="display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;padding:8px 0px 14px 0px;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;">
+	<a href="#">Tab 1</a>
+	</li>
+    <li style="display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;padding:8px 0px 14px 0px;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;">
+	<a href="#">Tab 2</a>
+	</li>
+    <li style="display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;padding:8px 0px 14px 0px;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;">
+	<a href="#">Tab 3</a>
+	</li>
+	<li style="display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;padding:8px 0px 14px 0px;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;">
+	<a href="#">Tab 4</a>
+	</li>
+	<li style="display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;padding:8px 0px 14px 0px;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;">
+	<a href="#">Tab 5</a>
+	</li>
+  </ul>
+ 
+  <!-- tab "panes" -->
+  <div class="pane">First tab content.</div>
+  <div class="pane">Second tab content</div>
+  <div class="pane">Third tab content</div>
+  <div class="pane">Forth tab content</div>
+  <div class="pane">Fifth tab content</div>
+ 
+</div>
+ 
+<!-- wrapper element for second set of Tabs  -->
+<div class="wrap">
+ 
+  <!-- the tabs -->
+  <ul class="tabs">
+    ...
+  </ul>
+ 
+  <!-- tab "panes" (containing the nested Tabs) -->
+  <div class="pane">
+    [ nested tabs/panes #1 ]
+  </div>
+  <div class="pane">
+    [ nested tabs/panes #2 ]
+  </div>
+  <div class="pane">
+    [ nested tabs/panes #3 ]
+  </div>
+ 
+</div>  
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $("ul.tabs").tabs("> .pane");
+  $(".accordion").tabs(".pane", {tabs: 'h2', effect: 'slide'});
+</script>
+</body>
+</html>
