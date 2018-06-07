@@ -5,62 +5,21 @@
 </style>
 </head>
 <body>
-
-<!-- wrapper element for the first Tabs/panes combination -->
-<div class="wrap">
+<div class="accordion">
+  
+  <h2>First pane</h2>
+  <div class="pane"> Lorem </div>
  
-  <!-- the tabs -->
-  <ul class="upper">
-    <li style="display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;padding:8px 0px 14px 0px;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;">
-	<a href="#tab_01">Tab 1</a>
-	</li>
-    <li style="display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;padding:8px 0px 14px 0px;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;">
-	<a href="#tab_02">Tab 2</a>
-	</li>
-    <li style="display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;padding:8px 0px 14px 0px;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;">
-	<a href="#tab_03">Tab 3</a>
-	</li>
-	<li style="display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;padding:8px 0px 14px 0px;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;">
-	<a href="#tab_04">Tab 4</a>
-	</li>
-	<li style="display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;padding:8px 0px 14px 0px;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;">
-	<a href="#tab_05">Tab 5</a>
-	</li>
-  </ul>
+  <h2>Second pane</h2>
+  <div class="pane"> Ipsum </div>
  
-  <!-- tab "panes" -->
-  <div class="tab_item" id="tab_01">First tab content.</div>
-  <div class="tab_item" id="tab_02">Second tab content</div>
-  <div class="tab_item" id="tab_03">Third tab content</div>
-  <div class="tab_item" id="tab_04">Forth tab content</div>
-  <div class="tab_item" id="tab_05">Fifth tab content</div>
+  <h2>Third pane</h2>
+  <div class="pane"> Melon </div>
  
 </div>
- 
-<!-- wrapper element for second set of Tabs  -->
-<div class="wrap">
- 
-  <!-- the tabs -->
-  <ul class="tabs">
-    ...
-  </ul>
- 
-  <!-- tab "panes" (containing the nested Tabs) -->
-  <div class="pane">
-    [ nested tabs/panes #1 ]
-  </div>
-  <div class="pane">
-    [ nested tabs/panes #2 ]
-  </div>
-  <div class="pane">
-    [ nested tabs/panes #3 ]
-  </div>
- 
-</div>  
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-  $("ul.upper").tabs("> .tab_item");
-  $(".accordion").tabs(".pane", {tabs: 'h2', effect: 'slide'});
+  $(".accordion").tabs(".pane", {tabs: 'h2'});
 </script>
 </body>
 </html>
