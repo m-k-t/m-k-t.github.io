@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  margin-top: 100px;
+  font-family: 'Trebuchet MS', serif;
+  line-height: 1.6
+}
+.container{
+  width: 500px;
+  margin: 0 auto;
+}
+ 
+ 
+ 
+ul.tabs{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+ul.tabs li{
+  background: none;
+  color: #222;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+ 
+ul.tabs li.current{
+  background: #ededed;
+  color: #222;
+}
+ 
+.tab-content{
+  display: none;
+  background: #ededed;
+  padding: 15px;
+}
+ 
+.tab-content.current{
+  display: inherit;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+ 
+  <ul class="tabs">
+    <li class="tab-link" data-tab="tab_01">메뉴_하나</li>
+    <li class="tab-link" data-tab="tab_02">메뉴_둘</li>
+    <li class="tab-link" data-tab="tab_03">메뉴_셋</li>
+  </ul>
+ 
+   <div id="tab_00" class="tab-content current">
+에베베
+  </div>
+  <div id="tab_01" class="tab-content current">
+에베베
+  </div>
+  <div id="tab_02" class="tab-content">
+까꿍
+  </div>
+  <div id="tab_03" class="tab-content">
+호롤롤로
+  </div>
+ 
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   
+  $('ul.tabs li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+ 
+    $('ul.tabs li').removeClass('current');
+    $('.tab-content').removeClass('current');
+ 
+    $(this).addClass('current');
+    $("#"+tab_id).addClass('current');
+  })
+ 
+})
+</script>
+</body>
+</html>
