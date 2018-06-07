@@ -1,46 +1,18 @@
 <!DOCTYPE html>
+<html lang="ko">
 <html>
 <head>
-<style>
-body{
-  margin-top: 100px;
-  font-family: 'Trebuchet MS', serif;
-  line-height: 1.6
-}
-.container{
-  width: 500px;
-  margin: 0 auto;
-}
- 
- 
- 
-ul.tabs{
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-}
-ul.tabs li{
-  background: none;
-  color: #222;
-  display: inline-block;
-  padding: 10px 15px;
-  cursor: pointer;
-}
- 
-ul.tabs li.current{
-  background: #ededed;
-  color: #222;
-}
- 
-.tab-content{
-  display: none;
-  background: #ededed;
-  padding: 15px;
-}
- 
-.tab-content.current{
-  display: inherit;
-}
+	<meta charset="utf-8">
+	<title>Hearthstone New Card Reveal Chart</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+	<style>
+		body {font-family:'Noto Sans',sans-serif;}
+		.container{width:100vw;}
+		ul.tabs{list-style:none;}
+		ul.tabs li{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;border-radius:8px 8px 0px 0px;text-color:black;text-decoration:none;cursor:pointer;}
+		ul.tabs li.current{fontWeight:bold;background-size:contain;background-repeat:no-repeat;background-position:top center;}
+		.tab-content{border:5px solid;max-width:100vw;text-align:center;}
+		.tab-content.current{display: inherit;}
 </style>
 </head>
 <body>
