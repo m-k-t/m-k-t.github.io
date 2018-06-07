@@ -2,13 +2,13 @@
 <html>
 <head>
 <style>
-.toggle:target {display:block;}
-.toggle:not(:target) {display:none;}
+#tog:target {display:block;}
+#tog:not(:target) {display:none;}
 </style>
 </head>
 <body>
 <div style="border: 5px solid Peru; max-width: 100vw;">
-<div class="btn;" style="display:table-cell;vertical-align:middle;width:33vw;border:none;padding:7px;text-align:center;"">
+<div id="btn;" style="display:table-cell;vertical-align:middle;width:33vw;border:none;padding:7px;text-align:center;"">
 <img src="https://assets.webn.mobi/hearthstone/1341590178d40e6a29212445499ca20817f787e9fc499273750f00294ba5b670.png" border="0" width="200px">
 </div>
 <div style="display:table-cell;vertical-align:middle;width:34vw;border:none;padding:7px;text-align:center;"">
@@ -18,14 +18,14 @@
 </div>
 <div style="clear: left;">
 </div>
-<div class="btn; toggle;" style="display:table-cell;vertical-align:middle;width:100vw;border:none;padding:7px;text-align:center;"">
+<div id="btn; tog;" style="display:table-cell;vertical-align:middle;width:100vw;border:none;padding:7px;text-align:center;"">
 <img src="https://assets.webn.mobi/hearthstone/1341590178d40e6a29212445499ca20817f787e9fc499273750f00294ba5b670.png" border="0" width="200px">
 </div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-$('#div_btn').click(function() {
-     $('#div_toggle').toggle();
+$('#btn').click(function() {
+     $('#tog').toggle();
 });
 </script>
 </body>
