@@ -4,7 +4,7 @@
 <style>
 .container{width:100vw;margin:0;}
 ul.cards{margin:0px;padding:0px;list-style:none;}
-ul.cards li{cursor:pointer;}
+ul.cards li{display:table-cell;vertical-align:middle;border:none;padding:7px;text-align:center;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -12,20 +12,20 @@ ul.cards li{cursor:pointer;}
 
 <ul class="cards">
 
-<li class="tab-link" data-tab="tab_01a" style="display:table-cell;vertical-align:middle;width:33vw;border:none;padding:7px;text-align:center;>
+<li class="tab-link" data-tab="tab_01a" style="width:33vw;">
 <img src="https://assets.webn.mobi/hearthstone/1341590178d40e6a29212445499ca20817f787e9fc499273750f00294ba5b670.png" border="0">
 </li>
-<li class="tab-link" data-tab="tab_01b" style="display:table-cell;vertical-align:middle;width:34vw;border:none;padding:7px;text-align:center;>
+<li class="tab-link" data-tab="tab_01b" style="width:34vw;">
 <img src="https://assets.webn.mobi/hearthstone/e85b33e6d905b8866c8c47867922e3c245fb9e247cd7eca6cc6a8a4786e3177c.png" border="0">
 </li>
-<li class="tab-link" data-tab="tab_01c" style="display:table-cell;vertical-align:middle;width:33vw;border:none;padding:7px;text-align:center;>
+<li class="tab-link" data-tab="tab_01c" style="width:33vw;">
 <img src="https://assets.webn.mobi/hearthstone/be39e5ef727bb7726e3c97db130f8e27eeb5df55996fd3988f9f6bf34f5e2821.png" border="0">
 </li>
 
 <div style="clear: left;">
 </div>
 
-<div id="tab_01a" class="card-token" style="display:table-cell;vertical-align:middle;width:100vw;border:none;padding:7px;text-align:center;>
+<div id="tab_01a" class="card-token" style="width:100vw;">
 <img src="http://upload2.inven.co.kr/upload/2018/04/13/bbs/i13632293847.png" border="0">
 </div>
 
@@ -56,7 +56,7 @@ ul.cards li{cursor:pointer;}
 $(document).ready(function(){
    
   $('ul.cards li').click(function(){
-    var tab_id = $(this).attr('data-card');
+    var tab_id = $(this).attr('data-tab');
  
     $('ul.cards li').removeClass('current');
     $('.card-token').removeClass('current');
