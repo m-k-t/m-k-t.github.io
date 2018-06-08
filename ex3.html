@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+
+<div class="button-01a">button1</div>
+<div id="button-01b">button2</div>
+<div id="button-01c">button3</div>
+
+<div class="info-01a">info1</div>
+<div id="info-01b">info2</div>
+<div id="info-01c">info3</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$("[class^=button-]").click(function(){
+  $('.info-'+ this.id.match(/(\w+)+$/)[0]).toggle();
+});
+</script>
+</body>
+</html>
