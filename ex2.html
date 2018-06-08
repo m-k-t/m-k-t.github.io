@@ -3,21 +3,19 @@
 <head>
 <style>
 </style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-<div style="border: 5px solid Peru; max-width: 100vw;">
-<div class="card" data-tab="tab_01a" style="display:table-cell;vertical-align:middle;width:33vw;border:none;padding:7px;text-align:center;">카드 1</div>
+<div class="cards" style="border: 5px solid Peru; max-width: 100vw;">
+<span id="button" style="display:table-cell;vertical-align:middle;width:33vw;border:none;padding:7px;text-align:center;" onclick="$('#content')".toggle();>카드 1</span>
 <div style="display:table-cell;vertical-align:middle;width:34vw;border:none;padding:7px;text-align:center;">카드 2</div>
 <div style="display:table-cell;vertical-align:middle;width:33vw;border:none;padding:7px;text-align:center;">카드 3</div>
 <div style="clear: left;"></div>
-<div id="tab_01a" class="token card" style="display:table-cell;vertical-align:middle;width:100vw;border:none;padding:7px;text-align:center;">카드 1-1<div>
+<div id="content" style="display:table-cell;vertical-align:middle;width:100vw;border:none;padding:7px;text-align:center;">카드 1-1<div>
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script>
-$(‘card’).click(function(e){
-  $(e.currentTarget).toggle();
-});
 </script>
 </body>
 </html>
