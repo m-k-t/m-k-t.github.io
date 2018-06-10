@@ -2,11 +2,12 @@
 <html>
 <head>
 <style>
-.container{width:95vw;horizontal-align:center;}
+.container{width:100vw;margin:-8px 0px 0px -8px;}
 ul.tabs{margin:0px;padding:0px;list-style:none;}
-ul.tabs li{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;text-align:center;border-radius:8px 8px 0px 0px;color:black;text-decoration:none;background:none;cursor:pointer;}
-ul.tabs li.current{font-weight:bold;background-size:contain;background-repeat:no-repeat;background-position:top center;} 
-.tab-content{display:none;border:5px solid;max-width:100vw;text-align:center;}
+ul.tabs li{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;padding:8px 0px 8px 0px;text-align:center;border-radius:8px 8px 0px 0px;background-size:contain;background-repeat:no-repeat;background-position:center center;color:black;text-decoration:none;cursor:pointer;}
+ul.tabs li.current{font-weight:bold;} 
+ul.tabs div.leftover{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:0px 5px 0px 5px;padding:0px 0px 6px 0px;}
+.tab-content{display:none;border:5px solid;max-width:100vw;height:auto;text-align:center;}
 .tab-content.current{display:inherit;}
 </style>
 </head>
@@ -15,25 +16,34 @@ ul.tabs li.current{font-weight:bold;background-size:contain;background-repeat:no
 
 <ul class="tabs">
 
-<li class="tab-link" data-tab="tab_01" style="border-color:Peru;padding:8px 0px 14px 0px;">드루이드</li>
-<li class="tab-link" data-tab="tab_02" style="border-color:ForestGreen;padding:8px 0px 14px 0px;">사냥꾼</li>
-<li class="tab-link" data-tab="tab_03" style="border-color:CornflowerBlue;padding:8px 0px 14px 0px;">마법사</li>
-<li class="tab-link" data-tab="tab_04" style="border-color:Khaki;padding:8px 0px 14px 0px;">성기사</li>
-<li class="tab-link" data-tab="tab_05" style="border-color:Gainsboro;padding:8px 0px 14px 0px;">사제</li>
+<li class="tab-link" data-tab="tab_01" data-bgimage="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13178211888.png" style="border-color:Peru;">드루이드</li>
+<li class="tab-link" data-tab="tab_02" data-bgimage="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13187898640.png" style="border-color:ForestGreen;">사냥꾼</li>
+<li class="tab-link" data-tab="tab_03" data-bgimage="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13152533904.png" style="border-color:CornflowerBlue;">마법사</li>
+<li class="tab-link" data-tab="tab_04" data-bgimage="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13132413608.png" style="border-color:Khaki;">성기사</li>
+<li class="tab-link" data-tab="tab_05" data-bgimage="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i15779687789.png" style="border-color:Gainsboro;">사제</li>
+
+<div style="clear: left;">
+</div>
+
+<div class="leftover" style="border-color:Peru;"></div>
+<div class="leftover" style="border-color:ForestGreen;"></div>
+<div class="leftover" style="border-color:CornflowerBlue;"></div>
+<div class="leftover" style="border-color:Khaki;"></div>
+<div class="leftover" style="border-color:Gainsboro;"></div>
 
 <div style="clear: left;margin-bottom:-7px;">
 </div>
 
-<li class="tab-link" data-tab="tab_06" style="border-color:Black;padding:8px 0px 8px 0px;">도적</li>
-<li class="tab-link" data-tab="tab_07" style="border-color:DarkBlue;padding:8px 0px 8px 0px;">주술사</li>
-<li class="tab-link" data-tab="tab_08" style="border-color:Indigo;padding:8px 0px 8px 0px;">흑마법사</li>
-<li class="tab-link" data-tab="tab_09" style="border-color:FireBrick;padding:8px 0px 8px 0px;">전사</li>
-<li class="tab-link" data-tab="tab_10" style="border-color:DarkOrange;padding:8px 0px 8px 0px;">중립</li>
+<li class="tab-link" data-tab="tab_06" data-bgimage="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13359648397.png" style="border-color:Black;">도적</li>
+<li class="tab-link" data-tab="tab_07" data-bgimage="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13318118201.png" style="border-color:DarkBlue;">주술사</li>
+<li class="tab-link" data-tab="tab_08" data-bgimage="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13316375426.png" style="border-color:Indigo;">흑마법사</li>
+<li class="tab-link" data-tab="tab_09" data-bgimage="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13337359344.png" style="border-color:FireBrick;">전사</li>
+<li class="tab-link" data-tab="tab_10" data-bgimage="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13312502065.png" style="border-color:DarkOrange;">중립</li>
 
 </ul>
 
 <div id="tab_00" class="tab-content current" style="border-color:DimGray;">
-<img src="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13532809164.png" border="0" style="max-width: 100%; height: auto;">
+<img src="http://upload2.inven.co.kr/upload/2018/04/07/bbs/i13532809164.png" border="0" style="max-width:100%;height:auto;">
 </div>
 <div id="tab_01" class="tab-content" style="border-color:Peru;">
 <div class="card-01a" style="display:table-cell;vertical-align:middle;width:33vw;border:none;margin:0px;padding:0px;text-align:center;">
@@ -134,20 +144,20 @@ ul.tabs li.current{font-weight:bold;background-size:contain;background-repeat:no
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-   
-  $('ul.tabs li').click(function(){
-    var tab_id = $(this).attr('data-tab');
- 
-    $('ul.tabs li').removeClass('current');
-    $('.tab-content').removeClass('current');
- 
-    $(this).addClass('current');
-    $("#"+tab_id).addClass('current');
-  })
+$(document).ready(function(){   
+$('ul.tabs li').click(function(){
+var tab_id = $(this).attr('data-tab');
+var imgurl = $(this).data("bgimage");
+$('ul.tabs li').removeClass('current');
+$('ul.tabs li').css("background-image", "");
+$('.tab-content').removeClass('current');
+$(this).addClass('current');
+$(this).css("background-image", "url(" + imgurl + ")")
+$("#"+tab_id).addClass('current');
+})
 $("[class^=card-]").click(function(){
 $('.token-'+ this.className.match(/(\w+)+$/)[0]).toggle();
-});
+})
 })
 </script>
 </body>
