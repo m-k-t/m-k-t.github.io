@@ -827,7 +827,13 @@
 				})
 
 				$("[class^=card-]").click(function(){
-					$('.token-'+ this.className.match(/(\w+)+$/)[0]).toggle()
+					if($('.token-'+ this.className.match(/(\w+)+$/)[0]).is(':visible')){
+						$('.token-'+ this.className.match(/(\w+)+$/)[0]).hide()
+					}
+					else{
+						$("[class*='token-']").hide();
+						$('.token-'+ this.className.match(/(\w+)+$/)[0]).show()
+					}
 				})
 			})
 		</script>
