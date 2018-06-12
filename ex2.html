@@ -20,6 +20,7 @@
 /* Modal Content/Box */
 .modal-content {
     width: 90%;
+    margin: auto;
     background-color: #eee;
     padding: 2vmin;
     border-style:solid;
@@ -309,7 +310,7 @@
 </div>
 <!-- 10bn 관련 토큰 카드 (Modal) -->
 <div id="myModal" class="modal">
-<div class="modal-content" style="margin:100% auto;">
+<div class="modal-content">
 <div class="modal-header">
     <div class="modal-header-text">Modal Header</div>
     <div class="close">&times;</div>
@@ -408,11 +409,13 @@ btn.onclick = function() {
                 "top": (($(window).height()-$("#popupDiv").outerHeight())/2+$(window).scrollTop())+"px",
                 "left": (($(window).width()-$("#popupDiv").outerWidth())/2+$(window).scrollLeft())+"px"
 				 });
+	$("body").css("overflow","hidden")
 }
 
 // When the user clicks on <span> (x), close the modal
 closebtn.onclick = function() {
     modal.style.display = "none";
+$("body").css("overflow","auto");
 }
 		</script>
 	</body>
