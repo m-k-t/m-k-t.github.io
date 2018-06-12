@@ -20,6 +20,7 @@
 /* Modal Content/Box */
 .modal-content {
     width: 90%;
+    margin: 50% auto
     background-color: #eee;
     padding: 2vmin;
     border-style:solid;
@@ -406,7 +407,6 @@ btn.onclick = function() {
     modal.style.display = "block";
 	modal.css({
                 "top": (($(window).height()-$(".modal-content").outerHeight())/2+$(window).scrollTop())+"px",
-                "left": (($(window).width()-$(".modal-content").outerWidth())/2+$(window).scrollLeft())+"px"
 				 });
 	$("body").css("overflow","hidden")
 }
