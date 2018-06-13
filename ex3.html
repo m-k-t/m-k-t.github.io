@@ -187,6 +187,7 @@ $('.token-'+ this.className.match(/(\w+)+$/)[0]).show()
 
 $(".button").on("click", function() {
   var modal = $(this).data("modal");
+  $("[id*='modal-']").hide();
   $(modal).show();
 });
 
