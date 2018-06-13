@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+		<!-- css -->
+		<style>
+.tab-content{border:5px solid;max-width:97vw;height:auto;text-align:center;}
+.cardimage{object-fit:contain;width:95%;height:auto;border:0;}
+.modal{display:none;position:relative;z-index:1;margin-top:-5vh;width:100%;height:auto;overflow:auto;}
+.modal-content{max-width:90%;justify-content:center;align-items:center;margin:auto;background-color:#eee;padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;}
+.modal-header{padding:0vw 2vmin 2vmin 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:0px 0px 1px 0px;border-color:#888;}
+.modal-header-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:1.5rem;font-weight:bold;}
+.modal-footer{padding:2vmin 2vmin 0vw 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;}
+.modal-footer-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:1.5rem;font-weight:bold;}
+.close{width:5vw;vertical-align:middle;color:#aaa;text-align:right;font-size:2rem;font-weight:bold;}
+.close:hover,.close:focus{color:Black;text-decoration:none;cursor:pointer;}
+		</style>
+	</head>
+	<body>
+
+				<!-- 흑마법사 -->
+				<div id="tab_08" class="tab-content" style="border-color:Indigo;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card-08a" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/10496dc3758dfc2d7701774f5625adc6835baee99a1d38ebfc2cc083d9ede9e5.png" class="cardimage">
+						</div>
+						<div class="card-08b" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/f35c1ca6f4044b8965a7bab14506e88a252670e0a6f310290dfc4b07b9a4461d.png" class="cardimage">
+						</div>
+						<div class="card-08c" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/cd8ab2d642fc8a5b7c7be43d1eb329af9815009c9aa81a26c7e4ec846b3393aa.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card-08d button" data-modal="#modal-08d" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/a20fafde8d44987dc175b98269f8ff8c74422d46c23796e1013c2bcd075549fb.png" class="cardimage">
+						</div>
+						<div class="card-08e" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/0f9ff6a210e866ec7541faa5144e76ace106d1d61ff7c76396cb3bfe1c0c1f9a.png" class="cardimage">
+						</div>
+						<div class="card-08f" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/a9387f02452e6963ffcda89fcaf972e8177f0f9266d3d1c2f23dc0750f43f336.png" class="cardimage">
+						</div>
+					</div>
+						<!-- 08d 관련 토큰 카드 (Modal) -->
+						<div id="modal-08d" class="modal" style="margin-bottom:-95vh;">
+<div class="modal-content">
+<div class="modal-header">
+<div class="modal-header-text">Modal Header</div>
+<div class="close">&times;</div>
+</div>
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card-08d1" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/739cbab392fdb91b9a3cf50395134f806673dcb59bc45ee447b6cc720123afba.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card-08d2" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/1326f5c19fec65e781fa3df2a9cb9610cab07946e16e353d9497cbc43b427782.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+							<div class="modal-footer">
+<div class="modal-footer-text">Modal Header</div>
+<div class="close">&times;</div>
+</div>
+							</div>
+						</div>
+					<!-- 영웅 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card-08g" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/8128d1ee13d65af62b2f0bf050d62bb4c2b5d80c622b7a7a654b3392984bafec.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card-08h" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/1335e2e9dd7eefd91d568ab7273e9dd5d89d6b6e7c78af82c8d8949ee9a54978.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card-08i" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/7c0279cb63e09fb449c1f60fdb1568abcab9da2c5ca75bbec0622f3dba2e21d9.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card-08j button" data-modal="#modal-08j" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/21ae3399c8eefe1db58293b7ca598ebff8ac7c69b42f91ce0b3e78ddc5ca13ce.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+						<!-- 08j 관련 토큰 카드 (Modal) -->
+						<div id="modal-08j" class="modal">
+							<div class="modal-content">
+								<div class="modal-header">
+									<div class="modal-header-text">Modal Header</div>
+									<div class="close">&times;</div>
+								</div>
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card-08j1" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/1341590178d40e6a29212445499ca20817f787e9fc499273750f00294ba5b670.png" class="cardimage">
+						</div>
+						<div class="card-08j2" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/e85b33e6d905b8866c8c47867922e3c245fb9e247cd7eca6cc6a8a4786e3177c.png" class="cardimage">
+						</div>
+						<div class="card-08j3" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/be39e5ef727bb7726e3c97db130f8e27eeb5df55996fd3988f9f6bf34f5e2821.png" class="cardimage">
+						</div>
+					</div>
+						<!-- 08j1 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card-08j1 token-08j1" style="display:none;width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+								<img src="https://assets.webn.mobi/hearthstone/2c86e99e05f04239796e6c5017a5f144301f020b14524459de9177a137f6efc5.png" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+						<!-- 08j2 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card-08j2 token-08j2" style="display:none;width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+								<img src="https://assets.webn.mobi/hearthstone/c0e4987b584cd5c91818534f18f8c737241cc6a622f1e18c1dd102e5dc58f94f.png" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+						<!-- 08j3 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card-08j3 token-08j3" style="display:none;width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+								<img src="https://assets.webn.mobi/hearthstone/9e3c9244440090e0feb35d23a97a7b2742ac023334c4a21728d5d8adc7166f3b.png" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card-08j4" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/87981023c86e8975c8480b06096fe1ea2773205089e19a1a95c06834d08508f0.png" class="cardimage">
+						</div>
+						<div class="card-08j5" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/c31a541ca5c138bac02197e037540445500bc899fe98588a39685cfaea73150c.png" class="cardimage">
+						</div>
+						<div class="card-08j6" style="width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+							<img src="https://assets.webn.mobi/hearthstone/f29731eea84eee5e0c1c78630e52d810cedc89095334101d86eaa073208351ef.png" class="cardimage">
+						</div>
+					</div>
+						<!-- 08j4 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card-08j4 token-08j4" style="display:none;width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+								<img src="https://assets.webn.mobi/hearthstone/45142f5d81412d4562975f3b0e2c640ac4bbe169bca81d608604cba273364ed3.png" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+						<!-- 08j5 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card-08j5 token-08j5" style="display:none;width:33vw;padding:1vmin 0vw 1vmin 0vw;">
+								<img src="https://assets.webn.mobi/hearthstone/3aff200b87bf9753c0cda6a6e64e40a6f30492af8c38306dc942e3070b0099cf.png" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+								<div class="modal-footer">
+									<div class="modal-footer-text">Modal Header</div>
+									<div class="close">&times;</div>
+								</div>
+							</div>
+						</div>
+				</div>
+
+		<!-- js & jquery -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+
+$("[class^=card-]").click(function(){
+
+if($('.token-'+ this.className.match(/(\w+)+$/)[0]).is(':visible')){
+$('.token-'+ this.className.match(/(\w+)+$/)[0]).hide()
+}
+
+else{
+$("[class*='token-']").hide();
+$('.token-'+ this.className.match(/(\w+)+$/)[0]).show()
+}
+})
+
+$(".button").on("click", function() {
+  var modal = $(this).data("modal");
+  $(modal).show();
+});
+
+$(".modal").on("click", function(e) {
+  var className = e.target.className;
+  if(className === "modal" || className === "close"){
+    $(this).closest(".modal").hide();
+  }
+});
+
+		</script>
+	</body>
+</html>
