@@ -206,6 +206,11 @@ $(".modal").on("click", function(e) {
   }
 });
 
+window.on("click", function(e) {
+    if (event.target == modal) {
+        $(modal).show();
+    }
+}
 		</script>
 	</body>
 </html>
