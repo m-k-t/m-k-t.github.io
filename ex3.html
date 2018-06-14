@@ -53,6 +53,7 @@
 						</div>
 					</div>
 						<!-- 08d 관련 토큰 카드 (Modal) -->
+					<div class="modalbg">
 						<div id="modal-08d" class="modal" style="margin-top:-23vmin;">
 <div class="modal-content">
 <div class="modal-header">
@@ -75,6 +76,7 @@
 <div class="close">&times;</div>
 </div>
 							</div>
+						</div>
 						</div>
 					<!-- 영웅 카드 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
@@ -195,13 +197,19 @@ $('.token-'+ this.className.match(/(\w+)+$/)[0]).show()
 
 $(".button").on("click", function(){
   var modal = $(this).data("modal");
-  $(modal).show()
+  $(modal).show(function(){
+            $(".modalbg").css({
+                "z-index" : "1"
+            });
 });
 
 $(".modal").on("click", function(e){
   var className = e.target.className;
   if(className === "modal" || className === "close"){
-    $(this).closest(".modal").hide();
+    $(this).closest(".modal").hide(function(){
+    $(".modalbg").css({
+                "z-index" : ""
+    });
   }
 });
 
