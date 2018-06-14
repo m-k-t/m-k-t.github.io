@@ -193,10 +193,15 @@ $('.token-'+ this.className.match(/(\w+)+$/)[0]).show()
 }
 })
 
+$(modal).modal("show")({
+        show: false,
+        backdrop: 'static'
+    });
+
 $(".button").on("click", function(){
   var modal = $(this).data("modal");
 
-  $(modal).show();
+  $(modal).modal("show");
 });
 
 $(".modal").on("click", function(e){
