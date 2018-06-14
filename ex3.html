@@ -101,6 +101,8 @@
 						<div style="width:11vw;"></div>
 					</div>
 						<!-- 08j 관련 토큰 카드 (Modal) -->
+					<div id="disableBackGround" style="display:none;z-index:1;">
+					</div>
 						<div id="modal-08j" class="modal" style="margin-top:-105vmin;">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -193,13 +195,15 @@ $('.token-'+ this.className.match(/(\w+)+$/)[0]).show()
 }
 })
 
-$(".button").on("click", function() {
+$(".button").on("click", function(){
   var modal = $(this).data("modal");
 
-  $(modal).show();
+  $(modal).show(function(){
+	  $('#disableBackGround').attr('style','display:block');
+  });
 });
 
-$(".modal").on("click", function(e) {
+$(".modal").on("click", function(e){
   var className = e.target.className;
   if(className === "modal" || className === "close"){
     $(this).closest(".modal").hide();
