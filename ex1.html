@@ -1042,7 +1042,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 			$(document).ready(function(){   
-				$('ul.tabs li').click(function(){
+				$('ul.tabs li').on("click", function(){
 					var tab_id = $(this).attr('data-tab');
 					var imgurl = $(this).data("bgimage");
 
@@ -1055,7 +1055,7 @@
 					$("#"+tab_id).addClass('current');
 				})
 
-				$("[class^=card-]").click(function(){
+				$("[class^=card-]").on("click", function(){
 					if($('.token-'+ this.className.match(/(\w+)+$/)[0]).is(':visible')){
 						$('.token-'+ this.className.match(/(\w+)+$/)[0]).hide()
 					}
@@ -1065,14 +1065,14 @@
 					}
 				})
 				
-				$(".button").on("click", function() {
+				$(".button").on("click", function(){
 					var modal = $(this).data("modal");
 
 					$(modal).show();
 					$('.modalbg').show();
 				})
 
-				$(".modal").on("click", function(e) {
+				$(".modal").on("click", function(e){
 					var className = e.target.className;
 
 					if(className === "modal" || className === "close"){
