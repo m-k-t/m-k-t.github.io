@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- css -->
-		<style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <style>
 			@keyframes blink-common{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
 											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
 											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
@@ -63,7 +64,7 @@
 												  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
 												  drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
 												  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}}
-			.container{width:97vw;margin:-8px 0px 0px -8px;}
+			.container{width:98vw;margin:0px 0px 0px -8px;}
 			ul.tabs{margin:0px;padding:0px;list-style:none;}
 			ul.tabs li{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;padding:8px 0px 8px 0px;text-align:center;border-radius:8px 8px 0px 0px;background-size:contain;background-repeat:no-repeat;background-position:center center;color:black;text-decoration:none;cursor:pointer;}
 			ul.tabs li.current{font-weight:bold;} 
@@ -97,16 +98,18 @@
 						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
 						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}
 			.relative:hover{animation:blink-relative 1.5s linear infinite;}
-			.modalbg{position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;display:none;}
-			.modal{display:none;position:absolute;z-index:2;width:calc(100% - 18px);margin:auto;height:auto;overflow:auto;}
-			.modal-content{background-color:#eee;padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;}
+			.modal-backdrop{opacity:0 !important;}
+			.modal-open {overflow:auto !important;}
+			.modal{position:relative !important;}
+			.modal-dialog{width:100%;height:auto;margin:auto;overflow:auto;}
+			.modal-content{background-color:rgba(238,238,238,1);padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;}
 			.modal-header{padding:0vw 2vmin 2vmin 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:0px 0px 1px 0px;border-color:#888;}
 			.modal-header-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vw;font-weight:bold;}
 			.modal-footer{padding:2vmin 2vmin 0vw 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;}
 			.modal-footer-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vw;font-weight:bold;}
-			.close{width:5vw;vertical-align:middle;color:#aaa;text-align:right;font-size:3.5vw;font-weight:bold;}
+			.close{width:5vw;vertical-align:middle;color:#222;text-align:right;font-size:4vw;font-weight:bold;}
 			.close:hover,.close:focus{color:Black;text-decoration:none;cursor:pointer;}
-		</style>
+    </style>
 	</head>
 	<body>
 		<div class="container">
@@ -134,7 +137,6 @@
 				<li class="tab-link" data-tab="tab_10" data-bgimage="https://i.imgur.com/2cPx6sx.png" style="border-color:DarkOrange;">중립</li>
 			</ul>
 			<!-- 내용 영역 -->
-			<div class="modalbg"></div>
 				<!-- 알림 -->
 				<div id="tab_00" class="tab-content current" style="border-color:DimGray;">
 					<img src="https://i.imgur.com/MVR6h4T.png" border="0" style="max-width:100%;height:auto;">
@@ -146,7 +148,7 @@
 						<div class="card common" data-toggle="x01a">
 							<img src="https://assets.webn.mobi/hearthstone/1341590178d40e6a29212445499ca20817f787e9fc499273750f00294ba5b670.png" class="cardimage">
 						</div>
-						<div class="card common button" data-toggle="x01b" data-modal="x01b">
+						<div class="card common button" data-toggle="modal" data-target="#x01b">
 							<img src="https://assets.webn.mobi/hearthstone/e85b33e6d905b8866c8c47867922e3c245fb9e247cd7eca6cc6a8a4786e3177c.png" class="cardimage">
 						</div>
 						<div class="card common" data-toggle="x01c">
@@ -162,38 +164,46 @@
 							<div style="width:33vw;"></div>
 						</div>
 						<!-- 01b 관련 토큰 카드 (Modal) -->
-						<div id="x01b" class="modal" style="margin-top:-23vmin;">
-							<div class="modal-content">
-								<div class="modal-header">
-									<div class="modal-header-text">낫의 드루이드 선택지</div>
-									<div class="close">&times;</div>
-								</div>
-								<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-									<div class="card relative" data-toggle="x01b1">
-										<img src="https://i.imgur.com/5ZsqbQ4.png" class="cardimage">
+						<div id="x01b" class="modal" data-backdrop="static" style="margin-top:-23vw;margin-bottom:-79vw;">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<!-- Modal 상단부 -->
+									<div class="modal-header">
+										<div class="modal-header-text">낫의 드루이드 선택지</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
 									</div>
-									<div class="card relative" data-toggle="x01b2">
-										<img src="https://i.imgur.com/PbxJmNv.png" class="cardimage">
+									<!-- Modal 내용 -->
+									<div class="modal-body">
+										<!-- 토큰 카드 첫째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card relative" data-toggle="x01b1">
+												<img src="https://i.imgur.com/5ZsqbQ4.png" class="cardimage">
+											</div>
+											<div class="card relative" data-toggle="x01b2">
+												<img src="https://i.imgur.com/PbxJmNv.png" class="cardimage">
+											</div>
+											<div class="card relative" data-toggle="x01b3">
+												<img src="https://i.imgur.com/3B6WJpi.png" class="cardimage">
+											</div>
+										</div>
+										<!-- 토큰 카드 둘째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card common" data-toggle="x01b4">
+												<img src="https://i.imgur.com/bVsByHb.png" class="cardimage">
+											</div>
+											<div class="card common" data-toggle="x01b5">
+												<img src="https://i.imgur.com/JD4UFdM.png" class="cardimage">
+											</div>
+											<div class="card common" data-toggle="x01b6">
+												<img src="https://i.imgur.com/etUDgty.png" class="cardimage">
+											</div>
+										</div>
 									</div>
-									<div class="card relative" data-toggle="x01b3">
-										<img src="https://i.imgur.com/3B6WJpi.png" class="cardimage">
+									<!-- Modal 하단부 -->
+									<div class="modal-footer">
+										<div class="modal-footer-text">낫의 드루이드 선택지</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
 									</div>
-								</div>
-
-								<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-									<div class="card common" data-toggle="x01b4">
-										<img src="https://i.imgur.com/bVsByHb.png" class="cardimage">
-									</div>
-									<div class="card common" data-toggle="x01b5">
-										<img src="https://i.imgur.com/JD4UFdM.png" class="cardimage">
-									</div>
-									<div class="card common" data-toggle="x01b6">
-										<img src="https://i.imgur.com/etUDgty.png" class="cardimage">
-									</div>
-								</div>
-								<div class="modal-footer">
-									<div class="modal-footer-text">낫의 드루이드 선택지</div>
-									<div class="close">&times;</div>
 								</div>
 							</div>
 						</div>
@@ -241,7 +251,7 @@
 						</div>
 						<div style="width:11vw;"></div>
 					</div>
-          </div>
+				</div>
 				<!-- 사냥꾼 -->
 				<div id="tab_02" class="tab-content" style="border-color:ForestGreen;">
 					<!-- 일반 카드 -->
@@ -947,118 +957,146 @@
 							<img src="https://assets.webn.mobi/hearthstone/7f923bcf8c296517598fb796eb2e1e4079e12c580758c53d337d60937ddeeb58.png" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
-						<div class="card legendary button" data-toggle="x10bs" data-modal="x10bs">
+						<div class="card legendary" data-toggle="modal" data-target="#x10bs">
 							<img src="https://assets.webn.mobi/hearthstone/371c415ad5739c0c5c5cca2e980a64aa7cd4d110244808a8f8828f237428bd4d.png" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
 					</div>
 						<!-- 10bs 관련 토큰 카드 (Modal) -->
-						<div id="x10bs" class="modal" style="margin-top:-105vmin;">
-							<div class="modal-content">
-								<div class="modal-header">
-									<div class="modal-header-text">달을 삼킨 구렁이 바쿠 강화 영웅 능력</div>
-									<div class="close">&times;</div>
-								</div>
-								<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-									<div class="card relative" data-toggle="x10bs1">
-										<img src="https://i.imgur.com/LDWCWzi.png" class="cardimage">
+						<div id="x10bs" class="modal" data-backdrop="static" style="margin-top:-105vw;">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<!-- Modal 상단부 -->
+									<div class="modal-header">
+										<div class="modal-header-text">달을 삼킨 구렁이 바쿠 강화 영웅 능력</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
 									</div>
-									<div class="card relative" data-toggle="x10bs2">
-										<img src="https://i.imgur.com/9jcqvtc.png" class="cardimage">
-									</div>
-									<div class="card relative" data-toggle="x10bs3">
-										<img src="https://i.imgur.com/bWipxrd.png" class="cardimage">
-									</div>
-								</div>
-								<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-									<div class="card relative" data-toggle="x10bs4">
-										<img src="https://i.imgur.com/tnDMpEr.png" class="cardimage">
-									</div>
-									<div class="card relative" data-toggle="x10bs5">
-										<img src="https://i.imgur.com/MLQLr0M.png" class="cardimage">
-									</div>
-									<div class="card relative" data-toggle="x10bs6">
-										<img src="https://i.imgur.com/rptgUWF.png" class="cardimage">
-									</div>
-								</div>
-									<!-- 10bs4 관련 토큰 카드 -->
-									<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-										<div style="width:33vw;"></div>
-										<div class="card token x10bs4 relative" style="display:none;">
-											<img src="https://i.imgur.com/LjSUsnb.png" class="cardimage">
+									<!-- Modal 내용 -->
+									<div class="modal-body">
+										<!-- 토큰 카드 첫째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card relative" data-toggle="x10bs1">
+												<img src="https://i.imgur.com/LDWCWzi.png" class="cardimage">
+											</div>
+											<div class="card relative" data-toggle="x10bs2">
+												<img src="https://i.imgur.com/9jcqvtc.png" class="cardimage">
+											</div>
+											<div class="card relative" data-toggle="x10bs3">
+												<img src="https://i.imgur.com/bWipxrd.png" class="cardimage">
+											</div>
 										</div>
-										<div style="width:33vw;"></div>
-									</div>
-									<!-- 10bs6 관련 토큰 카드 -->
-									<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-										<div style="width:33vw;"></div>
-										<div class="card token x10bs6 relative" style="display:none;">
-											<img src="https://i.imgur.com/zvXeOHw.png" class="cardimage">
+										<!-- 토큰 카드 둘째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card relative" data-toggle="x10bs4">
+												<img src="https://i.imgur.com/tnDMpEr.png" class="cardimage">
+											</div>
+											<div class="card relative" data-toggle="x10bs5">
+												<img src="https://i.imgur.com/MLQLr0M.png" class="cardimage">
+											</div>
+											<div class="card relative" data-toggle="x10bs6">
+												<img src="https://i.imgur.com/rptgUWF.png" class="cardimage">
+											</div>
 										</div>
-										<div style="width:33vw;"></div>
-									</div>
-								<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-									<div class="card relative" data-toggle="x10bs7">
-										<img src="https://i.imgur.com/VqCifB4.png" class="cardimage">
-									</div>
-									<div class="card relative" data-toggle="x10bs8">
-										<img src="https://i.imgur.com/wr1YYjp.png" class="cardimage">
-									</div>
-									<div class="card relative" data-toggle="x10bs9">
-										<img src="https://i.imgur.com/dsrgQDe.png" class="cardimage">
-									</div>
-								</div>
-									<!-- 10bs7 관련 토큰 카드 -->
-									<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-										<div style="width:11vw;"></div>
-										<div class="card token x10bs7 relative" style="display:none;">
-											<img src="https://i.imgur.com/APOwFLZ.png" class="cardimage">
+											<!-- 10bs4 관련 토큰 카드 -->
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+												<div style="width:33vw;"></div>
+												<div class="card token x10bs4 relative" style="display:none;">
+													<img src="https://i.imgur.com/LjSUsnb.png" class="cardimage">
+												</div>
+												<div style="width:33vw;"></div>
+											</div>
+											<!-- 10bs6 관련 토큰 카드 -->
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+												<div style="width:33vw;"></div>
+												<div class="card token x10bs6 relative" style="display:none;">
+													<img src="https://i.imgur.com/zvXeOHw.png" class="cardimage">
+												</div>
+												<div style="width:33vw;"></div>
+											</div>
+										<!-- 토큰 카드 셋째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card relative" data-toggle="modal" data-target="#x10bs7">
+												<img src="https://i.imgur.com/VqCifB4.png" class="cardimage">
+											</div>
+											<div class="card relative" data-toggle="x10bs8">
+												<img src="https://i.imgur.com/wr1YYjp.png" class="cardimage">
+											</div>
+											<div class="card relative" data-toggle="x10bs9">
+												<img src="https://i.imgur.com/dsrgQDe.png" class="cardimage">
+											</div>
 										</div>
-										<div style="width:11vw;"></div>
-										<div class="card token x10bs7 relative" style="display:none;">
-											<img src="https://i.imgur.com/VBF8zpM.png" class="cardimage">
-										</div>
-										<div style="width:11vw;"></div>
 									</div>
-									<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-										<div style="width:11vw;"></div>
-										<div class="card token x10bs7 relative" style="display:none;">
-											<img src="https://i.imgur.com/g4UagbH.png" class="cardimage">
-										</div>
-										<div style="width:11vw;"></div>
-										<div class="card token x10bs7 relative" style="display:none;">
-											<img src="https://i.imgur.com/a0pExVg.png" class="cardimage">
-										</div>
-										<div style="width:11vw;"></div>
+									<!-- Modal 하단부 -->
+									<div class="modal-footer">
+										<div class="modal-footer-text">달을 삼킨 구렁이 바쿠 강화 영웅 능력</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
 									</div>
-								<div class="modal-footer">
-									<div class="modal-footer-text">달을 삼킨 구렁이 바쿠 강화 영웅 능력</div>
-									<div class="close">&times;</div>
 								</div>
 							</div>
 						</div>
+							<!-- 10bs7 관련 토큰 카드 (Modal) -->
+							<div id="x10bs7" class="modal" data-backdrop="static" style="margin-top:-70vw;">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<!-- Modal 상단부 -->
+										<div class="modal-header">
+											<div class="modal-header-text">토템 지배 관련 토큰</div>
+											<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+										</div>
+										<!-- Modal 내용 -->
+										<div class="modal-body">
+											<!-- 토큰 카드 첫째 줄 -->
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+												<div style="width:11vw;"></div>
+												<div class="card relative" data-toggle="x10bs7a">
+													<img src="https://i.imgur.com/APOwFLZ.png" class="cardimage">
+												</div>
+												<div style="width:11vw;"></div>
+												<div class="card relative" data-toggle="x10bs7b">
+													<img src="https://i.imgur.com/VBF8zpM.png" class="cardimage">
+												</div>
+												<div style="width:11vw;"></div>
+											</div>
+											<!-- 토큰 카드 둘째 줄 -->
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+												<div style="width:11vw;"></div>
+												<div class="card relative" data-toggle="x10bs7c">
+													<img src="https://i.imgur.com/g4UagbH.png" class="cardimage">
+												</div>
+												<div style="width:11vw;"></div>
+												<div class="card relative" data-toggle="x10bs7d">
+													<img src="https://i.imgur.com/a0pExVg.png" class="cardimage">
+												</div>
+												<div style="width:11vw;"></div>
+											</div>
+										</div>
+										<!-- Modal 하단부 -->
+										<div class="modal-footer">
+											<div class="modal-footer-text">토템 지배 관련 토큰</div>
+											<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+										</div>
+									</div>
+								</div>
+							</div>
 				</div>
 		</div>
-		<!-- js & jquery -->
+		<!-- Script -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script>
-			$(document).ready(function(){   
+  			$(document).ready(function(){   
 				$('ul.tabs li').click(function(){
 					var tab_id = $(this).attr('data-tab');
 					var imgurl = $(this).data("bgimage");
-
 					$('ul.tabs li').removeClass('current');
 					$('ul.tabs li').css("background-image", "");
 					$('.tab-content').removeClass('current');
-
 					$(this).addClass('current');
 					$(this).css("background-image", "url(" + imgurl + ")");
 					$("#"+tab_id).addClass('current');
 				})
-
 				$(".card").on("click", function() {
 					var cls = "." + $(this).attr("data-toggle");
-
 					if($(".token" + cls).is(':visible')){
 						$(".token" + cls).hide()
 					}
@@ -1067,22 +1105,14 @@
 						$(".token" + cls).show();
 					}
 				})
-				
-				$(".button").on("click", function() {
-					var modal = "#" + $(this).data("modal");
-
-					$(modal).show();
-					$('.modalbg').show();
-				})
-
-				$(".modal").on("click", function(e) {
-					var className = e.target.className;
-
-					if(className === "modal" || className === "close"){
-						$(this).closest(".modal").hide();
-						$('.modalbg').hide();
-					}
+				$(document).on('show.bs.modal','.modal',function(event){
+					var zIndex = 1040 + (10 * $('.modal:visible').length);
+					$(this).css('z-index', zIndex);
+					setTimeout(function() {
+						$('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+					},0)
 				})
 			})
 		</script>
 	</body>
+</html>
