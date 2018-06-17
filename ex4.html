@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<style>
-						@keyframes blink-common{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <style>
+    			@keyframes blink-common{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
 											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
 											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
 											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}
@@ -105,7 +106,7 @@
 			.modal-footer-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vw;font-weight:bold;}
       .close{width:5vw;vertical-align:middle;color:#222;text-align:right;font-size:3.5vw;font-weight:bold;}
 			.close:hover,.close:focus{color:Black;text-decoration:none;cursor:pointer;}
-		</style>
+    </style>
 	</head>
 	<body>
 <div class="container">
@@ -1058,11 +1059,10 @@
 				</div>
 		</div>
     </div>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-		    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-<script>
-				$(document).ready(function(){   
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script>
+  			$(document).ready(function(){   
 				$('ul.tabs li').click(function(){
 					var tab_id = $(this).attr('data-tab');
 					var imgurl = $(this).data("bgimage");
@@ -1090,7 +1090,7 @@
                 $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
             }, 0);
         });
-});
-</script>
+});  
+    </script>
 	</body>
 </html>
