@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <style>
+			@keyframes blink-common{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}
+									50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(-0.2vw 0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(0.2vw -0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(-0.2vw -0.2vw 1vw rgba(73,85,90,0.3));}
+									100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}}
+			@keyframes blink-rare{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}
+								  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(-0.2vw 0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(0.2vw -0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(-0.2vw -0.2vw 1vw rgba(48,126,232,0.3));}
+								  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}}
+			@keyframes blink-epic{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}
+								  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(-0.2vw 0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(0.2vw -0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(-0.2vw -0.2vw 1vw rgba(164,47,198,0.3));}
+								  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}}
+			@keyframes blink-legendary{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}
+									   50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(-0.2vw 0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(0.2vw -0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(-0.2vw -0.2vw 1vw rgba(254,170,12,0.3));}
+									   100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}}
+			@keyframes blink-relative{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}
+									  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(-0.2vw 0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(0.2vw -0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(-0.2vw -0.2vw 1vw rgba(74,60,49,0.3));}
+									  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}}
+			.container{width:98vw;margin:0px 0px 0px -8px;}
+			ul.tabs{margin:0px;padding:0px;list-style:none;}
+			ul.tabs li{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;padding:8px 0px 8px 0px;text-align:center;border-radius:8px 8px 0px 0px;background-size:contain;background-repeat:no-repeat;background-position:center center;color:black;text-decoration:none;cursor:pointer;}
+			ul.tabs li.current{font-weight:bold;} 
+			ul.tabs div.leftover{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:0px 5px 0px 5px;padding:0px 0px 6px 0px;}
+			.tab-content{display:none;border:5px solid;max-width:100vw;height:auto;text-align:center;}
+			.tab-content.current{display:inherit;}
+			.card{width:33vw;padding:1vmin 0vw 1vmin 0vw;}
+			.cardimage{object-fit:contain;width:95%;height:auto;border:0;}
+			.common{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}
+			.common:hover{animation:blink-common 1.5s linear infinite;}
+			.rare{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}
+			.rare:hover{animation:blink-rare 1.5s linear infinite;}
+			.epic{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}
+			.epic:hover{animation:blink-epic 1.5s linear infinite;}
+			.legendary{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}
+			.legendary:hover{animation:blink-legendary 1.5s linear infinite;}
+			.relative{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}
+			.relative:hover{animation:blink-relative 1.5s linear infinite;}
+			.modal-backdrop{opacity:0 !important;}
+			.modal-open {overflow:auto !important;}
+			.modal{position:relative !important;}
+			.modal-dialog{width:100%;height:auto;margin:auto;overflow:auto;}
+			.modal-content{background-color:rgba(238,238,238,1);padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;}
+			.modal-header{padding:0vw 2vmin 2vmin 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:0px 0px 1px 0px;border-color:#888;}
+			.modal-header-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vw;font-weight:bold;}
+			.modal-footer{padding:2vmin 2vmin 0vw 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;}
+			.modal-footer-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vw;font-weight:bold;}
+			.close{width:5vw;vertical-align:middle;color:#222;text-align:right;font-size:4vw;font-weight:bold;}
+			.close:hover,.close:focus{color:Black;text-decoration:none;cursor:pointer;}
+    </style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- 탭 영역 -->
+			<ul class="tabs">
+				<!-- 탭 영역 첫째 줄 -->
+				<li class="tab-link" data-tab="tab_01" data-bgimage="https://i.imgur.com/fk0640X.png" style="border-color:Peru;">드루이드</li>
+				<li class="tab-link" data-tab="tab_02" data-bgimage="https://i.imgur.com/iaONfVA.png" style="border-color:ForestGreen;">사냥꾼</li>
+				<li class="tab-link" data-tab="tab_03" data-bgimage="https://i.imgur.com/Mer8KvH.png" style="border-color:CornflowerBlue;">마법사</li>
+				<li class="tab-link" data-tab="tab_04" data-bgimage="https://i.imgur.com/WoRmdFc.png" style="border-color:Khaki;">성기사</li>
+				<li class="tab-link" data-tab="tab_05" data-bgimage="https://i.imgur.com/ab8NTYw.png" style="border-color:Gainsboro;">사제</li>
+				<!-- 탭 영역 첫째 줄 하단부 css용 -->
+				<div style="clear:left;"></div>
+				<div class="leftover" style="border-color:Peru;"></div>
+				<div class="leftover" style="border-color:ForestGreen;"></div>
+				<div class="leftover" style="border-color:CornflowerBlue;"></div>
+				<div class="leftover" style="border-color:Khaki;"></div>
+				<div class="leftover" style="border-color:Gainsboro;"></div>
+				<!-- 탭 영역 둘째 줄 -->
+				<div style="clear:left;margin-bottom:-7px;"></div>
+				<li class="tab-link" data-tab="tab_06" data-bgimage="https://i.imgur.com/xB0dtFt.png" style="border-color:Black;">도적</li>
+				<li class="tab-link" data-tab="tab_07" data-bgimage="https://i.imgur.com/WO8bvKC.png" style="border-color:DarkBlue;">주술사</li>
+				<li class="tab-link" data-tab="tab_08" data-bgimage="https://i.imgur.com/w6GKppK.png" style="border-color:Indigo;">흑마법사</li>
+				<li class="tab-link" data-tab="tab_09" data-bgimage="https://i.imgur.com/OPSzkYI.png" style="border-color:FireBrick;">전사</li>
+				<li class="tab-link" data-tab="tab_10" data-bgimage="https://i.imgur.com/2cPx6sx.png" style="border-color:DarkOrange;">중립</li>
+			</ul>
+			<!-- 내용 영역 -->
+				<!-- 알림 -->
+				<div id="tab_00" class="tab-content current" style="border-color:DimGray;">
+					<img src="https://i.imgur.com/dBtwuRh.png" border="0" style="max-width:100%;height:auto;">
+				</div>
+				<!-- 드루이드 -->
+				<div id="tab_01" class="tab-content" style="border-color:Peru;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x01a">
+							<img src="https://assets.webn.mobi/hearthstone/16f95848633ea463a13d35b352a4e0aca42f5807514a87494b7f0ec9924e2fc1.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x01b">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x01c">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x01d">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x01e">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x01f">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic"  data-toggle="x01g">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x01h">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x01i">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x01j">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 사냥꾼 -->
+				<div id="tab_02" class="tab-content" style="border-color:ForestGreen;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x02a">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x02b">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x02c">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x02d">
+							<img src="https://assets.webn.mobi/hearthstone/baf5802cf4a2a50eb55af2e527512fb8a5440012ededb8a27a3349263c41fcf8.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x02e">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x02f">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x02g">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x02h">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x02i">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x02j">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 마법사 -->
+				<div id="tab_03" class="tab-content" style="border-color:CornflowerBlue;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x03a">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x03b">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x03c">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x03d">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x03e">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x03f">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x03g">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x03h">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x03i">
+							<img src="https://assets.webn.mobi/hearthstone/0b09d10c80246067ae53e69984a2c1d2ee023479a1753497fec7ab543599c4ce.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x03j">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 성기사 -->
+				<div id="tab_04" class="tab-content" style="border-color:Khaki;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x04a">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x04b">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x04c">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x04d">
+							<img src="https://assets.webn.mobi/hearthstone/06d2ff48637e9a21a9db582ab6c9b43d93146795cc6ddb9a6d94ea1d302d4ab8.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x04e">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x04f">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x04g">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x04h">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x04i">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x04j">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 사제 -->
+				<div id="tab_05" class="tab-content" style="border-color:Gainsboro;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x05a">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x05b">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x05c">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x05d">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x05e">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x05f">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x05g">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x05h">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x05i">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x05j">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 도적 -->
+				<div id="tab_06" class="tab-content" style="border-color:Black;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x06a">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x06b">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x06c">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x06d">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x06e">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x06f">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x06g">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x06h">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x06i">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x06j">
+							<img src="https://assets.webn.mobi/hearthstone/914b231edd662530bc9c24d7f71ce0e226268163bde24c77ffc6e30bee856f7c.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 주술사 -->
+				<div id="tab_07" class="tab-content" style="border-color:DarkBlue;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x07a">
+							<img src="https://assets.webn.mobi/hearthstone/eabd318d9a0d26f1214fd3f0f47b1e449697282bf058160a2ccd8d010cbd4e3f.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x07b">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x07c">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x07d">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x07e">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x07f">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x07g">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x07h">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x07i">
+							<img src="https://assets.webn.mobi/hearthstone/d72d75957b9048e76502ba4f47a6d332ced800538e8e9876b69f03e519981c85.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x07j">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 흑마법사 -->
+				<div id="tab_08" class="tab-content" style="border-color:Indigo;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x08a">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x08b">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x08c">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x08d">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x08e">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x08f">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x08g">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x08h">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x08i">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x08j">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 전사 -->
+				<div id="tab_09" class="tab-content" style="border-color:FireBrick;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x09a">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x09b">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x09c">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x09d">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x09e">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x09f">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x09g">
+							<img src="https://assets.webn.mobi/hearthstone/a800197c0f8e527f7fd3b2b4bc6cfd28587c620492a47b9cd3062f587e6ff0a6.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x09h">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x09i">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x09j">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 중립 -->
+				<div id="tab_10" class="tab-content" style="border-color:DarkOrange;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10aa">
+							<img src="https://assets.webn.mobi/hearthstone/bbb11d982c766ea3ee935f2478f165d16db1a14bf9451808c07c4c37238863ab.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ab">
+							<img src="https://assets.webn.mobi/hearthstone/be575bc7e4d91e8861d6d5a6a19a5b98a6044e239ad8f15bd60c7392fb853f8e.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ac">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10ad">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ae">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10af">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10ag">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ah">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ai">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 넷째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10aj">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ak">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10al">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 다섯째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10am">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10an">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ao">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 여섯째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10ap">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10aq">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ar">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 일곱째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10as">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10at">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 일반 카드 여덟째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10au">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10av">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x10aw">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10ax">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10ay">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x10az">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10ba">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10bb">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x10bc">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10bd">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10be">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x10bf">
+							<img src="https://assets.webn.mobi/hearthstone/cbd85401bda96a23d6a24d9c8c8d073defaa0c958c1a95d789691ba3c605165b.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bg">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bh">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x10bi">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bj">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bk">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 영웅 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x10bl">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bm">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bn">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 전설 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card legendary" data-toggle="x10bo">
+							<img src="https://assets.webn.mobi/hearthstone/0172a55500debf0242316d98e02b175ad38b24bafa29fb3ba2a5ce9e5c7731a3.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x10bp">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x10bq">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 전설 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x10br">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x10bs">
+							<img src="https://i.imgur.com/zU4Iibz.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+		</div>
+		<!-- Script -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+  			$(document).ready(function(){   
+				$('ul.tabs li').click(function(){
+					var tab_id = $(this).attr('data-tab');
+					var imgurl = $(this).data("bgimage");
+					$('ul.tabs li').removeClass('current');
+					$('ul.tabs li').css("background-image", "");
+					$('.tab-content').removeClass('current');
+					$(this).addClass('current');
+					$(this).css("background-image", "url(" + imgurl + ")");
+					$("#"+tab_id).addClass('current');
+				})
+				$(".card").on("click", function() {
+					var cls = "." + $(this).attr("data-toggle");
+					if($(".token" + cls).is(':visible')){
+						$(".token" + cls).hide()
+					}
+					else{
+						$(".token:not(" + cls + ")").hide();
+						$(".token" + cls).show();
+					}
+				})
+				$(document).on('show.bs.modal','.modal',function(event){
+					var zIndex = 1040 + (10 * $('.modal:visible').length);
+					$(this).css('z-index', zIndex);
+					setTimeout(function() {
+						$('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+					},0)
+				})
+			})
+		</script>
+	</body>
+</html>
