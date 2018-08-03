@@ -101,14 +101,15 @@
 			.modal-backdrop{opacity:0 !important;}
 			.modal-open {overflow:auto !important;}
 			.modal{position:relative !important;}
-			.modal-dialog{width:100%;height:auto;margin:auto;overflow:auto;}
-	    .modal-content{background-color:rgba(238,238,238,0.5);padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;}
+			.modal-dialog{width:100%;height:auto;margin:auto;overflow:auto;}	.modal-content{background-color:rgba(238,238,238,1);padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;}
 			.modal-header{padding:0vw 2vmin 2vmin 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:0px 0px 1px 0px;border-color:#888;}
 			.modal-header-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vw;font-weight:bold;}
 			.modal-footer{padding:2vmin 2vmin 0vw 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;}
 			.modal-footer-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vw;font-weight:bold;}
 			.close{width:5vw;vertical-align:middle;color:#222;text-align:right;font-size:4vw;font-weight:bold;}
 			.close:hover,.close:focus{color:Black;text-decoration:none;cursor:pointer;}
+			.decktitle{object-fit:contain;max-width:239px;height:auto;border:0;opacity:1;transition:opacity .1s linear;}
+			.decktitle:hover{opacity:0.5;}
     </style>
 	</head>
 	<body>
@@ -1015,7 +1016,7 @@
 						</div>
 					</div>
 						<!-- 10bp 관련 토큰 카드 (Modal) -->
-						<div id="x10bp" class="modal" data-backdrop="static" style="margin-top:calc(13vw - 30vmin - 1081px);margin-bottom:-32vw;">
+						<div id="x10bp" class="modal" data-backdrop="static" style="margin-top:calc(10vw - 30vmin - 1081px);margin-bottom:-32vw;">
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<!-- Modal 상단부 -->
@@ -1062,7 +1063,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/Gmnvcup.png" target="_blank">
-																	<img src="https://i.imgur.com/W8bqEd5.png">
+																	<img src="https://i.imgur.com/W8bqEd5.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1072,7 +1073,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/Ourx2S4.png" target="_blank">
-																	<img src="https://i.imgur.com/2yFj8dp.png">
+																	<img src="https://i.imgur.com/2yFj8dp.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1095,7 +1096,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/D8SCvRK.png" target="_blank">
-																	<img src="https://i.imgur.com/YiTwSau.png">
+																	<img src="https://i.imgur.com/YiTwSau.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1105,7 +1106,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/TBmJJAr.png" target="_blank">
-																	<img src="https://i.imgur.com/6oURjcK.png">
+																	<img src="https://i.imgur.com/6oURjcK.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1128,7 +1129,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/wdoYryv.png" target="_blank">
-																	<img src="https://i.imgur.com/XMgx9kK.png">
+																	<img src="https://i.imgur.com/XMgx9kK.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1138,7 +1139,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/WgDJhw6.png" target="_blank">
-																	<img src="https://i.imgur.com/uKWsTbn.png">
+																	<img src="https://i.imgur.com/uKWsTbn.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1164,7 +1165,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/aHNevlH.png" target="_blank">
-																	<img src="https://i.imgur.com/2buZo8R.png">
+																	<img src="https://i.imgur.com/2buZo8R.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1174,7 +1175,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/QXyP1pY.png" target="_blank">
-																	<img src="https://i.imgur.com/d8eecuu.png">
+																	<img src="https://i.imgur.com/d8eecuu.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1197,7 +1198,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/JbMPXpY.png" target="_blank">
-																	<img src="https://i.imgur.com/pVx3WVT.png">
+																	<img src="https://i.imgur.com/pVx3WVT.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1207,7 +1208,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/2Ga6cqq.png" target="_blank">
-																	<img src="https://i.imgur.com/THFAREC.png">
+																	<img src="https://i.imgur.com/THFAREC.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1230,7 +1231,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/DltM93v.png" target="_blank">
-																	<img src="https://i.imgur.com/PfQBKAx.png">
+																	<img src="https://i.imgur.com/PfQBKAx.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1240,7 +1241,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/x5vYF4B.png" target="_blank">
-																	<img src="https://i.imgur.com/WMFHuac.png">
+																	<img src="https://i.imgur.com/WMFHuac.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1266,7 +1267,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/cmUZ8vE.png" target="_blank">
-																	<img src="https://i.imgur.com/biSnZJf.png">
+																	<img src="https://i.imgur.com/biSnZJf.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1276,7 +1277,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/XJ8kS1j.png" target="_blank">
-																	<img src="https://i.imgur.com/uhiAkcP.png">
+																	<img src="https://i.imgur.com/uhiAkcP.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1299,7 +1300,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/6VDT8sA.png" target="_blank">
-																	<img src="https://i.imgur.com/uIWRdQv.png">
+																	<img src="https://i.imgur.com/uIWRdQv.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1309,7 +1310,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/gvtZZZ4.png" target="_blank">
-																	<img src="https://i.imgur.com/3zwE3wC.png">
+																	<img src="https://i.imgur.com/3zwE3wC.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1332,7 +1333,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/3kvytEu.png" target="_blank">
-																	<img src="https://i.imgur.com/4YA0oon.png">
+																	<img src="https://i.imgur.com/4YA0oon.png" class="decktitle">
 																</a>
 															</div>
 														</td>
@@ -1342,7 +1343,7 @@
 														<td>
 															<div style="padding:1vmin 0vw;">
 																<a href="https://i.imgur.com/KZwXQ9p.png" target="_blank">
-																	<img src="https://i.imgur.com/uVBUtfn.png">
+																	<img src="https://i.imgur.com/uVBUtfn.png" class="decktitle">
 																</a>
 															</div>
 														</td>
