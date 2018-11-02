@@ -100,12 +100,11 @@
 			.relative:hover{animation:blink-relative 1.5s linear infinite;}
 			.modal-backdrop{opacity:0 !important;}
 			.modal-open{overflow:auto !important;}
-			.modal-dialog{width:100%;height:auto;margin:auto;overflow:auto;}
+			.modal-dialog{width:100vw;height:100vh;margin:auto;overflow-y:initial !important;}
 			.modal-content{background-color:rgba(238,238,238,1);padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;box-shadow:none;}
 			.modal-header{padding:0vw 2vmin 2vmin 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:0px 0px 1px 0px;border-color:#888;}
 			.modal-header-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vw;font-weight:bold;}
-			.modal-footer{padding:2vmin 2vmin 0vw 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;}
-			.modal-footer-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vw;font-weight:bold;}
+      .modal-body{height:calc(100vh - 4vw - 2vmin - 1px);overflow-y:auto;}
 			.close{width:5vw;vertical-align:middle;color:#222;text-align:right;font-size:4vw;font-weight:bold;}
 			.close:hover,.close:focus{color:Black;text-decoration:none;cursor:pointer;}
     </style>
@@ -1033,16 +1032,11 @@
 											</div>
 										</div>
 									</div>
-									<!-- Modal 하단부 -->
-									<div class="modal-footer">
-										<div class="modal-footer-text">달을 삼킨 구렁이 바쿠 강화 영웅 능력</div>
-										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
-									</div>
 								</div>
 							</div>
 						</div>
 							<!-- 10bs7 관련 토큰 카드 (Modal) -->
-							<div id="x10bs7" class="modal">
+							<div id="x10bs7" class="modal" data-backdrop="static">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<!-- Modal 상단부 -->
@@ -1076,11 +1070,6 @@
 												</div>
 												<div style="width:11vw;"></div>
 											</div>
-										</div>
-										<!-- Modal 하단부 -->
-										<div class="modal-footer">
-											<div class="modal-footer-text">토템 지배 관련 토큰</div>
-											<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
 										</div>
 									</div>
 								</div>
