@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-		<style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <style>
 			@keyframes blink-common{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
 											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
 											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
@@ -69,7 +69,7 @@
 			ul.tabs li{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;padding:8px 0px 8px 0px;text-align:center;border-radius:8px 8px 0px 0px;background-size:contain;background-repeat:no-repeat;background-position:center center;color:black;text-decoration:none;cursor:pointer;}
 			ul.tabs li.current{font-weight:bold;} 
 			ul.tabs div.leftover{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:0px 5px 0px 5px;padding:0px 0px 6px 0px;}
-			.tab-content{display:none;border:5px solid;max-width:100vw;height:auto;text-align:center;}
+			.tab-content{display:none;border:5px solid;max-width:100vw;height:auto;max-height:calc(100vh - 81px);overflow-y:auto;text-align:center;}
 			.tab-content.current{display:inherit;}
 			.card{width:33vw;padding:1vmin 0vw 1vmin 0vw;}
 			.cardimage{object-fit:contain;width:95%;height:auto;border:0;}
@@ -100,7 +100,7 @@
 			.relative:hover{animation:blink-relative 1.5s linear infinite;}
 			.modal-backdrop{opacity:0 !important;}
 			.modal-open {overflow:auto !important;}
-			.modal{position:relative !important;}
+			.modal{position:fixed;}
 			.modal-dialog{width:100%;height:auto;margin:auto;overflow:auto;}
 			.modal-content{background-color:rgba(238,238,238,1);padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;}
 			.modal-header{padding:0vw 2vmin 2vmin 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:0px 0px 1px 0px;border-color:#888;}
@@ -109,22 +109,18 @@
 			.modal-footer-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vw;font-weight:bold;}
 			.close{width:5vw;vertical-align:middle;color:#222;text-align:right;font-size:4vw;font-weight:bold;}
 			.close:hover,.close:focus{color:Black;text-decoration:none;cursor:pointer;}
-			.whizbang{object-fit:contain;width:33%;max-width:250px;height:auto;border:0;}
-			.classimage{object-fit:contain;width:30%;max-width:150px;height:auto;border:0;}
-			.decktitle{object-fit:contain;width:100%;max-width:239px;height:auto;border:0;opacity:1;transition:opacity .1s linear;}
-			.decktitle:hover{opacity:0.5;}
-		</style>
+    </style>
 	</head>
 	<body>
 		<div class="container">
 			<!-- 탭 영역 -->
 			<ul class="tabs">
 				<!-- 탭 영역 첫째 줄 -->
-				<li class="tab-link" data-tab="tab_01" data-bgimage="https://lh3.googleusercontent.com/BN4j7tHy5msDKYBq_MiUiM15TAKKT59xWS37eXpwNbsQgy2X3WRQpnYN_fv5oksi3_3czaoHU4HZ48CUeiBKANW2lQ0FdvB176qVcXImorYuyNqqgP-sCYA-lhl4oM37dfrL6PMjCQ=s0" style="border-color:Peru;">드루이드</li>
-				<li class="tab-link" data-tab="tab_02" data-bgimage="https://lh3.googleusercontent.com/cHKhyR4QYHaGreOsSH6WeZJ2J6RHJLb70k1MMBVOHbPJVS7XubqVsSS5rvG-r0odsQXw_tgRM9JDe4-LrAwk4_AqgzKIie3TiW51H5uhwcqc9tQ9gpzbl5vjjTYuWSkbktjdCpPJOQ=s0" style="border-color:ForestGreen;">사냥꾼</li>
-				<li class="tab-link" data-tab="tab_03" data-bgimage="https://lh3.googleusercontent.com/Bh1H53uoOSzVRUPvaK5QiJ1SNEcgWMOpyNwsoKkfOluTe0a9jSNLkrJS1DlRMWXtvo1aDMfqaPgjVH6k5FY4Tiig3WFi2nFwORwq6f7_sJ5aGSyU7szC9RqZ0rprEkjdmsr-urY7mw=s0" style="border-color:CornflowerBlue;">마법사</li>
-				<li class="tab-link" data-tab="tab_04" data-bgimage="https://lh3.googleusercontent.com/mWXDJg-yqrGQ5w-TvimiDGiyT9pPKu9_g-22E4nmhzgYKpxVYZ8XczyKO4VzQvjGX4x-PSk5H9IdYtswh4nDAQjB9KUJrlWoZ31YNmokccbnJYFjFOyaZ3ombNMDkOqY71MwELoeVg=s0" style="border-color:Khaki;">성기사</li>
-				<li class="tab-link" data-tab="tab_05" data-bgimage="https://lh3.googleusercontent.com/OZtfYlshMiTy1WZE8KFvqAQvRcqvdF4zpGBA_JR_u2292G8wHnwq6U0g4CMkypxA3PHECy1zPvJ6qXgfKEpBMeG5KM6QHLougk9bgTxQgIBaDnn8PJlI2KQ6ltFBJO0wC6-j1p_-Vw=s0" style="border-color:Gainsboro;">사제</li>
+				<li class="tab-link" data-tab="tab_01" data-bgimage="https://i.imgur.com/fk0640X.png" style="border-color:Peru;">드루이드</li>
+				<li class="tab-link" data-tab="tab_02" data-bgimage="https://i.imgur.com/iaONfVA.png" style="border-color:ForestGreen;">사냥꾼</li>
+				<li class="tab-link" data-tab="tab_03" data-bgimage="https://i.imgur.com/Mer8KvH.png" style="border-color:CornflowerBlue;">마법사</li>
+				<li class="tab-link" data-tab="tab_04" data-bgimage="https://i.imgur.com/WoRmdFc.png" style="border-color:Khaki;">성기사</li>
+				<li class="tab-link" data-tab="tab_05" data-bgimage="https://i.imgur.com/ab8NTYw.png" style="border-color:Gainsboro;">사제</li>
 				<!-- 탭 영역 첫째 줄 하단부 css용 -->
 				<div style="clear:left;"></div>
 				<div class="leftover" style="border-color:Peru;"></div>
@@ -134,16 +130,16 @@
 				<div class="leftover" style="border-color:Gainsboro;"></div>
 				<!-- 탭 영역 둘째 줄 -->
 				<div style="clear:left;margin-bottom:-7px;"></div>
-				<li class="tab-link" data-tab="tab_06" data-bgimage="https://lh3.googleusercontent.com/Ob-wbPdSAo3ZBqxeyN_pgXyHJElwwDhoNBwfVgp5SIpBKAEBDgxGi-T83KDlmVJd6LmOTKlOn8Q8UCgJ9D_3jsWB1QWGKR69kc5qdEOORxnt-TrBPpUUFRE4_LZ2Rn1NF2Ak6eaZfg=s0" style="border-color:Black;">도적</li>
-				<li class="tab-link" data-tab="tab_07" data-bgimage="https://lh3.googleusercontent.com/gRi9pXfMGXXslxbr54WWpWwOXjuwFr_59_U8jVR8YsB1SvqTJF5_O4GQJUcUzRixTcgmrbXdywOpiRmnvL9sZbAbpxpaWsdAopH9L87okyIjtcuhBo0ArJfeZYCmgOhL6wjUpy9ghQ=s0" style="border-color:DarkBlue;">주술사</li>
-				<li class="tab-link" data-tab="tab_08" data-bgimage="https://lh3.googleusercontent.com/R72tvC5cj2YbfVrCnB0N-P2aq5pVJtx_QBmc8ICZvgjLdx3mOZnaX7OU41s9ZExJvSONII53VC8LkFTs6jxoew5b-cArx3Ws2h6Ks1WWExPiKsXjKvYdOXu1P7Sv059LLyASqg_yGg=s0" style="border-color:Indigo;">흑마법사</li>
-				<li class="tab-link" data-tab="tab_09" data-bgimage="https://lh3.googleusercontent.com/frMCTBlsCuC3Ji1qxMk_3pdKAndrRhYl2lyooPcaCZEE0X5gxZgR3D7GW98Cc003h0XpUW4nQsKnJjAH8_2hUJPuEZJWJRND3i69OGlGCgLpulveihF17JgsMbHAOiwbxVYcpzp7yw=s0" style="border-color:FireBrick;">전사</li>
-				<li class="tab-link" data-tab="tab_10" data-bgimage="https://lh3.googleusercontent.com/xXRPmpGILszhuJFMBt3U1DTfqk4JdH7e7GWVdV8tOvSczxJiiZv3HBgF85VenQtN2lqm9OOvm1T5Eu2VWaYfTV55VJ1GlLjzntYVW-U18tDdNy5-uZ5Mq1ONe-OGpcdZ8fNpJoQaDA=s0" style="border-color:DarkOrange;">중립</li>
+				<li class="tab-link" data-tab="tab_06" data-bgimage="https://i.imgur.com/xB0dtFt.png" style="border-color:Black;">도적</li>
+				<li class="tab-link" data-tab="tab_07" data-bgimage="https://i.imgur.com/WO8bvKC.png" style="border-color:DarkBlue;">주술사</li>
+				<li class="tab-link" data-tab="tab_08" data-bgimage="https://i.imgur.com/w6GKppK.png" style="border-color:Indigo;">흑마법사</li>
+				<li class="tab-link" data-tab="tab_09" data-bgimage="https://i.imgur.com/OPSzkYI.png" style="border-color:FireBrick;">전사</li>
+				<li class="tab-link" data-tab="tab_10" data-bgimage="https://i.imgur.com/2cPx6sx.png" style="border-color:DarkOrange;">중립</li>
 			</ul>
 			<!-- 내용 영역 -->
 				<!-- 알림 -->
 				<div id="tab_00" class="tab-content current" style="border-color:DimGray;">
-					<img src="https://lh3.googleusercontent.com/Vy0s-ZsjEhO4B74ic0gbuIchoNaqrBt53qvTmujw9y0GMvBeOowKxWX2UOQvgWZzYTfJFZJE1cCVN95PUu0tmrFCYk3192UlSFh-2V2ON56Rdm2Dze75IZy5UK8Xk8jsc6uJxFgBjw=s0" border="0" style="max-width:100%;height:auto;">
+					<img src="https://i.imgur.com/dBtwuRh.png" border="0" style="max-width:100%;height:auto;">
 				</div>
 				<!-- 드루이드 -->
 				<div id="tab_01" class="tab-content" style="border-color:Peru;">
@@ -163,7 +159,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x01b relative" data-toggle="x01b1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/XcVAHdsDDpGTE5DdAPDryd8Aoe56Typu0A73ASBmk9xADwqF5_-AscOsEP-a7RgDBEkMCZgrJ2cGqPmekKUjBn3Y58Mpj0pwXtF0Zd42iSZ7CxxOvGEowFrFJAlmXeAwhBSRS8SrqA=s0" class="cardimage">
+								<img src="https://i.imgur.com/rQcMdPA.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -182,13 +178,13 @@
 						<!-- 01e 관련 토큰 카드 -->
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div class="card token x01e relative" data-toggle="x01e1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/ttw8J31ncgguyai3Ec2clo53FrlhdmLzyqA9R-xSK-CpKDxPiilrS5oog1rLCIGxtAWCIipfDAgQGUacC4ulV0ANZEFJP7QviDH7ByGXFUnuI5Y7oP4np13L_8TGeAsY-sRSCBJP0w=s0" class="cardimage">
+								<img src="https://i.imgur.com/0tanng7.png" class="cardimage">
 							</div>
 							<div class="card token x01e relative" data-toggle="x01e2" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/ubRemQellkCRhsdjnRq4tYqs32CFelTXHwqMsNdgbmYCUGGO_Ml5PFldD9uZWzH8TxkrrLIlmJ5WhfEjPLj9RmIER7aCt3iZUxovJKQE3Q5A_7g3e8eXLEe8F6uhRu6aqRmHZbR66w=s0" class="cardimage">
+								<img src="https://i.imgur.com/e6p52c3.png" class="cardimage">
 							</div>
 							<div class="card token x01e relative" data-toggle="x01e3" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/XcVAHdsDDpGTE5DdAPDryd8Aoe56Typu0A73ASBmk9xADwqF5_-AscOsEP-a7RgDBEkMCZgrJ2cGqPmekKUjBn3Y58Mpj0pwXtF0Zd42iSZ7CxxOvGEowFrFJAlmXeAwhBSRS8SrqA=s0" class="cardimage">
+								<img src="https://i.imgur.com/rQcMdPA.png" class="cardimage">
 							</div>
 						</div>
 					<!-- 영웅 카드 -->
@@ -352,7 +348,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x04c relative" data-toggle="x04c1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/XzfLrnvLzFGt7ZzKK503SqX6e7iqWU9USsO-9U3hD7V5R6nOZH3QrPbcf1rGefQgxAZauQ1pzu8GVQiw1JpMqX-eKIaM-P9itRiUfFG93KgdBmm3Qh4ecp2eWwtbv9PO9X0CXSQBQA=s0" class="cardimage">
+								<img src="https://i.imgur.com/CI0iN0H.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -423,7 +419,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x05e relative" data-toggle="x05e1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/KILeVCiMqvOV2HTEyyOgmQ2Us6EDpB0uj7YmAqj6Dvowxqi-sLJmYlcwr7I40qy6HbFa65fxI8AlyztO66Fh-7RHTzZ_u5vjwm5EVMUsJusH1BTeB0C8sMTZeJ7A4NnHlV2eRpGFxQ=s0" class="cardimage">
+								<img src="https://i.imgur.com/NO1G0UC.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -482,7 +478,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x06f relative" data-toggle="x06f1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/AQWGQLsMHKT1VAag3goNwQDfgVqGwcuTGhqJJf44Aq4W7kTlXZdwpLUjsnI039jyS04bC9v2Ck4aPjLWEUywFxItLrGjOVjkhe3JfhPNVOWOgQAYETxkc0QKIUe6TLVZdpw5zEFaDg=s0" class="cardimage">
+								<img src="https://i.imgur.com/5JyGKdO.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -541,7 +537,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x07d relative" data-toggle="x07d1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/q8yX-A5G-bPQ7-ORQg3mXu5rkX8EwnvVrOdWHq6qaxazDNWHRddRztqhfb5zAS-JDRva5C_w5w5q8ZioiV4xxxrpujtuBg3MD3k9Kwhy9GZpR_OFmAig5UIiaqfGBcu-t_eXC2ojjQ=s0" class="cardimage">
+								<img src="https://i.imgur.com/oYXHreX.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -561,7 +557,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x07h relative" data-toggle="x07h1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/q8yX-A5G-bPQ7-ORQg3mXu5rkX8EwnvVrOdWHq6qaxazDNWHRddRztqhfb5zAS-JDRva5C_w5w5q8ZioiV4xxxrpujtuBg3MD3k9Kwhy9GZpR_OFmAig5UIiaqfGBcu-t_eXC2ojjQ=s0" class="cardimage">
+								<img src="https://i.imgur.com/oYXHreX.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -647,7 +643,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x09c relative" data-toggle="x09c1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/0OZBeNWEo2tbKpoHyHnb47C6C0gbEMlC9dKFS2tSAgQcl1eWrI8-cV-WsVThYR1cQ5_zXULmhptVbob0ix8WlMs4PccyqtIUQ_ymqsG-kNjiweBt9wmD2YvZDI_0TxdeJzJSW448qQ=s0" class="cardimage">
+								<img src="https://i.imgur.com/JtURxPp.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -667,7 +663,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x09f relative" data-toggle="x09f1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/FCfcNCbDYduQtx9DAK6OtTCI40YP-5PinqmERIalGoQvt-nrcinbCz-ZpCqP6CxExSaOn8Br5DfWyGs_mwFynMGHesmHMBSp5SSa5cXfYt_YanPEGVwHIAmXQgAofKFwL8oqBZZTzw=s0" class="cardimage">
+								<img src="https://i.imgur.com/Es1QFTN.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -695,6 +691,7 @@
 						</div>
 						<div style="width:11vw;"></div>
 					</div>
+				</div>
 						<!-- 09i 관련 토큰 카드 (Modal) -->
 						<div id="x09i" class="modal" data-backdrop="static" style="margin-top:-105vw;">
 							<div class="modal-dialog">
@@ -710,27 +707,27 @@
 										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 											<div style="width:33vw;"></div>
 											<div class="card relative" data-toggle="x09i1">
-												<img src="https://lh3.googleusercontent.com/bVAVA9oWKdaFY7ezlM_KRNCdxWc_HAtsf4xP5-P1oE-tfp-kA-g0s-CIavqpF_6lNvAHypQY6DjsN_0SdJcnP9JyZFYmhRMXFCWNALR9gQDXp_UynQR0shJC5zoa8kvIMiPmLhjmlw=s0" class="cardimage">
+												<img src="https://i.imgur.com/PIBi3EZ.png" class="cardimage">
 											</div>
 											<div style="width:33vw;"></div>
 										</div>
 										<!-- 토큰 카드 둘째 줄 -->
 										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 											<div class="card relative" data-toggle="x09i2">
-												<img src="https://lh3.googleusercontent.com/N5aHJ1Xma6iru4BAmBYOFMpnEvOCwMEdBf4ymImsckVMquFGC4Z6bzggVFfbkfBjWPhp0rQ8cs3QTGTMYP9_oJVrjQykuWGM15slpeHiQOI4yKs9vgy6bfLcyMPAdkWme910XN2VlQ=s0" class="cardimage">
+												<img src="https://i.imgur.com/7tDgNQN.png" class="cardimage">
 											</div>
 											<div class="card relative" data-toggle="x09i3">
-												<img src="https://lh3.googleusercontent.com/b1cjbn4bh-RyDUPHpnW3rN2HXo5jjrHBYeMlS2AJJmdkhNLm1m1xG43wD_f6j_yLxdpZXUj93NjJvYPi2ezsZ-5qwwAaH9Z-3ftb93ZpZq9nLGo0sxoMeMjZW9y7J50Qz1Pg4pea2w=s0" class="cardimage">
+												<img src="https://i.imgur.com/a9pua9V.png" class="cardimage">
 											</div>
 											<div class="card relative" data-toggle="x09i4">
-												<img src="https://lh3.googleusercontent.com/otjAlZ-B_7KceWTJVCkKw8i89ztQBiw9meFZ--30RXP_dO6fAjWPx2ZrgHbfvgMJKz-DJMJjaTUpcR-f6CHBu4nnjyfxlK_nMtVpwXM7IdTejEhO7HkraSUkrRZl0aZhJnHlkNs5VA=s0" class="cardimage">
+												<img src="https://i.imgur.com/kuAVi78.png" class="cardimage">
 											</div>
 										</div>
 											<!-- 09i4 관련 토큰 카드 -->
 											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 												<div style="width:33vw;"></div>
 												<div class="card token x09i4 relative" data-toggle="x09i4a" style="display:none;">
-													<img src="https://lh3.googleusercontent.com/rw9yihAbNEHnphZfxktya96SCzW0e5RQtVn1GlFfmXVbtQi8gbGHqxW2_jDDeuIDgfzjnQp8754tAqR3Lh6YTJNHW1t_9zTG-oiq5bsHAddhHE7EE9dmbJ1X8O413j7lJDDPhGIE4A=s0" class="cardimage">
+													<img src="https://i.imgur.com/Y1FVREN.png" class="cardimage">
 												</div>
 												<div style="width:33vw;"></div>
 											</div>
@@ -738,11 +735,11 @@
 										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 											<div style="width:11vw;"></div>
 											<div class="card relative" data-toggle="x09i5">
-												<img src="https://lh3.googleusercontent.com/Keu5B59wUMV--Q7ETkKOSfpWECumpVkg3jphNkvGDBCqAvM3Vc5cLC9QDx0iWBijT7RKvgGrqRLkZqU9gEMsorjqnMuwqoyVNTkV_e_XrUjdtJWbjMen5Q2PzPZh6NSnueoWeBHqrw=s0" class="cardimage">
+												<img src="https://i.imgur.com/RVwHlj8.png" class="cardimage">
 											</div>
 											<div style="width:11vw;"></div>
 											<div class="card relative" data-toggle="x09i6">
-												<img src="https://lh3.googleusercontent.com/K-LYMeBmMIJc8vRykLNSuc-dvSAKi1T_0qRCMzR9gl942KUrDrcPL8NcuRYVYeDwIWS-7gpgEFyQobIX1pa545zUrg1tTSZZKIUUmaf3o7HF65z6nZgZAN79V_wWCjhkF6ttXEgHEQ=s0" class="cardimage">
+												<img src="https://i.imgur.com/xeYZzkq.png" class="cardimage">
 											</div>
 											<div style="width:11vw;"></div>
 										</div>
@@ -755,7 +752,6 @@
 								</div>
 							</div>
 						</div>
-				</div>
 				<!-- 중립 -->
 				<div id="tab_10" class="tab-content" style="border-color:DarkOrange;">
 					<!-- 일반 카드 첫째 줄 -->
@@ -786,7 +782,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x10ad relative" data-toggle="x10ad1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/bLFBcCdcV7Q-5voevP5HaZiAE3fm0YQHD2jcj8zUGKi7k1KSUiGJKyuPN_FLaELbSC_46qINb-M3it900abejbdCW9T5Yu549XlomsJndkp1lu09pH2GD2YQnWIp2k-lr4fIAHnRiA=s0" class="cardimage">
+								<img src="https://i.imgur.com/3QHVUsS.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -814,7 +810,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x10ai relative" data-toggle="x10ai1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/rw9yihAbNEHnphZfxktya96SCzW0e5RQtVn1GlFfmXVbtQi8gbGHqxW2_jDDeuIDgfzjnQp8754tAqR3Lh6YTJNHW1t_9zTG-oiq5bsHAddhHE7EE9dmbJ1X8O413j7lJDDPhGIE4A=s0" class="cardimage">
+								<img src="https://i.imgur.com/Y1FVREN.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -902,7 +898,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x10ax relative" data-toggle="x10ax1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/q8yX-A5G-bPQ7-ORQg3mXu5rkX8EwnvVrOdWHq6qaxazDNWHRddRztqhfb5zAS-JDRva5C_w5w5q8ZioiV4xxxrpujtuBg3MD3k9Kwhy9GZpR_OFmAig5UIiaqfGBcu-t_eXC2ojjQ=s0" class="cardimage">
+								<img src="https://i.imgur.com/oYXHreX.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -922,7 +918,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x10az relative" data-toggle="x10az1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/rw9yihAbNEHnphZfxktya96SCzW0e5RQtVn1GlFfmXVbtQi8gbGHqxW2_jDDeuIDgfzjnQp8754tAqR3Lh6YTJNHW1t_9zTG-oiq5bsHAddhHE7EE9dmbJ1X8O413j7lJDDPhGIE4A=s0" class="cardimage">
+								<img src="https://i.imgur.com/Y1FVREN.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -930,7 +926,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x10ba common" data-toggle="x1ba1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/E6O3UBV5heg5FoZOMr2SK_wSguBiYiloFRGs-9Swif1wMtT26uGUtBhS8XxcnOtfF_pL4qgVMHXC70MbIg5kU93XvfG_M8yErzWmXD3xH6fJwrF_WZhs-u1Qui3KR94MBAct4YCp0Q=s0" class="cardimage">
+								<img src="https://i.imgur.com/xeEFoZq.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -938,7 +934,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x10bb relative" data-toggle="x10bb1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/hAQaeRJNg0psBDAmeeI4KCYEIMARSpIdelOfOeNYWsXcbOuEHjcSjloy8UL2NEQqyHgH4El0RQRGK8hLZ64PqnVdSNm-1W9R8dCvtXdTXWCbKFMSFAZ2s3sJPNSCq9_Y5KvuosNJJg=s0" class="cardimage">
+								<img src="https://i.imgur.com/qWJuld6.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -958,7 +954,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x10bd relative" data-toggle="x10bd1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/q8yX-A5G-bPQ7-ORQg3mXu5rkX8EwnvVrOdWHq6qaxazDNWHRddRztqhfb5zAS-JDRva5C_w5w5q8ZioiV4xxxrpujtuBg3MD3k9Kwhy9GZpR_OFmAig5UIiaqfGBcu-t_eXC2ojjQ=s0" class="cardimage">
+								<img src="https://i.imgur.com/oYXHreX.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -990,7 +986,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x10bk relative" data-toggle="x10bk1" style="display:none;">
-								<img src="https://lh3.googleusercontent.com/MwVz2pvG9JMf5WDcglqygcjlnTGDMFP_XzglE7DqNJnfGbvIxgQKmFUYDSPzeO0cZPye9eAgD8K6EFb1kq5EE9ZNkoJT99dwfBInbiBfOJFLRyY4PQVBjOJ5SiU0-RltbcgAOrzfkw=s0" class="cardimage">
+								<img src="https://i.imgur.com/3wAX4XD.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -1011,358 +1007,13 @@
 						<div class="card legendary" data-toggle="x10bo">
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c123c0464fe7871b5de53f53d422b612a76dd45d57990ad275ff9591736c1c77.png" class="cardimage">
 						</div>
-						<div class="card legendary button" data-toggle="modal" data-target="#x10bp">
+						<div class="card legendary" data-toggle="x10bp">
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cdf2fe5e52d8326744e4601d92d1dc89f1cd517f8e35b2c0699242222070a01b.png" class="cardimage">
 						</div>
 						<div class="card legendary" data-toggle="x10bq">
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/769071d78037992d08939bc843fb0c267e1c4319d3b6429312cd3d1d60345a4a.png" class="cardimage">
 						</div>
 					</div>
-						<!-- 10bp 관련 토큰 카드 (Modal) -->
-						<div id="x10bp" class="modal" data-backdrop="static" style="margin-top:-58vw;margin-bottom:-32vw;">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<!-- Modal 상단부 -->
-									<div class="modal-header">
-										<div class="modal-header-text">위대한 덱 목록 (발매일 기준)</div>
-										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
-									</div>
-									<!-- Modal 내용 -->
-									<div class="modal-body">
-										<!-- 내용 첫째 줄 -->
-										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:0px 0px 1px 0px;border-color:#888;">
-											<table width="100%">
-												<tr>
-													<td>
-														<img src="https://lh3.googleusercontent.com/ORM6W7iBU66atdbKKTsNffT-IupKVq7VZK3aHUeFXXHpkEvehn5WpdTp_IPbWk2hmhPuK9812JWcXr-pTHkw9fNctvg8HfzGFdL3gQH_ykGwJKht74PM04k9mZxTTkRw-TiyPIB5uA=s0" class="whizbang">
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div style="padding:2vmin;font-family:'Noto Sans KR',sans-serif;text-align:center;font-size:2vw;font-weight:bold;">
-															<a href="https://lh3.googleusercontent.com/37rE6zyFDGAFL3gaIgl2pG1a4ZRIgdd61TtICfjAtD7r2-AHXzakIIlGUXhIvp4vzO29Upz0IperJVdEaNGI5fOSe0A9QxrkzeZXXT3FLGiuU4Xpav5MaKViuduienuMi054Z0HCjw=s0" target="_blank">
-																위즈뱅 님의 위대한 덱 목록 한눈에 보기
-															</a>
-														</div>
-													</td>
-												</tr>
-											</table>
-										</div>
-										<!-- 내용 둘째 줄 -->
-										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-											<!-- 드루이드 덱 -->
-											<div style="width:33vw;padding:1vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-												<table>
-													<!-- 직업 마크 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<img src="https://lh3.googleusercontent.com/6ZJdlNCTfLzvZTQGjLAw5b5o_aLEJNA0bgybgKbH8kcn4CD8_2zTvUFYYJYFbFUClYe-hEwVhRw9DYy1hAEV_E9LCYM_55A1-djrN2jnUYS1ljcYzG5x352v8zG0W5wR2_6nZnMUsw=s0" class="classimage">
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 1 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/VsydcYwDrP6kJqGRb-nKRoCsZVWLOFv6BvwBtm8F-cLjjboV0ZkECbXsz8Z00P4eCVJIcpuMLZH-As3xihtkyWaBnS-_0xRr3CdMw_fsRfS5h2Sbm5VQxhH0Blp8wMJZG7ROOwqLVQ=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/xJO41qkYTeNLUzuMXFKfGSLzASce2wrgUQq5ehqy0tBq8ySS16Boglk4QKVxxjK8U2LwaHx_E8mqRhRquknJdx9wt8yyQajvG-tVtF3TSSxOeLMAazQaO_boci_Z4TFl4oKXq2kieA=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 2 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/ETaRTkewdUs7zbgZwMFyBwRoHuBD4-N-aRaTNsjUeQ6oGeeZPb7MD5pDPeeFS2N7r0oejy15TWipLVU_nZoPAidozhP3o9Wbj6Ld2dd7E48eqv0SJO_DO7MMYW4KMMbgHpb3kxlfHQ=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/bgHRmX0gX3S1uR41mhVE1iYh0OD4L8xgJelHjCsgHYiEhRpwlDjI7kd3Lh9bYHWxt7EOye9-kFZuv6QWIzIZA52vAYzLWm5dRStj1F1R9bxEL45lvTHkqJXBNFQb4wgDFdU2qPTYOg=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-											<!-- 사냥꾼 덱 -->
-											<div style="width:33vw;padding:1vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:0px 1px;border-color:#888;">
-												<table>
-													<!-- 직업 마크 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<img src="https://lh3.googleusercontent.com/wY4MX1kYa3HUdtsMWdRTdIIw3PIMcxfVGy3FantnqNAk2XCeawn-1veO1K8WMoQg8x7STBYPDpej481rafqQeOHxYAoqMFYmojA4NlSgNSe-wFpWToRwUvjajrNOSl6bg8sxnm59rw=s0" class="classimage">
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 1 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/5kPz1vW89SnxjfsuNDo6ORznuY8H-A4rPHQmOgEXdcixnP8cZak3THsHJ2R9-qg9vRuZr0UK1XCuswrXJDaYlJioz7UHb-dSUygdYpeWxDdTLOWUR9CQ67gZU8IyAR9R9XGEX6NbSA=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/6dhRbKyymAtEo0HLRLLAXtXld36K0rb62eYWwxptjXObYBdapgiNsUDTehOI_97A7o2171rgMOMy3CBAyHrPc3hW47CZQH3cVRH_HR6vlvmhlukpZ7uTFQgXhZK2QSIJIAE1F1_FKw=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 2 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/OxY6RnIrnbK9WachPUoPhHjPIuuiPZ8Q0MpRpIAwhpSjgxoaZEF5PsLxc0mncBboo8XhjB2KRqXiP2cA13mqZ5b78upsmyYStJSS_DKP7M6OuS6t-ykgBwcTEr0cgOexASdw5lqttA=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/KIYNppBg1niTu4sQaNQyXhqWM9622lT9OfUgPkp0AhSXmue5_3xEBRFvx5p11BgmAZW0sL9-wYvwTRWis2eA3pEfg9pENYMJDTmNRwR4bxyd5VZbVcH_GGyxcLD7W-Rv3j-oCVw1ug=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-											<!-- 마법사 덱 -->
-											<div style="width:33vw;padding:1vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-												<table>
-													<!-- 직업 마크 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<img src="https://lh3.googleusercontent.com/vTxCUEfWE2PNLf4wbnN-5FR56hpib0GfVhrj5l81LzaRIKNT4pSE6Z4l_QjhG6yl07cKlYqFrKvpYVEfHxz-4cdPaDKPl6sTzCSwma53fBhM5QP_02p9Vn78kMIgCJN3E4iDGv7dNQ=s0" class="classimage">
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 1 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/dsts1y2ERMkfd7L_PRN1pDjc3k0YdLqTTwhgVoAbX9aki6jV73qKN8r-BMItjGtpGLThpIGlO_yM0GDNsvWaX1Qa1AaKradrMtOqrJmvHrkhazunCblbhkvhocN7ySdnXbmTIjkZxQ=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/sp8afNle370RHYZmr_X9CevJ2zDs9XHYfSKul3PHBdVsF9tmJNG2GNOKQ6pKIGGe1cr0weGG953k47fLM4GxvWPyAa4SFqLHDJs8ez2DQAPOCoXK3OZqVcAN1uKD8DCu-42qazzY8w=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 2 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/7znLJb_DII67NtbmpwoShDNdR8_jHQcfkHGcZtsMsnj5E6Ys5K0L7epd5NhcbjsOmjapp7KG9auU9a0E-Az2ZSdZMldZud3ZhcKENeWaG9G03bv2gPUpEbECKlYLVIeMWU4xO5ZRGQ=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/5EZIIOnYoq-dXouP37HcLx_gX6mbddn0mhVTPaSlsANSWIMjqJyHE-LecRt0gKHWBMSJF4t6PtvWW1xLZWkuLCrBoBdcQap2ggIhcGWVUOxgSDD8IhXERlGCIeUulFXMOfPtzTxfpw=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-										</div>
-										<!-- 내용 셋째 줄 -->
-										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-											<!-- 성기사 덱 -->
-											<div style="width:33vw;padding:1vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px;border-color:#888;">
-												<table>
-													<!-- 직업 마크 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<img src="https://lh3.googleusercontent.com/ZcX-fsDn574H1RC7aRs6gDMzNQBIyUkjsuylVpEyzIzy-xelfBArZmAtBtMCjIeWzjmg8LJKfeZKHMMVHbEPL-MDR_2YuQ8Z_5ZEhzx1e3egICODs1ilH4atyHPFzvfeeVol7gJ9fQ=s0" class="classimage">
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 1 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/BlwxqFFBOoeTXldVdPhbxu0A1yaZwk3xfsoeKuzVcnsVpvQe5fpj7_aMGrfXkrg5QNVNzB2yMb7QXPLs_YWoBoccEJjiz2DW3WcJxJFZyVcs84yPTiSsGqT69G9v3QKjrKC22ecKPQ=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/gc0JWPAG0-rLBsFPwLIrc5qOA-_4pLt3rzpSKdM5xrmkdTYyOJNPt0FJJuYu1NT0YN24FC2I3o4EvfhVACr2NjrFUcZX1S6bP1tqxaQ8mc9seNRPm51AkgOAwcFs8FH3d_UBW57vXw=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 2 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/neUMBKu4JTleJX3h29w8UvwWOJlXl8qggBZt9aJ7t4M82lw3r47AiDYun7FuKHY6oJ746Id9poxiAHxgFK9dGO_73e7JBe396vT6fbX5qemUD-SHPWbG5VBdciflyAeXAQblVRr7PQ=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/ijAcKFhQpBKshDLKKYxqjgiMXiYjBI6R0NIZmW4gp0pMVoMZHA8t4Ax1POE2BePDnzM51tMnNKzBxS4mfVMlVylVt2KoYo_clk5VsneZFoQkQsY95YgnsJUq5kgxlgB-PSyJpcUD7A=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-											<!-- 사제 덱 -->
-											<div style="width:33vw;padding:1vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px;border-color:#888;">
-												<table>
-													<!-- 직업 마크 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<img src="https://lh3.googleusercontent.com/9b1RsywhBET258IA35lA4YCOCa6p_GJ1AGzaVSnJSWZLJ61I7VbClDx_NfPtaUJt7Orx6WoeSFRQEF3x_491zv0aN-P6Tw42WXjE3sdyT2SEM_mjzColAtwd2hHce-vF57eO3OX0mA=s0" class="classimage">
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 1 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/eQTZ3qeY-45kEhl-jA_g6lYpjugJnxjyEv3nZ-cNPBVmAYcFYf37o1afogZBTmaH2QVz19vn9sWrYfrU5ZFA3Ei71D_6n2RkBAp-lA912ur6TKR9JBOazA1GzQQthC4lCRGr6QPr2A=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/6txSaIo3t8pA4AeulKg--22dvlUsOmepJaqJn2X5mq1wKsIIUu1OZbZSYzS2ihyiexfIUqI5aV4ya8kd2-gtxaOf5d5twLmi5p-DVpX-0gztvwd_UdugZwf6dYv9eH4BIqKmi78j0A=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 2 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/71z9V_SenIJ0_EpzypRHMMpyVEINXbVx1HRRI09_f8C2CH1PbxRyymFb0mn7c0KKX5ZbbODPQ2yT6X7RnQJyvLKdCjiw4nbJVAq-N0rRsDcy7zi5GA0f1TIw_5UjE1uEdmrIZFzCLw=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/b9zOxcikYDcfyTKvSP-uvHbe3HRJt0XpDWl6TIXvy-mXMcEkGBa9VFGY5Wh47smx9hgbvHENojOaeMsoexbIiD8qkoRG-Inwi2fWKUdmuxM4yg4wvUjYHzBEQGgyCx8cUI6trP0QiQ=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-											<!-- 도적 덱 -->
-											<div style="width:33vw;padding:1vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px;border-color:#888;">
-												<table>
-													<!-- 직업 마크 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<img src="https://lh3.googleusercontent.com/YtV0sV8RQ7_SEJ5FtbEcBL0D5a6f5KoyxIJGKs__XmOWbI9c5wXkELkzFrmMVogrQeoip0KqMv4tkHByJb-83DutniTTTSHsCUvAxeUBnYM66q-OSCEwwo1FcNDyFGXZb72W50QNfw=s0" class="classimage">
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 1 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/Wch4xPqnMz25LvakXdp-9EIqJyljs5I8dOaQ5snmzH5muFLydn7Byk3OdzhZlP8Dvsvip_wNp5sIRolGIzUmyHOtsjiuY5GjNPlPRn0UW1lk6DKZmiTD0QOgpo0PtjSV9vB_VqcDkQ=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/gItptrgaBdTAOzeBbVKJNoBypO6pmcBXkyFJkAdRaHAEIsWAxu4er7ZeedWJyMHbL7daGMc2WsgyQxGaa_iSYC7YoWu2FESNA5hlagHGAonHwkTvz9HkGP28IOeEMkWa-OMlbD0qDA=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 2 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/MiL3xFenzEORHY5Ow6TnXqDNAjRzjL9VIDwdPpsPiBqb06T0pQUJW1ZykUhvD5-qMjBUsGmLTtAlE0P7MUR94Xh9mwi3351Xri8cu_CqZ7qbL9pni4oFPs0NUBa6RMolLvF1vhpftg=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/vUjIO9-iAN9LZYeOYAbCBqnrctcA7-yfhs1WXE8n9RVFwLrejn9WtVQVf_JOpL2I86lYIOBppu5DcwvAVTPgPK3MOo1hBum349hYvGUK3YbnVypX6J9qjdxVSPs-7ndmBBk31KJehA=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-										</div>
-										<!-- 내용 넷째 줄 -->
-										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-											<!-- 주술사 덱 -->
-											<div style="width:33vw;padding:1vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-												<table>
-													<!-- 직업 마크 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<img src="https://lh3.googleusercontent.com/h0onqfQn7G8B6rEiaQu-i-UviUDxb3T5s2HHEZijA1pof9t28D3DvVAOXrnSwv8itf3GHkgiKgit6X3YnGMG6X5J8hrE4yb9NoR_jiQu1JL1Lb8GLCnMNpLQVRVdPfC-le3CJKFNYQ=s0" class="classimage">
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 1 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/1f6jUk3cjY7SjKKkCxGl4b7aUCWpcf1OG40lgZcwpS1D7nXzSbIoSPruwF8u90GaZGOwMw18-aOIbeTfwCGnwPHqRbhv4qlwvBCA8m7EyZFgVnbkj1rrkFsH-Pv53VJECszrfSB4oQ=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/0Jy8b6KSP35oRBYrAS9LDM7mW53vOEpnGFsGc-f9zmHtfxlA7cU8UEmtBi68npVaf7lFow6vkohb_gb3gZS5oF9k4QM4rvJYoKBFZaqFqK8DWDXMzxmW39_y_ajBM8TOPMyKAef10Q=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 2 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/KCA-05AIb42ZEUtlICULJhstjyI4NY-LC2l_vywUiTvBxF0KKdSTf5G3twuqZsaGt0AX30WTww8SLYKQ79FAfFZ25aVsNtLYjpauCDhUk8h-s9UjiDdfcvGlH5rLeYwWpmKSNUSEvg=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/mwg9K14RxqesHueK_9Z-urNadzoKtawTFEyuuPoin4z5kdTr-PmHIdETUfHLtf6mi1g0vjLeRMdYcxjiGebPOsTs1IrU5xdaQtfwSLBu22RS_N3n7eKoh29dWwhiZ9Az2ls_ooYEtQ=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-											<!-- 흑마법사 덱 -->
-											<div style="width:33vw;padding:1vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:0px 1px;border-color:#888;">
-												<table>
-													<!-- 직업 마크 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<img src="https://lh3.googleusercontent.com/AGun7WVvIuPYvxKURl6K2jFhbmgNUJIjuz6r-KhX6ycEZWajrc9iju4bliyIF0WPm0PS6FH3nDaaccutYkbTHKe2VEgY-Kd98PPqoaA1XHQDRa9ButK9VtLN98MW9pqcsn8t7d1ACw=s0" class="classimage">
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 1 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/e95njWdMJvIuUBQLFMuKlUWw-2czCfrCMedld0xmG6q810NXFBwxv9vlrUFl-vBNdQ2y4KBvUutLY3iUvfF6_E83W8rmKgX9qQgnn3NfHGxJzJLILLJs2S-_Ma7nkAs1hAr9-737EQ=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/451XTcQ0fymnQXX8POcM4EFdRg9VbaNRWJRPWBAKrOYy23Lethoxc0JbJrGyXfg4Gh2IT8tG9rc0Sz9rCI8HaN0QPs8fcVYI704ne84CcNxFHRmMP9kVt6gb6bBVY93ijzRNDo_rDw=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 2 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/hDNBFHVItqGdQB2Mv3ezUk_uZ3wQYLPer7fZ-pwY35p29-sMokVrb1J7SKnTb4kMB2ugna3MZGCXG2KX-LJBE68pgu1IdSx3ujRqXOjm13kpqgz13MHpQjPQ_tFVcWN63fgknks0tQ=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/DaeDk3kZqpPT1gl_2YX86lnU9gE8kwnIjwpxIWB1SVA3XZ2g0E_qRpFJ2cBDrmdtG4mhGyIZMrz5XSIc58edoxsVRVzZQBVd1IRyxMlDTvu8qn2wEjxmv6yPax_diaoiLUnRdigxQA=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-											<!-- 전사 덱 -->
-											<div style="width:33vw;padding:1vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-												<table>
-													<!-- 직업 마크 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<img src="https://lh3.googleusercontent.com/FT4_2SEC8iZ9Df7POnjMS1abpdO_GFWPSxocMBFqGku0JB_0nWVB9a4H0y16JTFjvkCbVN3NtZRpDbXiYh5q-RB66iZ1AJ0tHVecPeN85e3lqkomG6bZL02YylgnpAEHk9ibCfY_iw=s0" class="classimage">
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 1 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/H21q5l0evuA6Qn9b3s3A-0MwH8-y8ifDZd_Tqf3It_eUrePg3BbQp1MjIBpFEnWWeGXVoTzzQdLiEbpZ7CaV22fzgTQcK0-gB5zLaLfLoHyuS7wn_-J4oy6D78h-g1IOB_RIknTfFw=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/laD7QKd6HFR6oyTr5nNBotATtdeLG6vq1vVvp8-bTWhewCaEyHINMkGyBQ6z_z8PYYX2iFY9xD5ONXCbEUF-XMgsm6iTIn-TcMMS5xDmvISuzj32BcyKy4AbxaYJCFZEJ3Ii6B71Fw=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-													<!-- 덱 2 -->
-													<tr>
-														<td>
-															<div style="padding:1vmin 0vw;">
-																<a href="https://lh3.googleusercontent.com/Jtsco5OyTAEf0CxALe28hjiif9kNKoUehxDp7NANrl1aWR_Wif2oFQArOwD3oerSyM3_kzbcCsRymAHg6v53uMWS9c12vwCQED1aiA3GDHDdVkoEiKW3g_ZMJqbos_mKlrDJHOyt8w=s0" target="_blank">
-																	<img src="https://lh3.googleusercontent.com/Jsj5MB_AS2_leebMca2WMWsZMSOLFaTEbT_M0fEVicZLOdEgoeupYvHEMxnAZpe_rMH6HkxKajAODPSg3teVRQZkGQDVg8TCKPPilvQVi-X9DuGmJE4gQYnrKiI3bor8Nv1lyK5AxA=s0" class="decktitle">
-																</a>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-										</div>
-									</div>
-									<!-- Modal 하단부 -->
-									<div class="modal-footer">
-										<div class="modal-footer-text">위대한 덱 목록 (발매일 기준)</div>
-										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
-									</div>
-								</div>
-							</div>
-						</div>
 					<!-- 전설 카드 둘째 줄 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div style="width:11vw;"></div>
@@ -1378,7 +1029,7 @@
 				</div>
 		</div>
 		<!-- Script -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script>
   			$(document).ready(function(){   
