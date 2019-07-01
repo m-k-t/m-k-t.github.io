@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <style>
+			@keyframes blink-common{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}
+									50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(-0.2vw 0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(0.2vw -0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(-0.2vw -0.2vw 1vw rgba(73,85,90,0.3));}
+									100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}}
+			@keyframes blink-rare{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}
+								  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(-0.2vw 0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(0.2vw -0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(-0.2vw -0.2vw 1vw rgba(48,126,232,0.3));}
+								  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}}
+			@keyframes blink-epic{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}
+								  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(-0.2vw 0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(0.2vw -0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(-0.2vw -0.2vw 1vw rgba(164,47,198,0.3));}
+								  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}}
+			@keyframes blink-legendary{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}
+									   50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(-0.2vw 0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(0.2vw -0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(-0.2vw -0.2vw 1vw rgba(254,170,12,0.3));}
+									   100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}}
+			@keyframes blink-relative{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}
+									  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(-0.2vw 0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(0.2vw -0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(-0.2vw -0.2vw 1vw rgba(74,60,49,0.3));}
+									  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}}
+			.container{width:100vw;height:100vh;}
+			ul.tabs{margin:0px;padding:0px;list-style:none;}
+			ul.tabs li{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:5px 5px 0px 5px;padding:8px 0px 8px 0px;text-align:center;border-radius:8px 8px 0px 0px;background-size:contain;background-repeat:no-repeat;background-position:center center;color:black;text-decoration:none;cursor:pointer;}
+			@media screen and (min-width:430px){ul.tabs li{font-size:14px;}}
+			@media screen and (max-width:430px){ul.tabs li{font-size:3.256vw;}}
+			ul.tabs li.current{font-weight:bold;} 
+			ul.tabs div.leftover{display:table-cell;vertical-align:middle;width:20vw;border-style:solid;border-width:0px 5px 0px 5px;padding:0px 0px 6px 0px;}
+			.tab-content{display:none;border:5px solid;max-width:100vw;height:auto;max-height:calc(100vh - 81px);overflow-y:auto;text-align:center;}
+			.tab-content.current{display:inherit;}
+			.card{width:33vw;padding:3vmin 0vw 3vmin 0vw;}
+			.cardimage{object-fit:contain;width:95%;height:auto;border:0;}
+			.common{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}
+			.common:hover{animation:blink-common 1.5s linear infinite;}
+			.rare{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}
+			.rare:hover{animation:blink-rare 1.5s linear infinite;}
+			.epic{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}
+			.epic:hover{animation:blink-epic 1.5s linear infinite;}
+			.legendary{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}
+			.legendary:hover{animation:blink-legendary 1.5s linear infinite;}
+			.relative{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}
+			.relative:hover{animation:blink-relative 1.5s linear infinite;}
+			.modal{overflow-y:auto;}
+			.modal-open{overflow:auto !important;}
+			.modal-dialog{width:100%;height:auto;margin:auto;overflow:auto;}
+			.modal-content{background-color:rgba(238,238,238,1);padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;box-shadow:none;}
+			.modal-header{padding:0vw 2vmin 2vmin 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:0px 0px 1px 0px;border-color:#888;}
+			.modal-header-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vmin;font-weight:bold;}
+			.modal-footer{padding:2vmin 2vmin 0vw 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;}
+			.modal-footer-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vmin;font-weight:bold;}
+			.close{width:5vw;vertical-align:middle;color:#222;text-align:right;font-size:4vmin;font-weight:bold;}
+			.close:hover,.close:focus{color:Black;text-decoration:none;cursor:pointer;}
+    </style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- 탭 영역 -->
+			<ul class="tabs">
+				<!-- 탭 영역 첫째 줄 -->
+				<li class="tab-link" data-tab="tab_01" data-bgimage="https://lh3.googleusercontent.com/BN4j7tHy5msDKYBq_MiUiM15TAKKT59xWS37eXpwNbsQgy2X3WRQpnYN_fv5oksi3_3czaoHU4HZ48CUeiBKANW2lQ0FdvB176qVcXImorYuyNqqgP-sCYA-lhl4oM37dfrL6PMjCQ=s0" style="border-color:Peru;">드루이드</li>
+				<li class="tab-link" data-tab="tab_02" data-bgimage="https://lh3.googleusercontent.com/cHKhyR4QYHaGreOsSH6WeZJ2J6RHJLb70k1MMBVOHbPJVS7XubqVsSS5rvG-r0odsQXw_tgRM9JDe4-LrAwk4_AqgzKIie3TiW51H5uhwcqc9tQ9gpzbl5vjjTYuWSkbktjdCpPJOQ=s0" style="border-color:ForestGreen;">사냥꾼</li>
+				<li class="tab-link" data-tab="tab_03" data-bgimage="https://lh3.googleusercontent.com/Bh1H53uoOSzVRUPvaK5QiJ1SNEcgWMOpyNwsoKkfOluTe0a9jSNLkrJS1DlRMWXtvo1aDMfqaPgjVH6k5FY4Tiig3WFi2nFwORwq6f7_sJ5aGSyU7szC9RqZ0rprEkjdmsr-urY7mw=s0" style="border-color:CornflowerBlue;">마법사</li>
+				<li class="tab-link" data-tab="tab_04" data-bgimage="https://lh3.googleusercontent.com/mWXDJg-yqrGQ5w-TvimiDGiyT9pPKu9_g-22E4nmhzgYKpxVYZ8XczyKO4VzQvjGX4x-PSk5H9IdYtswh4nDAQjB9KUJrlWoZ31YNmokccbnJYFjFOyaZ3ombNMDkOqY71MwELoeVg=s0" style="border-color:Khaki;">성기사</li>
+				<li class="tab-link" data-tab="tab_05" data-bgimage="https://lh3.googleusercontent.com/OZtfYlshMiTy1WZE8KFvqAQvRcqvdF4zpGBA_JR_u2292G8wHnwq6U0g4CMkypxA3PHECy1zPvJ6qXgfKEpBMeG5KM6QHLougk9bgTxQgIBaDnn8PJlI2KQ6ltFBJO0wC6-j1p_-Vw=s0" style="border-color:Gainsboro;">사제</li>
+				<!-- 탭 영역 첫째 줄 하단부 css용 -->
+				<div style="clear:left;"></div>
+				<div class="leftover" style="border-color:Peru;"></div>
+				<div class="leftover" style="border-color:ForestGreen;"></div>
+				<div class="leftover" style="border-color:CornflowerBlue;"></div>
+				<div class="leftover" style="border-color:Khaki;"></div>
+				<div class="leftover" style="border-color:Gainsboro;"></div>
+				<!-- 탭 영역 둘째 줄 -->
+				<div style="clear:left;margin-bottom:-7px;"></div>
+				<li class="tab-link" data-tab="tab_06" data-bgimage="https://lh3.googleusercontent.com/Ob-wbPdSAo3ZBqxeyN_pgXyHJElwwDhoNBwfVgp5SIpBKAEBDgxGi-T83KDlmVJd6LmOTKlOn8Q8UCgJ9D_3jsWB1QWGKR69kc5qdEOORxnt-TrBPpUUFRE4_LZ2Rn1NF2Ak6eaZfg=s0" style="border-color:Black;">도적</li>
+				<li class="tab-link" data-tab="tab_07" data-bgimage="https://lh3.googleusercontent.com/gRi9pXfMGXXslxbr54WWpWwOXjuwFr_59_U8jVR8YsB1SvqTJF5_O4GQJUcUzRixTcgmrbXdywOpiRmnvL9sZbAbpxpaWsdAopH9L87okyIjtcuhBo0ArJfeZYCmgOhL6wjUpy9ghQ=s0" style="border-color:DarkBlue;">주술사</li>
+				<li class="tab-link" data-tab="tab_08" data-bgimage="https://lh3.googleusercontent.com/R72tvC5cj2YbfVrCnB0N-P2aq5pVJtx_QBmc8ICZvgjLdx3mOZnaX7OU41s9ZExJvSONII53VC8LkFTs6jxoew5b-cArx3Ws2h6Ks1WWExPiKsXjKvYdOXu1P7Sv059LLyASqg_yGg=s0" style="border-color:Indigo;">흑마법사</li>
+				<li class="tab-link" data-tab="tab_09" data-bgimage="https://lh3.googleusercontent.com/frMCTBlsCuC3Ji1qxMk_3pdKAndrRhYl2lyooPcaCZEE0X5gxZgR3D7GW98Cc003h0XpUW4nQsKnJjAH8_2hUJPuEZJWJRND3i69OGlGCgLpulveihF17JgsMbHAOiwbxVYcpzp7yw=s0" style="border-color:FireBrick;">전사</li>
+				<li class="tab-link" data-tab="tab_10" data-bgimage="https://lh3.googleusercontent.com/xXRPmpGILszhuJFMBt3U1DTfqk4JdH7e7GWVdV8tOvSczxJiiZv3HBgF85VenQtN2lqm9OOvm1T5Eu2VWaYfTV55VJ1GlLjzntYVW-U18tDdNy5-uZ5Mq1ONe-OGpcdZ8fNpJoQaDA=s0" style="border-color:DarkOrange;">중립</li>
+			</ul>
+			<!-- 내용 영역 -->
+				<!-- 알림 -->
+				<div id="tab_00" class="tab-content current" style="border-color:DimGray;">
+					<img src="https://lh3.googleusercontent.com/1fY5_qCjAFDLHKYh7qb8AhqbNbg5MbuKa7Prg6i5p9K1cmziRCPxZ2NOtl4s2jz2cCfhIJwl_Ki1MtMRNh70sLJ93w4yhyAuUQ_lLCQ2zIvDNKvJvf73jA_djxXVo8aU7UkrIQasKg=s0" border="0" style="max-width:100%;height:auto;">
+				</div>
+				<!-- 드루이드 -->
+				<div id="tab_01" class="tab-content" style="border-color:Peru;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x01a">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x01b">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x01c">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x01d">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x01e">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x01f">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic"  data-toggle="x01g">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x01h">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x01i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e19c5d4e85f61b1bb6e2746f3ade31bdd11b450f921c6ae5aa5190fa6d87d146.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x01j">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+						<!-- 01i 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card token x01i relative" data-toggle="x01i1" style="display:none;">
+								<img src="https://lh3.googleusercontent.com/gCPfiXcJejAxMU7pJauBqErO_en2UaalFMqWwbvWj68LfoXB-TT0skzJdia77hvf8cYjB9cyhkQrPYtTMsETjwlzQt5zGW_MpqxWkctZwWtbU17ekJ6ABCjKBkL5y-mg_vw_IF7vFQ=s0" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+				</div>
+				<!-- 사냥꾼 -->
+				<div id="tab_02" class="tab-content" style="border-color:ForestGreen;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x02a">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x02b">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x02c">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x02d">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x02e">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x02f">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x02g">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x02h">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x02i">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x02j">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 마법사 -->
+				<div id="tab_03" class="tab-content" style="border-color:CornflowerBlue;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x03a">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x03b">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x03c">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x03d">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x03e">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x03f">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x03g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d792aa980413407f090804d579de1ae4b3367b6e8bcd35c7415854d4b2dd234c.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x03h">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x03i">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x03j">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 성기사 -->
+				<div id="tab_04" class="tab-content" style="border-color:Khaki;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x04a">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x04b">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x04c">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x04d">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x04e">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x04f">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x04g">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x04h">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x04i">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x04j">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 사제 -->
+				<div id="tab_05" class="tab-content" style="border-color:Gainsboro;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x05a">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x05b">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x05c">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x05d">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x05e">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x05f">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x05g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/76a84fb4167939acfb04341c6b0eb762c28cc120913e246c46f2fafa8e6e5fcf.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x05h">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x05i">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x05j">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 도적 -->
+				<div id="tab_06" class="tab-content" style="border-color:Black;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x06a">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x06b">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x06c">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x06d">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x06e">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x06f">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x06g">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x06h">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x06i">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x06j">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 주술사 -->
+				<div id="tab_07" class="tab-content" style="border-color:DarkBlue;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common button" data-toggle="modal" data-serial="x07a" data-target="#xlackey">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f7edd4c3592c6d9ee382345259eeec3c1724bc1a1887ea351a9d8b968ec4e01c.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x07b">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x07c">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x07d">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x07e">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x07f">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x07g">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x07h">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x07i">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x07j">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 흑마법사 -->
+				<div id="tab_08" class="tab-content" style="border-color:Indigo;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x08a">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x08b">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x08c">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x08d">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x08e">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x08f">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x08g">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x08h">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x08i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/daf0137124f4c5229a049c68f90453f6c2074144459eded03aaeb5908b2475a4.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x08j">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+						<!-- 08i 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card token x08i relative" data-toggle="x08i1" style="display:none;">
+								<img src="https://lh3.googleusercontent.com/w8xlS4RDYKGFd0ltw4t9RWZztpiroRap3NJBQuKNmo2WpJWJnhwYBHw9WO98DZLqnO8bbJJoXt4Fs0-SxfFHISJVw9ay6f8vv-LC33Rb7m5zRMLn7Uk_IHTG2gQUp5Ci818ot9GgtQ=s0" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+				</div>
+				<!-- 전사 -->
+				<div id="tab_09" class="tab-content" style="border-color:FireBrick;">
+					<!-- 일반 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x09a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cdbdfbc4d5b02fb8566451863d3c9a0b7dead246629c7f80def664ed98412ba7.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x09b">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x09c">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x09d">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x09e">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x09f">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x09g">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x09h">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x09i">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x09j">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 중립 -->
+				<div id="tab_10" class="tab-content" style="border-color:DarkOrange;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10aa">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f90bd68c643c59a91c3f77d853005f9d6000bc14dff17a26577f8d2e6df7d68.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ab">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ac">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10ad">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ae">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10af">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10ag">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ah">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ai">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 넷째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10aj">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ak">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10al">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 다섯째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10am">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10an">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ao">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 여섯째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10ap">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10aq">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10ar">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 일곱째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10as">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10at">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 일반 카드 여덟째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10au">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10av">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x10aw">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/25216e467528eddbe6d1898fa080998dce797920455d7cec9a029cdede0234a7.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10ax">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10ay">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x10az">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10ba">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10bb">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x10bc">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10bd">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x10be">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x10bf">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bg">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bh">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x10bi">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bj">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bk">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x10bl">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bm">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10bn">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 전설 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card legendary" data-toggle="x10bo">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x10bp">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x10bq">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+					</div>
+					<!-- 전설 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x10br">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x10bs">
+							<img src="https://lh3.googleusercontent.com/_WpWFr1ExYdFIdRU24_64mvSwjNmfY7Hx6Nuj4JdMx_CiRVttI75LafPgRGVB3CDyW-IJyEVoN3kuS_baiExbDNp6kgpXqNVSey0WFgkRiqV4ewoypuYQG1PR3i7YLpgpXs8xeRvqA=s0" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+		</div>
+		<!-- 졸개 토큰 카드 (Modal) -->
+		<div id="xlackey" class="modal" data-backdrop="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- Modal 상단부 -->
+					<div class="modal-header">
+						<div class="modal-header-text">졸개 토큰</div>
+						<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+					</div>
+					<!-- Modal 내용 -->
+					<div class="modal-body">
+						<!-- 토큰 카드 첫째 줄 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div class="card relative" data-toggle="x11a">
+								<img src="https://lh3.googleusercontent.com/acFhPZPEztmyTZ2OuB9-cTZRKKmeRe4V7O32L0Zif8mcubY6mWa8CANj8P-SecS5JWSuj8bP9qWQ7xqNDMBpjHj9wjuSRngt5NVmiqIrZVaCXMnm5ZDur8PK_lHRF0a4uSvjV7v-FA=s0" class="cardimage">
+							</div>
+							<div class="card relative" data-toggle="x11b">
+								<img src="https://lh3.googleusercontent.com/9W7RDKsQSym45tleNMDDMFQws6uwPNxOzo9j6mRDH_isoTvkYjI36H5h1-NDIhsdO2VQq84_QKdyKniGdkzc1LjkaciifEx62HGacmpVX3fUTvElnsZg4Gn1nV0yB2zwS-VxPgx2_Q=s0" class="cardimage">
+							</div>
+							<div class="card relative" data-toggle="x11c">
+								<img src="https://lh3.googleusercontent.com/Rwn4L5EGvfX4-exQsHf2BH_6ClAU2PnIMTMfMpDmPCRDPf9oYs5u89TfRnCBe4g80MH-yW7L3TBjntaHkuKGKtLBXw-McCZfEBWYMHNr4C1Cl08fo2_L7-DJ9hhKrxXTl8dlI35w4w=s0" class="cardimage">
+							</div>
+						</div>
+						<!-- 토큰 카드 둘째 줄 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:11vw;"></div>
+							<div class="card relative" data-toggle="x11d">
+								<img src="https://lh3.googleusercontent.com/TNad7qH25KUYmtwoIgYJ-5hmzMG7QcHq1LwWb5S6tXxq53HpKE_hm36S9SLhtZvCeo0zPRGxMVYH5dxis-dY2_oMX9lTdYYYMeo8azhwLzQLk4SPqD1D_iklc3We8H5WHB2jBkPviw=s0" class="cardimage">
+							</div>
+							<div style="width:11vw;"></div>
+							<div class="card relative" data-toggle="x11e">
+								<img src="https://lh3.googleusercontent.com/s9lA-lY-P6YPFlUJOI5MdG8DVw5ZcPYiusYf-2ZIPtaCJgfVFi93HBvl16FP5wXxa2_eM2RWyh6ODRzjDcAt5vhsn5h-2MgQe5ngg5ubZYZPq-WUdrvyrs0EN9_NXr8FDs2JvkGCGg=s0" class="cardimage">
+							</div>
+							<div style="width:11vw;"></div>
+						</div>
+					</div>
+					<!-- Modal 하단부 -->
+					<div class="modal-footer">
+						<div class="modal-footer-text">졸개 토큰</div>
+						<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Script -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+  			$(document).ready(function(){   
+				$('ul.tabs li').click(function(){
+					var tab_id = $(this).attr('data-tab');
+					var imgurl = $(this).data("bgimage");
+					$('ul.tabs li').removeClass('current');
+					$('ul.tabs li').css("background-image", "");
+					$('.tab-content').removeClass('current');
+					$(this).addClass('current');
+					$(this).css("background-image", "url(" + imgurl + ")");
+					$("#"+tab_id).addClass('current');
+				})
+				$(".card").on("click", function() {
+					var cls = "." + $(this).attr("data-toggle");
+					if($(".token" + cls).is(':visible')){
+						$(".token" + cls).hide()
+					}
+					else{
+						$(".token:not(" + cls + ")").hide();
+						$(".token" + cls).show();
+					}
+				})
+				$(document).on('show.bs.modal','.modal',function(event){
+					var zIndex = 1040 + (10 * $('.modal:visible').length);
+					$(this).css('z-index', zIndex);
+					setTimeout(function() {
+						$('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+					},0)
+				})
+			})
+		</script>
+	</body>
+</html>
