@@ -74,7 +74,7 @@
 			.tab-content{display:none;border:5px solid;max-width:100vw;height:auto;max-height:calc(100vh - 81px);overflow-y:auto;text-align:center;}
 			.tab-content.current{display:inherit;}
 			.card{width:33vw;padding:3vmin 0vw 3vmin 0vw;}
-			.cardimage{object-fit:contain;width:95%;height:auto;border:0;}
+			.cardimage{object-fit:contain;z-index:1;width:95%;height:auto;border:0;}
 			.common{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
 						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
 						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
@@ -100,6 +100,11 @@
 						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
 						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}
 			.relative:hover{animation:blink-relative 1.5s linear infinite;}
+			.week{position:relative;left:25.25vw;top:4.25vw;width:5vw;position:absolute;z-index:2;}
+			.w-1{content:url('https://lh3.googleusercontent.com/n_Xjv-f25hIfAbM3H9el_NpDjs3Y8o_xySAdJ19Sb-QLitP-dZO4pXaqXH-ZLgB2Ik8w2Tr0Pu5cQyacyD2rspMgwosSbbgS4PWTj1ZDuK8ltqZ2FMx3iirAemZTeKOswVVADX-1jA=s0')}
+			.w-2{content:url('https://lh3.googleusercontent.com/ePNFSjCAUIyBRZG2toQuT-mWaZsyJcc1iey0ElvVRJ7_fLPm01mn6CUiuvlPzfvUUMcYcmv4ftXniDhH2Cwf9-WF2XhNxdrGvA5p9-OUiQ9jcfEjEacnsISB0593HgJ6xKwBaTL15Q=s0')}
+			.w-3{content:url('https://lh3.googleusercontent.com/LtemC-lMJGQBNLmiY_p0whLMuWHXdJd3Gu5Rv5PpjgxFfPIomdg3O4banPZv4dEJW4pCgcIxs0vNT7Pd961deqCQcwz0FnH2Sh6NCRw2E3kQLvupTGiG7f9fo4PfWpRUDtsoNBiy4g=s0')}
+			.w-4{content:url('https://lh3.googleusercontent.com/IOoANlc801nWbA7cAYTBzzbVVxeReqUrZHl-DJod4-TSYJWQnKA6JaLofuicALDwrGJSopHVoRg2QZn9q6VOr0ncsgJHTgq6AJzg1Ywfilouxf3GuHhJh656eUW6tFHMCXEo6jwJag=s0')}
 			.modal{overflow-y:auto;}
 			.modal-open{overflow:auto !important;}
 			.modal-dialog{width:100%;height:auto;margin:auto;overflow:auto;}
@@ -140,19 +145,22 @@
 			<!-- 내용 영역 -->
 				<!-- 알림 -->
 				<div id="tab_00" class="tab-content current" style="border-color:DimGray;">
-					<img src="https://lh3.googleusercontent.com/nT9g7ZLbEq9uN3Zc_S22jhg86_WrW4kMPnO3lRlM__9b1w16mMiSdO3aNBTi8yNdDvEiCXsQ_az9gh5X3_EvviB23otjw0OLUDdVYLq39k4ZQz36vZQ7Tr_N3KAnlVy5bQQ0D36Fjw=s0" border="0" style="max-width:100%;height:auto;">
+					<img src="https://lh3.googleusercontent.com/EMi-HB5J69l2A5khQjHU_PRUIW-s0emLAY2iRgpErdHiGoht2brzfxRxW74-fp9K6EoVSMZqZEhbP0kZNcROMnMyWqcPsenOQIR9FPiQPJrr6IhfHDWVpIhsolmjDLPo8sopaNov1Q=s0" border="0" style="max-width:100%;height:auto;">
 				</div>
 				<!-- 드루이드 -->
 				<div id="tab_01" class="tab-content" style="border-color:Peru;">
 					<!-- 카드 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div class="card common" data-toggle="x01a">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div class="card rare" data-toggle="x01b">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div class="card legendary" data-toggle="x01c">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 					</div>
@@ -162,12 +170,15 @@
 					<!-- 카드 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div class="card common" data-toggle="x02a">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div class="card rare" data-toggle="x02b">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div class="card legendary" data-toggle="x02c">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 					</div>
@@ -177,27 +188,33 @@
 					<!-- 카드 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div class="card common" data-toggle="x03a">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div class="card rare" data-toggle="x03b">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div class="card legendary" data-toggle="x03c">
+							<div class="week w-4"></div>
 							<img src="https://lh3.googleusercontent.com/WhttoaNil9txPl-ZzQ_u-fzVOGorHFq9X3qlmv6GkfADwT226zaoIoG5UguMW4VQXepE0mp9cN2PRP13DxSNuQ7PyA9GLSQ6TIHHwLX-3Y-jgn3ih-LalSfxrljNcWofgpNo5KalKQ=s0" class="cardimage">
 						</div>
 					</div>
-				</div>
+				</div>	
 				<!-- 성기사 -->
 				<div id="tab_04" class="tab-content" style="border-color:Khaki;">
 					<!-- 카드 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div class="card common" data-toggle="x04a">
+							<div class="week w-4"></div>
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5abd0d89d89771a5a5c55c3d6b4e5a4a7bd495b111359e9f65a758a56761b6ac.png" class="cardimage">
 						</div>
 						<div class="card rare" data-toggle="x04b">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div class="card legendary" data-toggle="x04c">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 					</div>
@@ -208,10 +225,12 @@
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div style="width:11vw;"></div>
 						<div class="card common" data-toggle="x05a">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
 						<div class="card rare" data-toggle="x05b">
+							<div class="week w-1"></div>
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/71f24a0109ce03b72ca3b2e61ffc8d3715191c2ab457c4f41f018f47892d8c29.png" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
@@ -223,10 +242,12 @@
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div style="width:11vw;"></div>
 						<div class="card common" data-toggle="x06a">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
 						<div class="card rare" data-toggle="x06b">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
@@ -238,10 +259,12 @@
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div style="width:11vw;"></div>
 						<div class="card common" data-toggle="x07a">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
 						<div class="card rare" data-toggle="x07b">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
@@ -253,10 +276,12 @@
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div style="width:11vw;"></div>
 						<div class="card common" data-toggle="x08a">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
 						<div class="card epic" data-toggle="x08b">
+							<div class="week w-4"></div>
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/27209eafd8cbb212c641badde2a355ad55f8d16b4bd0013a41249e1d2c0b21e1.png" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
@@ -268,10 +293,12 @@
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div style="width:11vw;"></div>
 						<div class="card common" data-toggle="x09a">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
 						<div class="card rare" data-toggle="x09b">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
@@ -282,24 +309,30 @@
 					<!-- 일반 카드 첫째 줄 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div class="card common" data-toggle="x10aa">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div class="card common" data-toggle="x10ab">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div class="card common" data-toggle="x10ac">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 					</div>
 					<!-- 일반 카드 둘째 줄 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div class="card common" data-toggle="x10ad">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div class="card common" data-toggle="x10ae">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div class="card common" data-toggle="x10af">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 					</div>
@@ -307,10 +340,12 @@
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div style="width:11vw;"></div>
 						<div class="card rare" data-toggle="x10ag">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
 						<div class="card rare" data-toggle="x10ah">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
@@ -318,12 +353,15 @@
 					<!-- 전설 카드 첫째 줄 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div class="card legendary" data-toggle="x10ai">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div class="card legendary" data-toggle="x10aj">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div class="card legendary" data-toggle="x10ak">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 					</div>
@@ -331,10 +369,12 @@
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div style="width:11vw;"></div>
 						<div class="card legendary" data-toggle="x10al">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/z-KlwMD3ue2KOeR_qmN-_YAE6VSRFgH-_5FTKBSnwKJU5ynWrSPluojWaEpujRlGKsg5asJKgAEoGt-7QQvNYXxRFN1r6G-ipXpT8CYdTxZd-4X6hIFOJ6R8q4GxVwW7oP2H4edXsg=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
 						<div class="card legendary" data-toggle="x10am">
+							<div class="week w-0"></div>
 							<img src="https://lh3.googleusercontent.com/diWLDf9Gi2EmE417svbsUmfpH2wvwVS1yDGoRhTZPdrhTyGnFZrGn_823FLIHBhGevb2ItsD0E3_RizHBa_VjiNCjgt_x9fMmm9uLcn9iRquJItjAB3j91G0oJbZwCRpQm345EzStQ=s0" class="cardimage">
 						</div>
 						<div style="width:11vw;"></div>
