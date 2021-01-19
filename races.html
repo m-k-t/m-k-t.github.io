@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <style>
+			@keyframes blink-common{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}
+									50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(-0.2vw 0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(0.2vw -0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(-0.2vw -0.2vw 1vw rgba(73,85,90,0.3));}
+									100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}}
+			@keyframes blink-rare{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}
+								  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(-0.2vw 0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(0.2vw -0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(-0.2vw -0.2vw 1vw rgba(48,126,232,0.3));}
+								  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}}
+			@keyframes blink-epic{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}
+								  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(-0.2vw 0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(0.2vw -0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(-0.2vw -0.2vw 1vw rgba(164,47,198,0.3));}
+								  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}}
+			@keyframes blink-legendary{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}
+									   50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(-0.2vw 0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(0.2vw -0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(-0.2vw -0.2vw 1vw rgba(254,170,12,0.3));}
+									   100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}}
+			@keyframes blink-relative{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}
+									  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(-0.2vw 0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(0.2vw -0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(-0.2vw -0.2vw 1vw rgba(74,60,49,0.3));}
+									  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}}
+			.container{width:100vw;height:100vh;}
+			ul.tabs{margin:0px;padding:0px;list-style:none;}
+			ul.tabs li{display:table-cell;vertical-align:middle;width:16.66vw;border-style:solid;border-width:5px 5px 0px 5px;padding:8px 0px 8px 0px;text-align:center;border-radius:8px 8px 0px 0px;background-size:contain;background-repeat:no-repeat;background-position:center center;color:black;text-decoration:none;cursor:pointer;}
+			@media screen and (min-width:537.5px){ul.tabs li{font-size:14px;}}
+			@media screen and (max-width:537.5px){ul.tabs li{font-size:2.6048vw;}}
+			@media screen and (min-width:537.5px){ul.tabs li.tab-11{height:81px;}}
+			@media screen and (max-width:537.5px){ul.tabs li.tab-11{height:calc(5.5781vw + 47px);}}
+			ul.tabs li.current{font-weight:bold;} 
+			ul.tabs div.leftover{display:table-cell;vertical-align:middle;width:16.66vw;border-style:solid;border-width:0px 5px 0px 5px;padding:0px 0px 6px 0px;}
+			.tab-content{display:none;border:5px solid;max-width:100vw;height:auto;max-height:calc(100vh - 81px);overflow-y:auto;text-align:center;}
+			.tab-content.current{display:inherit;}
+			.card{width:33vw;padding:3vmin 0vw 3vmin 0vw;}
+			.cardimage{object-fit:contain;width:95%;height:auto;border:0;}
+			.common{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}
+			.common:hover{animation:blink-common 1.5s linear infinite;}
+			.rare{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}
+			.rare:hover{animation:blink-rare 1.5s linear infinite;}
+			.epic{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}
+			.epic:hover{animation:blink-epic 1.5s linear infinite;}
+			.legendary{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}
+			.legendary:hover{animation:blink-legendary 1.5s linear infinite;}
+			.relative{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}
+			.relative:hover{animation:blink-relative 1.5s linear infinite;}
+			.modal{overflow-y:auto;}
+			.modal-open{overflow:auto !important;}
+			.modal-dialog{width:100%;height:auto;margin:auto;overflow:auto;}
+			.modal-content{background-color:rgba(238,238,238,1);padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;box-shadow:none;}
+			.modal-header{padding:0vw 2vmin 2vmin 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:0px 0px 1px 0px;border-color:#888;}
+			.modal-header-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vmin;font-weight:bold;}
+			.modal-footer{padding:2vmin 2vmin 0vw 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;}
+			.modal-footer-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vmin;font-weight:bold;}
+			.close{width:5vw;vertical-align:middle;color:#222;text-align:right;font-size:4vmin;font-weight:bold;}
+			.close:hover,.close:focus{color:Black;text-decoration:none;cursor:pointer;}
+			.class-text{padding:2vmin;font-family:'Noto Sans KR',sans-serif;text-align:center;font-size:4vmin;font-weight:bold;}
+    </style>
+	</head>
+	<body ondragstart="return false;" ondrop="return false;">
+		<div class="container">
+			<!-- 탭 영역 -->
+			<div class="row">	
+				<ul class="tabs col-xs-10">
+					<!-- 탭 영역 첫째 줄 -->
+					<li class="tab-link" data-tab="tab_01" data-bgimage="https://lh3.googleusercontent.com/PdZBPWciLUMPft0wETVU6ohe_WJ7r1ZLwlaOPZ49TuR6E5UzrEU0LzZ85QgCSHpPlfngeNKp7GixGlytruTdBVUHkNocENXLk7U8lExvooniP6Woe_u_VHal85X4bNoFOWBF8Uig6Q=s0" style="border-color:DarkCyan;">악마사냥꾼</li>
+					<li class="tab-link" data-tab="tab_02" data-bgimage="https://lh3.googleusercontent.com/BN4j7tHy5msDKYBq_MiUiM15TAKKT59xWS37eXpwNbsQgy2X3WRQpnYN_fv5oksi3_3czaoHU4HZ48CUeiBKANW2lQ0FdvB176qVcXImorYuyNqqgP-sCYA-lhl4oM37dfrL6PMjCQ=s0" style="border-color:Peru;">드루이드</li>
+					<li class="tab-link" data-tab="tab_03" data-bgimage="https://lh3.googleusercontent.com/cHKhyR4QYHaGreOsSH6WeZJ2J6RHJLb70k1MMBVOHbPJVS7XubqVsSS5rvG-r0odsQXw_tgRM9JDe4-LrAwk4_AqgzKIie3TiW51H5uhwcqc9tQ9gpzbl5vjjTYuWSkbktjdCpPJOQ=s0" style="border-color:ForestGreen;">사냥꾼</li>
+					<li class="tab-link" data-tab="tab_04" data-bgimage="https://lh3.googleusercontent.com/Bh1H53uoOSzVRUPvaK5QiJ1SNEcgWMOpyNwsoKkfOluTe0a9jSNLkrJS1DlRMWXtvo1aDMfqaPgjVH6k5FY4Tiig3WFi2nFwORwq6f7_sJ5aGSyU7szC9RqZ0rprEkjdmsr-urY7mw=s0" style="border-color:CornflowerBlue;">마법사</li>
+					<li class="tab-link" data-tab="tab_05" data-bgimage="https://lh3.googleusercontent.com/mWXDJg-yqrGQ5w-TvimiDGiyT9pPKu9_g-22E4nmhzgYKpxVYZ8XczyKO4VzQvjGX4x-PSk5H9IdYtswh4nDAQjB9KUJrlWoZ31YNmokccbnJYFjFOyaZ3ombNMDkOqY71MwELoeVg=s0" style="border-color:Khaki;">성기사</li>
+					<!-- 탭 영역 첫째 줄 하단부 css용 -->
+					<div style="clear:left;"></div>
+					<div class="leftover" style="border-color:DarkCyan;"></div>
+					<div class="leftover" style="border-color:Peru;"></div>
+					<div class="leftover" style="border-color:ForestGreen;"></div>
+					<div class="leftover" style="border-color:CornflowerBlue;"></div>
+					<div class="leftover" style="border-color:Khaki;"></div>
+					<!-- 탭 영역 둘째 줄 -->
+					<div style="clear:left;margin-bottom:-7px;"></div>
+					<li class="tab-link" data-tab="tab_06" data-bgimage="https://lh3.googleusercontent.com/OZtfYlshMiTy1WZE8KFvqAQvRcqvdF4zpGBA_JR_u2292G8wHnwq6U0g4CMkypxA3PHECy1zPvJ6qXgfKEpBMeG5KM6QHLougk9bgTxQgIBaDnn8PJlI2KQ6ltFBJO0wC6-j1p_-Vw=s0" style="border-color:Gainsboro;">사제</li>
+					<li class="tab-link" data-tab="tab_07" data-bgimage="https://lh3.googleusercontent.com/Ob-wbPdSAo3ZBqxeyN_pgXyHJElwwDhoNBwfVgp5SIpBKAEBDgxGi-T83KDlmVJd6LmOTKlOn8Q8UCgJ9D_3jsWB1QWGKR69kc5qdEOORxnt-TrBPpUUFRE4_LZ2Rn1NF2Ak6eaZfg=s0" style="border-color:Black;">도적</li>
+					<li class="tab-link" data-tab="tab_08" data-bgimage="https://lh3.googleusercontent.com/gRi9pXfMGXXslxbr54WWpWwOXjuwFr_59_U8jVR8YsB1SvqTJF5_O4GQJUcUzRixTcgmrbXdywOpiRmnvL9sZbAbpxpaWsdAopH9L87okyIjtcuhBo0ArJfeZYCmgOhL6wjUpy9ghQ=s0" style="border-color:DarkBlue;">주술사</li>
+					<li class="tab-link" data-tab="tab_09" data-bgimage="https://lh3.googleusercontent.com/R72tvC5cj2YbfVrCnB0N-P2aq5pVJtx_QBmc8ICZvgjLdx3mOZnaX7OU41s9ZExJvSONII53VC8LkFTs6jxoew5b-cArx3Ws2h6Ks1WWExPiKsXjKvYdOXu1P7Sv059LLyASqg_yGg=s0" style="border-color:Indigo;">흑마법사</li>
+					<li class="tab-link" data-tab="tab_10" data-bgimage="https://lh3.googleusercontent.com/frMCTBlsCuC3Ji1qxMk_3pdKAndrRhYl2lyooPcaCZEE0X5gxZgR3D7GW98Cc003h0XpUW4nQsKnJjAH8_2hUJPuEZJWJRND3i69OGlGCgLpulveihF17JgsMbHAOiwbxVYcpzp7yw=s0" style="border-color:FireBrick;">전사</li>
+				</ul>
+				<ul class="tabs col-xs-2">
+						<li class="tab-link tab-11" data-tab="tab_11" data-bgimage="https://lh3.googleusercontent.com/xXRPmpGILszhuJFMBt3U1DTfqk4JdH7e7GWVdV8tOvSczxJiiZv3HBgF85VenQtN2lqm9OOvm1T5Eu2VWaYfTV55VJ1GlLjzntYVW-U18tDdNy5-uZ5Mq1ONe-OGpcdZ8fNpJoQaDA=s0" style="border-color:DarkOrange;">중립</li>
+				</ul>
+			</div>
+			<!-- 내용 영역 -->
+			<div class="row">
+				<!-- 알림 -->
+				<div id="tab_00" class="tab-content current" style="border-color:DimGray;">
+					<img src="https://lh3.googleusercontent.com/0Fm_MHJLmZhPwS5NKFlWa2xAnbXzMZ7WMdPD0vcUdiZcNQaFstM8_SyT6mcMnefWKkcpTBFzJGv13tInDqjFAUKu86lSidqc_2_x5_zJFWWrnJYmXPQyfWkjeSy1WCq7j07AloJyYQ=s0" border="0" style="max-width:100%;height:auto;">
+				</div>
+				<!-- 악마사냥꾼 -->
+				<div id="tab_01" class="tab-content" style="border-color:DarkCyan;">
+					<!-- 이중 직업 카드 문구 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										이중 직업 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 이중 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x01a">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/YI6KDFUAR3TY1610938883394.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x01b">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/HJIAAOWU7NNH1610938882584.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+						<!-- 01b 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:11vw;"></div>
+							<div class="card token x01b rare" data-toggle="x01a1" style="display:none;">
+								<img src="https://youre.outof.cards/media/uploads/02/1a/021a504d-d924-4f41-a280-318edb2386fb/359004a7.png" class="cardimage">
+							</div>
+							<div style="width:11vw;"></div>
+							<div class="card token x01b relative" data-toggle="x01a1" style="display:none;">
+								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c768a21c43dd2296fc3af5f47718e0815b67a7684cdcd3a2a949c15e84dc024.png" class="cardimage">
+							</div>
+							<div style="width:11vw;"></div>
+						</div>
+					<!-- 단일 직업 카드 문구 -->
+					<div style="display:flex;margin:2vmin 2vmin 0vmin 2vmin;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										악마사냥꾼 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 단일 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x01c">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/6T71WMP0FO741610938881049.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x01d">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/0GWWX43MX6QF1610938881513.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 드루이드 -->
+				<div id="tab_02" class="tab-content" style="border-color:Peru;">
+					<!-- 이중 직업 카드 문구 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										이중 직업 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 이중 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x02a">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/ULY7A0GWNZT41610938883136.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x02b">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/QE0DEUMGBRWN1610938883161.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 단일 직업 카드 문구 -->
+					<div style="display:flex;margin:2vmin 2vmin 0vmin 2vmin;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										드루이드 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 단일 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x02c">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/GMT6WDIG8D2V1610938881588.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x02d">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/8AV9N4VZVDWY1611031182598.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+						<!-- 02c 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card token x02c common" data-toggle="x02c1" style="display:none;">
+								<img src="https://youre.outof.cards/media/uploads/0d/e9/0de9b2af-b569-4a3e-a823-6418e7174de4/cf41da03.png" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+				</div>
+				<!-- 사냥꾼 -->
+				<div id="tab_03" class="tab-content" style="border-color:ForestGreen;">
+					<!-- 이중 직업 카드 문구 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										이중 직업 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 이중 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x03a">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/QE0DEUMGBRWN1610938883161.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x03b">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/YI6KDFUAR3TY1610938883394.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 단일 직업 카드 문구 -->
+					<div style="display:flex;margin:2vmin 2vmin 0vmin 2vmin;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										사냥꾼 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 단일 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x03c">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/U2ZJ42KDDRSS1610938882021.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x03d">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/JJG2A42N8ZH71610938882068.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 마법사 -->
+				<div id="tab_04" class="tab-content" style="border-color:CornflowerBlue;">
+					<!-- 이중 직업 카드 문구 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										이중 직업 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 이중 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x04a">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/5LMICNIUYCPP1610938882857.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x04b">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/MW13RUVTE0LT1610938883123.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 단일 직업 카드 문구 -->
+					<div style="display:flex;margin:2vmin 2vmin 0vmin 2vmin;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										마법사 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 단일 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x04c">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/X86DBSJHGK5R1610938882327.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x04d">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/AGMU1XEKB4GY1610938882547.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 성기사 -->
+				<div id="tab_05" class="tab-content" style="border-color:Khaki;">
+					<!-- 이중 직업 카드 문구 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										이중 직업 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 이중 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x05a">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/FBFMV0UO7YWK1611031182610.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x05b">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/D3Y8IK23R8KA1610938882593.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 단일 직업 카드 문구 -->
+					<div style="display:flex;margin:2vmin 2vmin 0vmin 2vmin;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										성기사 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 단일 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x05c">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/QIKBFPSUC4QN1610938883995.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x05d">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/4JMH2B32IJRE1610938884001.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 사제 -->
+				<div id="tab_06" class="tab-content" style="border-color:Gainsboro;">
+					<!-- 이중 직업 카드 문구 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										이중 직업 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 이중 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x06a">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/RM2VINYCJMTJ1611031182611.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x06b">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/FBFMV0UO7YWK1611031182610.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 단일 직업 카드 문구 -->
+					<div style="display:flex;margin:2vmin 2vmin 0vmin 2vmin;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										사제 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 단일 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x06c">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/94TI924MR7SF1610938884280.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x06d">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/SO4CON7Q89351611031183237.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 도적 -->
+				<div id="tab_07" class="tab-content" style="border-color:Black;">
+					<!-- 이중 직업 카드 문구 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										이중 직업 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 이중 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x07a">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/HP6S7IYZ60GO1610938882854.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x07b">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/5LMICNIUYCPP1610938882857.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+						<!-- 07a 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card token x07a common" data-toggle="x07a1" style="display:none;">
+								<img src="https://youre.outof.cards/media/uploads/6d/73/6d73f973-65a6-4a68-8611-d5565ae317a9/08099a92.png" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+					<!-- 단일 직업 카드 문구 -->
+					<div style="display:flex;margin:2vmin 2vmin 0vmin 2vmin;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										도적 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 단일 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x07c">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/7GORTDP3OM8M1610938884657.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x07d">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/VLQZCD09MVC91610938884523.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 주술사 -->
+				<div id="tab_08" class="tab-content" style="border-color:DarkBlue;">
+					<!-- 이중 직업 카드 문구 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										이중 직업 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 이중 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x08a">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/MW13RUVTE0LT1610938883123.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x08b">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/ULY7A0GWNZT41610938883136.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 단일 직업 카드 문구 -->
+					<div style="display:flex;margin:2vmin 2vmin 0vmin 2vmin;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										주술사 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 단일 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x08c">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/V4H71KOHAI2R1610938884792.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x08d">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/9B0JPBKOZATM1610938884959.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 흑마법사 -->
+				<div id="tab_09" class="tab-content" style="border-color:Indigo;">
+					<!-- 이중 직업 카드 문구 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										이중 직업 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 이중 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x09a">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/HJIAAOWU7NNH1610938882584.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x09b">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/RM2VINYCJMTJ1611031182611.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+						<!-- 09a 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:11vw;"></div>
+							<div class="card token x09a rare" data-toggle="x09a1" style="display:none;">
+								<img src="https://youre.outof.cards/media/uploads/02/1a/021a504d-d924-4f41-a280-318edb2386fb/359004a7.png" class="cardimage">
+							</div>
+							<div style="width:11vw;"></div>
+							<div class="card token x09a relative" data-toggle="x09a2" style="display:none;">
+								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c768a21c43dd2296fc3af5f47718e0815b67a7684cdcd3a2a949c15e84dc024.png" class="cardimage">
+							</div>
+							<div style="width:11vw;"></div>
+						</div>
+					<!-- 단일 직업 카드 문구 -->
+					<div style="display:flex;margin:2vmin 2vmin 0vmin 2vmin;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										흑마법사 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 단일 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x09c">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/4SV5NJ32FNH21610938885197.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary button" data-toggle="modal" data-target="#x09d">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/WL4RYM3VTGWH1610938885515.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+						<!-- 09d 관련 토큰 카드 (Modal) -->
+						<div id="x09d" class="modal" data-backdrop="false">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<!-- Modal 상단부 -->
+									<div class="modal-header">
+										<div class="modal-header-text">전설 프라임 하수인 목록</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+									</div>
+									<!-- Modal 내용 -->
+									<div class="modal-body">
+										<!-- 토큰 카드 첫째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card legendary" data-toggle="x09d1">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1c6b6ddcb385113befa554116c6c91a1311ef538f3072fa62ee18c0280a73eaf.png" class="cardimage">
+											</div>
+											<div class="card legendary" data-toggle="x09d2">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4909f51462ddf7a3910b5703a0c82840738f369883f5e0fd88d2fc416d6e3a8.png" class="cardimage">
+											</div>
+											<div class="card legendary" data-toggle="x09d3">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d735e694ac8a429ca68d891a165b0f3c26064a5128a8950e0ee793bffeac45e.png" class="cardimage">
+											</div>
+										</div>
+										<!-- 토큰 카드 둘째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card legendary" data-toggle="x09d4">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/708984451e3a53b844eb9299445976856fae5810d7728b44f50009dbc9a9b57d.png" class="cardimage">
+											</div>
+											<div class="card legendary" data-toggle="x09d5">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7ea72f4325c6fcb237039ebd5989369f8e13c611409ac00dd566fc055939869e.png" class="cardimage">
+											</div>
+											<div class="card legendary" data-toggle="x09d6">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aec485d16fa8b7422470040d083700e5fdedb8c15b31cfc73dcf86121f09e3b9.png" class="cardimage">
+											</div>
+										</div>
+										<!-- 토큰 카드 셋째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card legendary" data-toggle="x09d7">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cfe4cee11d6c33f7649034df4e09fd35c519f003ec57f64460ef6853d851c0aa.png" class="cardimage">
+											</div>
+											<div class="card legendary" data-toggle="x09d8">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/94c2e904458c4b8f3a000398890e67de8d4bf8b47c5186a75f1375d3a513f236.png" class="cardimage">
+											</div>
+											<div class="card legendary" data-toggle="x09d9">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e73e0f7b0ef6ff75f3814ecb7d796521b56fb6cf495ff1c6abfa8003fcbde0ab.png" class="cardimage">
+											</div>
+										</div>
+									</div>
+									<!-- Modal 하단부 -->
+									<div class="modal-footer">
+										<div class="modal-footer-text">전설 프라임 하수인 목록</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+				<!-- 전사 -->
+				<div id="tab_10" class="tab-content" style="border-color:FireBrick;">
+					<!-- 이중 직업 카드 문구 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										이중 직업 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 이중 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10a">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/D3Y8IK23R8KA1610938882593.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10b">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/HP6S7IYZ60GO1610938882854.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+						<!-- 10b 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card token x10b common" data-toggle="x10b1" style="display:none;">
+								<img src="https://youre.outof.cards/media/uploads/6d/73/6d73f973-65a6-4a68-8611-d5565ae317a9/08099a92.png" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+					<!-- 단일 직업 카드 문구 -->
+					<div style="display:flex;margin:2vmin 2vmin 0vmin 2vmin;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;">
+						<table width="100%">
+							<tr>
+								<td>
+									<div class="class-text">
+										전사 카드
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- 단일 직업 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10c">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/6LPY6SSOZLGY1610938885266.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10d">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/1FNUE05DGY3L1610938885429.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+				<!-- 중립 -->
+				<div id="tab_11" class="tab-content" style="border-color:DarkOrange;">
+					<!-- 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11aa">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/AI3R9HRL6T7P1610938883462.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11ab">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/PY35SIJTJCW91610938883461.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11ac">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/ECCYJMPZ7BWN1610938883640.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card epic" data-toggle="x11ad">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/O7O2MU6PHHCZ1610938882834.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card legendary" data-toggle="x11ae">
+							<img src="https://bnetcmsus-a.akamaihd.net/cms/gallery/1AFTPHONI5FN1610938883730.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Script -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+  			$(document).ready(function(){   
+				$('ul.tabs li').click(function(){
+					var tab_id = $(this).attr('data-tab');
+					var imgurl = $(this).data("bgimage");
+					$('ul.tabs li').removeClass('current');
+					$('ul.tabs li').css("background-image", "");
+					$('.tab-content').removeClass('current');
+					$(this).addClass('current');
+					$(this).css("background-image", "url(" + imgurl + ")");
+					$("#"+tab_id).addClass('current');
+				})
+				$(".card").on("click", function() {
+					var cls = "." + $(this).attr("data-toggle");
+					if($(".token" + cls).is(':visible')){
+						$(".token" + cls).hide()
+					}
+					else{
+						$(".token:not(" + cls + ")").hide();
+						$(".token" + cls).show();
+					}
+				})
+				$(document).on('show.bs.modal','.modal',function(event){
+					var zIndex = 1040 + (10 * $('.modal:visible').length);
+					$(this).css('z-index', zIndex);
+					setTimeout(function() {
+						$('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+					},0)
+				})
+			})
+		</script>
+	</body>
+</html>
