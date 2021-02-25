@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <style>
+			@keyframes blink-common{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}
+									50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(-0.2vw 0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(0.2vw -0.2vw 1vw rgba(73,85,90,0.3))
+											   drop-shadow(-0.2vw -0.2vw 1vw rgba(73,85,90,0.3));}
+									100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+												drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}}
+			@keyframes blink-rare{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+											drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}
+								  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(-0.2vw 0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(0.2vw -0.2vw 1vw rgba(48,126,232,0.3))
+											 drop-shadow(-0.2vw -0.2vw 1vw rgba(48,126,232,0.3));}
+								  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}}
+			@keyframes blink-epic{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+											drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}
+								  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(-0.2vw 0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(0.2vw -0.2vw 1vw rgba(164,47,198,0.3))
+											 drop-shadow(-0.2vw -0.2vw 1vw rgba(164,47,198,0.3));}
+								  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+											  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}}
+			@keyframes blink-legendary{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+												 drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}
+									   50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(-0.2vw 0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(0.2vw -0.2vw 1vw rgba(254,170,12,0.3))
+												  drop-shadow(-0.2vw -0.2vw 1vw rgba(254,170,12,0.3));}
+									   100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+												   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}}
+			@keyframes blink-relative{0%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+												drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}
+									  50%{filter:drop-shadow(0.2vw 0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(-0.2vw 0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(0.2vw -0.2vw 1vw rgba(74,60,49,0.3))
+												 drop-shadow(-0.2vw -0.2vw 1vw rgba(74,60,49,0.3));}
+									  100%{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+												  drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}}
+			.container{width:100vw;height:100vh;}
+			ul.tabs{margin:0px;padding:0px;list-style:none;}
+			ul.tabs li{display:table-cell;vertical-align:middle;width:16.66vw;border-style:solid;border-width:5px 5px 0px 5px;padding:8px 0px 8px 0px;text-align:center;border-radius:8px 8px 0px 0px;background-size:contain;background-repeat:no-repeat;background-position:center center;color:black;text-decoration:none;cursor:pointer;}
+			@media screen and (min-width:537.5px){ul.tabs li{font-size:14px;}}
+			@media screen and (max-width:537.5px){ul.tabs li{font-size:2.6048vw;}}
+			@media screen and (min-width:537.5px){ul.tabs li.tab-11{height:81px;}}
+			@media screen and (max-width:537.5px){ul.tabs li.tab-11{height:calc(5.5781vw + 47px);}}
+			ul.tabs li.current{font-weight:bold;} 
+			ul.tabs div.leftover{display:table-cell;vertical-align:middle;width:16.66vw;border-style:solid;border-width:0px 5px 0px 5px;padding:0px 0px 6px 0px;}
+			.tab-content{display:none;border:5px solid;max-width:100vw;height:auto;max-height:calc(100vh - 81px);overflow-y:auto;text-align:center;}
+			.tab-content.current{display:inherit;}
+			.card{width:33vw;padding:3vmin 0vw 3vmin 0vw;}
+			.cardimage{object-fit:contain;width:95%;height:auto;border:0;}
+			.common{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(73,85,90,0.3));}
+			.common:hover{animation:blink-common 1.5s linear infinite;}
+			.rare{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(48,126,232,0.3));}
+			.rare:hover{animation:blink-rare 1.5s linear infinite;}
+			.epic{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(164,47,198,0.3));}
+			.epic:hover{animation:blink-epic 1.5s linear infinite;}
+			.legendary{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(254,170,12,0.3));}
+			.legendary:hover{animation:blink-legendary 1.5s linear infinite;}
+			.relative{filter:drop-shadow(0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(-0.1vw 0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3))
+						   drop-shadow(-0.1vw -0.1vw 0.5vw rgba(74,60,49,0.3));}
+			.relative:hover{animation:blink-relative 1.5s linear infinite;}
+			.modal{overflow-y:auto;}
+			.modal-open{overflow:auto !important;}
+			.modal-dialog{width:100%;height:auto;margin:auto;overflow:auto;}
+			.modal-content{background-color:rgba(238,238,238,1);padding:2vmin;border-style:solid;border-width:3px;border-color:#888;border-radius:5vmin;box-shadow:none;}
+			.modal-header{padding:0vw 2vmin 2vmin 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:0px 0px 1px 0px;border-color:#888;}
+			.modal-header-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vmin;font-weight:bold;}
+			.modal-footer{padding:2vmin 2vmin 0vw 2vmin;display:flex;justify-content:center;align-items:center;max-width:100vw;border-style:solid;border-width:1px 0px 0px 0px;border-color:#888;}
+			.modal-footer-text{width:95vw;vertical-align:middle;font-family:'Noto Sans KR',sans-serif;text-align:left;font-size:4vmin;font-weight:bold;}
+			.close{width:5vw;vertical-align:middle;color:#222;text-align:right;font-size:4vmin;font-weight:bold;}
+			.close:hover,.close:focus{color:Black;text-decoration:none;cursor:pointer;}
+    </style>
+	</head>
+	<body ondragstart="return false;" ondrop="return false;">
+		<div class="container">
+			<!-- 탭 영역 -->
+			<div class="row">	
+				<ul class="tabs col-xs-10">
+					<!-- 탭 영역 첫째 줄 -->
+					<li class="tab-link" data-tab="tab_01" data-bgimage="https://lh3.googleusercontent.com/PdZBPWciLUMPft0wETVU6ohe_WJ7r1ZLwlaOPZ49TuR6E5UzrEU0LzZ85QgCSHpPlfngeNKp7GixGlytruTdBVUHkNocENXLk7U8lExvooniP6Woe_u_VHal85X4bNoFOWBF8Uig6Q=s0" style="border-color:DarkCyan;">악마사냥꾼</li>
+					<li class="tab-link" data-tab="tab_02" data-bgimage="https://lh3.googleusercontent.com/BN4j7tHy5msDKYBq_MiUiM15TAKKT59xWS37eXpwNbsQgy2X3WRQpnYN_fv5oksi3_3czaoHU4HZ48CUeiBKANW2lQ0FdvB176qVcXImorYuyNqqgP-sCYA-lhl4oM37dfrL6PMjCQ=s0" style="border-color:Peru;">드루이드</li>
+					<li class="tab-link" data-tab="tab_03" data-bgimage="https://lh3.googleusercontent.com/cHKhyR4QYHaGreOsSH6WeZJ2J6RHJLb70k1MMBVOHbPJVS7XubqVsSS5rvG-r0odsQXw_tgRM9JDe4-LrAwk4_AqgzKIie3TiW51H5uhwcqc9tQ9gpzbl5vjjTYuWSkbktjdCpPJOQ=s0" style="border-color:ForestGreen;">사냥꾼</li>
+					<li class="tab-link" data-tab="tab_04" data-bgimage="https://lh3.googleusercontent.com/Bh1H53uoOSzVRUPvaK5QiJ1SNEcgWMOpyNwsoKkfOluTe0a9jSNLkrJS1DlRMWXtvo1aDMfqaPgjVH6k5FY4Tiig3WFi2nFwORwq6f7_sJ5aGSyU7szC9RqZ0rprEkjdmsr-urY7mw=s0" style="border-color:CornflowerBlue;">마법사</li>
+					<li class="tab-link" data-tab="tab_05" data-bgimage="https://lh3.googleusercontent.com/mWXDJg-yqrGQ5w-TvimiDGiyT9pPKu9_g-22E4nmhzgYKpxVYZ8XczyKO4VzQvjGX4x-PSk5H9IdYtswh4nDAQjB9KUJrlWoZ31YNmokccbnJYFjFOyaZ3ombNMDkOqY71MwELoeVg=s0" style="border-color:Khaki;">성기사</li>
+					<!-- 탭 영역 첫째 줄 하단부 css용 -->
+					<div style="clear:left;"></div>
+					<div class="leftover" style="border-color:DarkCyan;"></div>
+					<div class="leftover" style="border-color:Peru;"></div>
+					<div class="leftover" style="border-color:ForestGreen;"></div>
+					<div class="leftover" style="border-color:CornflowerBlue;"></div>
+					<div class="leftover" style="border-color:Khaki;"></div>
+					<!-- 탭 영역 둘째 줄 -->
+					<div style="clear:left;margin-bottom:-7px;"></div>
+					<li class="tab-link" data-tab="tab_06" data-bgimage="https://lh3.googleusercontent.com/OZtfYlshMiTy1WZE8KFvqAQvRcqvdF4zpGBA_JR_u2292G8wHnwq6U0g4CMkypxA3PHECy1zPvJ6qXgfKEpBMeG5KM6QHLougk9bgTxQgIBaDnn8PJlI2KQ6ltFBJO0wC6-j1p_-Vw=s0" style="border-color:Gainsboro;">사제</li>
+					<li class="tab-link" data-tab="tab_07" data-bgimage="https://lh3.googleusercontent.com/Ob-wbPdSAo3ZBqxeyN_pgXyHJElwwDhoNBwfVgp5SIpBKAEBDgxGi-T83KDlmVJd6LmOTKlOn8Q8UCgJ9D_3jsWB1QWGKR69kc5qdEOORxnt-TrBPpUUFRE4_LZ2Rn1NF2Ak6eaZfg=s0" style="border-color:Black;">도적</li>
+					<li class="tab-link" data-tab="tab_08" data-bgimage="https://lh3.googleusercontent.com/gRi9pXfMGXXslxbr54WWpWwOXjuwFr_59_U8jVR8YsB1SvqTJF5_O4GQJUcUzRixTcgmrbXdywOpiRmnvL9sZbAbpxpaWsdAopH9L87okyIjtcuhBo0ArJfeZYCmgOhL6wjUpy9ghQ=s0" style="border-color:DarkBlue;">주술사</li>
+					<li class="tab-link" data-tab="tab_09" data-bgimage="https://lh3.googleusercontent.com/R72tvC5cj2YbfVrCnB0N-P2aq5pVJtx_QBmc8ICZvgjLdx3mOZnaX7OU41s9ZExJvSONII53VC8LkFTs6jxoew5b-cArx3Ws2h6Ks1WWExPiKsXjKvYdOXu1P7Sv059LLyASqg_yGg=s0" style="border-color:Indigo;">흑마법사</li>
+					<li class="tab-link" data-tab="tab_10" data-bgimage="https://lh3.googleusercontent.com/frMCTBlsCuC3Ji1qxMk_3pdKAndrRhYl2lyooPcaCZEE0X5gxZgR3D7GW98Cc003h0XpUW4nQsKnJjAH8_2hUJPuEZJWJRND3i69OGlGCgLpulveihF17JgsMbHAOiwbxVYcpzp7yw=s0" style="border-color:FireBrick;">전사</li>
+				</ul>
+				<ul class="tabs col-xs-2">
+						<li class="tab-link tab-11" data-tab="tab_11" data-bgimage="https://lh3.googleusercontent.com/xXRPmpGILszhuJFMBt3U1DTfqk4JdH7e7GWVdV8tOvSczxJiiZv3HBgF85VenQtN2lqm9OOvm1T5Eu2VWaYfTV55VJ1GlLjzntYVW-U18tDdNy5-uZ5Mq1ONe-OGpcdZ8fNpJoQaDA=s0" style="border-color:DarkOrange;">중립</li>
+				</ul>
+			</div>
+			<!-- 내용 영역 -->
+			<div class="row">
+				<!-- 알림 -->
+				<div id="tab_00" class="tab-content current" style="border-color:DimGray;">
+					<img src="https://lh3.googleusercontent.com/cTSjQ1jwM9UuzHvxWyRv98fHcFOLEFNPa4O96iKKW7Ro1Yi_6M7j4GFzLkCRpEvq2itFs0fi82qtnh-kNwTziyp9CulBj6ZhDMnmPuBcgwsh3HPykwwB6us_RxOvZ1bsS-4HpoqM-w=s0" border="0" style="max-width:100%;height:auto;">
+				</div>
+				<!-- 악마사냥꾼 -->
+				<div id="tab_01" class="tab-content" style="border-color:DarkCyan;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x01a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a826ec07c8b24491e5ca3d70c6b686385aa57d03e98d14c1e6ee32ab92267da.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x01b">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7231ff82869dfa458439aa2e79aa49ba19c316f053473fd14f050b74fafe1c2c.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x01c">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5051d762f00ca4dd610f6ca4016afdee43311e435fb175db9a310269f89854d1.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x01d">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e112b3a7543e96f4f76e91799399c3bf98ec19a352c3c40a25f14404843ec61.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x01e">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5a3de4b7bc666a1fcfb5b9bb0271ec48a8303457cdaffb43b3935d0f8a39ed09.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x01f">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cbabc47933d27544d33c43c96599fe5cbb82b79d95356e05c3bfa7957ba8d53b.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x01g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31de3182d6432ea3a79262c1905383abf73119765bf7297f9c45f96ba51bb6fb.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x01h">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b69d4883c3eca475ac0a6499ec0529e915e65227195befe9bd402a8ece08e42b.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x01i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7201c055cb7aa7672233d8d0c4ee424c799724a685da52d5a888caca77cbea40.png" class="cardimage">
+						</div>
+					</div>
+						<!-- 01g 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card token x01g relative" data-toggle="x01g1" style="display:none;">
+								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e4f42a620f0ad7f55bb70858fb4d66987f57c548463179148d263c3edd904f30.png" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x01j">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e4bd6f4e4459c5ffa61dab83ee8ddd5facb57c25f39ee7f4242bf55a259f6ea.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x01k">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5d9d5a593fb393fa71134d04dd78fac3ea44ef7af22a05d43faf9463c99b0c0c.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x01l">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/28074dcdcb08c05a747a502ea838ac61b29216d8a88b91faa31c37effd7b9178.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x01m">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3cc0715ab38a999800ec9df9092d583228e8fcde0f08f471694f13c5079bbedd.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 특급 & 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x01n">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2589a0f2778396dac4086e1f095f52aa3775328f7e63b86ac0f8b521a9f5285c.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x01o">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/386b2e5fb25a524851d1886f265790670ea5a24e4b009f3071739793c8ccd382.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x01p">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9c66f49e157d5dd2908394f096057f2c2a26845f07e31696f37e52c19ebeac2d.png" class="cardimage">
+						</div>
+					</div>
+				</div>
+				<!-- 드루이드 -->
+				<div id="tab_02" class="tab-content" style="border-color:Peru;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x02a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef92b94fac1415670c4d57602c1e3e268c285af1d44d538c85dca668ef429bb2.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x02b">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a0fde442f916be2231b1f80a4091b3daf2d283e4dc06629f89577bcac711d9b.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x02c">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef92c39f42b38a06d03f9e285b70d040c77c8b847b22ed61d0b4e7dbbecbf648.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x02d">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00a228bd6679a07a6d7fe376ff4e6f34f225744d944833744d678d581ae2a61d.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x02e">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b0b32010d7697cda3d91d0ca1110417f9484cddcc07db93f62edc0dc9bad17db.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x02f">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/833b40673f0048ccfe23dadbd7c712d2441d2907670a28d7db4e1e6b7494d44e.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x02g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6904b3d5fd5d3b2453698f34e70ec26ed851aea73b55a7a40b77035b03b0fcd3.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x02h">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2741770ee7f367e486b3b1d9c66f3b75a665b6d169c8222a877e3bc88c08c84c.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x02i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8379e9ca81b073a54b04529f1c38fd02332997cb8d79b28d4304c5ba23f57ecd.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x02j">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/851f7034618e31bdc479328caa6ddfd2bf4690aba76e1fad6d4c0aea79ae3510.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x02k">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1e9a1ed741b76060329992e359f5c46078ac03cac86ccbc22713afe8c40c185b.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x02l">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ccb78583059b9ce6205bcd4003998319c9e4501ff98a150e81ecfac122a3609b.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x02m">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3564d19102b7f5478b3f2f88a3527482a8b481f35851a942ec6cb2d978cceff9.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 특급 & 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x02n">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7eaf1689745d913471e8d1a0d7b64124cbdc763914f7d46f4b5e0a5d5c22839b.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x02o">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/572c6aa6226c3c0cf4cc5e6ad0135b3751978fb86a116448c5c18727cbf291dc.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x02p">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6925d0ebea9fd998ccc3c2c444fc136d370889c8964c5030c8a482e95622784b.png" class="cardimage">
+						</div>
+					</div>
+				</div>
+				<!-- 사냥꾼 -->
+				<div id="tab_03" class="tab-content" style="border-color:ForestGreen;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x03a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d16028f5b5144496dc02d5c9f20410f4383b13218721811bea28098a451bc073.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x03b">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e871634df6f6d25271f1bb0afaa652e719b42e3152c50d20bd27a94f2dc59f3f.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x03c">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/23cea0e8791d41350876dfd1a4ee336055ca5e85cd35170c739222b3e9268e0d.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x03d">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/44230dc5093cc9ea1ada99c6ae9bbe27df6ad4a54399d317f7645af7cbfa83f9.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x03e">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/145addcc34dfccc4cc98e310b39740eeceff7576c4e9073e75bf1948fe731b4b.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x03f">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e04b8935ac39f747da7ca659fc82a7e2c7f01db85376cbc7be2f8b5f0b484655.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x03g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1835d6416dce5db476a071d5d34a2d5c910fa55ed0cf11d223033f35e4f4c584.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x03h">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7acb8b68d30a5ed460ac2406200decd9b317dd484e83923c0ceb27ea46152f7.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x03i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0e922bf58ec1001ea6438a9f45c9c9e802d837e803e97da39c934c9c8ae920f6.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x03j">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f10f506c0af0ab565308ceb9f30b1869cc07cdbebf2593a38f65bd39cdec53f.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x03k">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/03e2ff45868936cf9282b2a65c94201ed2c75000d63d17b4a0db77502c6f9d38.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x03l">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be1e13e77692a326d5fbc4bbc7daa126cdba127a89c0c8e78ad62d6c43f575b3.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x03m">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2df56eb05d4eb6d7923d5441dbe3664941d3f269082867e043890f641a78be67.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 특급 & 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x03n">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74d4615a7985113a46e05a88835535c2ee0b8a6c74092ef11ac0450139c9f0a0.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x03o">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e2e47e7d8a0452b125bdbeae3385baa50fdf2de36975a2a228480c1f734a8e99.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x03p">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce555a93bc184474854e883614b1ae78e5016e8f1822e6c8788d0e87874f22b4.png" class="cardimage">
+						</div>
+					</div>
+				</div>
+				<!-- 마법사 -->
+				<div id="tab_04" class="tab-content" style="border-color:CornflowerBlue;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x04a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/083a3d4b9bda6129537cb02858353d2f5ed2f8a47ed3d7102c68472b55e3313e.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x04b">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b1682a97f5b765abf8f3405301c2fc9e743170a870192b0339512d5b17ae02cc.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x04c">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eaf5f93ef0254948bb744a835b38ac3950eeea21b4bdcd40188060d2e2f3684e.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x04d">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca35f18745a1dad19a5e8e6e81875dc0efd5fed1abd9c5781d0ff2fd1b4d3f74.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x04e">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3475fde5ff8b93905204ca18052108283c68c7821f4e8ac50e3a20267911a764.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x04f">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ebfccd9558f1c3a5e0ba13728c48e4aeea63169052ed158f6c5d86af2fe6f815.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x04g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34350b298a47f8e23dedefa44084eefb10c845238f064017a8a43a81eb5eace2.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x04h">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f99e1869f1bee8b3c184f502b97afa92bea963a33a2178827bfa8438a694447d.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x04i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/afce9c902a51be440df2471d8ca047b4a97c2125e875cd74c84985ccdb0a4e76.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x04j">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ddefa4db9ad0dae7a40d88f154d64237bd3f02ce44fe2a17e6b8e7aecc31a40.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x04k">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f7a856712e26d1a6bdeacdf685051d016e99d79dce268b832c2f8598fc0d217a.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x04l">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0453434087fa7cb0cde2ea79cc9812d2dcd51dbd55581245e72a2a53b3703070.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x04m">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c72f43388cab0b5ba4058075590d081ccf550ad68be57c3b75b5f3284b7b4cef.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 특급 & 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x04n">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f7a80236e62137149ed4da273fbfc052da72898333bef12f7499c535aa13e1e3.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x04o">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3da85781632ac8fcd43f0db47a406035b4a9f6262d548a9db4647b483e95d8a.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x04p">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2135a466f801eda4d545ecb96267af48def415264e3f05d4aec0aa798900a84c.png" class="cardimage">
+						</div>
+					</div>
+				</div>
+				<!-- 성기사 -->
+				<div id="tab_05" class="tab-content" style="border-color:Khaki;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x05a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36d2dbc573b941c1775c3dd653dc6fa8f2fc1495eda53dcdf4925e8a0a99d8fd.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x05b">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78ab5e20531e33bcd04124b17a6c5a574c1b2803202e0bac15f2039e9a32964c.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x05c">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9eff057c6db5c3204a002f973eb28d061b24176d376d424998a7224e20df5997.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x05d">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2699b506e780bdc3b7c5d4964948fd4c29d716e8be02ccb65a2b1ab7292f86e0.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x05e">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8b5f391ddf1f3bd33caf33b19856cc6e27cea3574fd510d4765bb36629949870.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x05f">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b86c9aaf281210e16333e88071d02656c1a41cf4fa8fe62d373a81904a841b1.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x05g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d08268930a6fd9a0997b1b979db0b7abbc5848801805652fcd6c48bf2299ea81.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x05h">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0f084e91e026f1abcb41d3565cfbb2ca02458573c7bf309f0f7c4fc75f1e00f4.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x05i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72bd72b13bba51e7e799750fe33d87d823442587206e84da133fd24e9c390251.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x05j">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/325014a87e45a4d8b4c859e2b76706ce37244f61995034a6463b1ac3c33adf08.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x05k">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/18fd46dd562c818842b245d8769858ed5d3f2f7828bc109c6ad6899b7ece05e1.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x05l">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eea9f1040d132ebe12f10340320def85c1f63cad02b63a393005036e1b30244b.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x05m">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f350880e6eea3a729ce7bde908a377472b669a08dbd1717a26424e70b2434027.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 특급 & 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x05n">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce84312aa5a9683d093dbf281c4c381deef56ef3a5a643a251eb3653a46d5ba1.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x05o">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cdeea5aa21e457524fbd49d73ce095ee62ea143bac9b35c4d9fe0851a3109fa9.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x05p">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc1c5ab1a65b63e1ab74499714585f2f5fa6afee33a526fabe3297a4f7705f30.png" class="cardimage">
+						</div>
+					</div>
+				</div>
+				<!-- 사제 -->
+				<div id="tab_06" class="tab-content" style="border-color:Gainsboro;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x06a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e14383ee11f9360d003cbdcbb42a32759c7dd7a9369c3553b277150486981384.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x06b">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f6d74b3e929b2cd0b044d8d748e826dfe55ec1214be8ab1c5641dd3b485cb5d9.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x06c">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/701263860e18601601233a368182d026a47379b567a3b835b315bbe1e5f815f8.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x06d">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb41fcd22ccb1b17593292a422ecb2425fdbbda699910f141cac150c9d4de13f.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x06e">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ba2a473501afd89a62b0a4670c75255ff5bf8b04c80b62a4f046023ea5ced6cc.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x06f">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20f201509069ee3233dac8ec2eaa3ca8aaafcc2db298bbe194b14716e56ca4bd.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x06g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b4b75a174957750b5fe2443eb8be86f6dbfe62e8d9410642241178102052b0f.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x06h">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4fa6bfb2b988aa64b6bf6a05e4bcd61eb7d1c797a1defe09fd9859a5f029286.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x06i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d87f8ca48a879db6e3d3bbe91950089dd3d8b6f6417861d37615b053e2d3e5e.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x06j">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ea1250ec75453ddea80ed7050a50a3fea62573a423bc8513e540f3c9efeb093b.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x06k">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d29cc8e5ddf87c167cee99f675c43b1f6398eb632e02f6434476a2c69b8bc98.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x06l">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/975f4069313e56fd37adf222e882eee0cb4b3e8f1bf0126c5f30913273b77c31.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x06m">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/25d34c77679d580b5113564a7944b6ce1ae577d956b7e5ef72f4f50003e49437.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 특급 & 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x06n">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72e479e12f2544fe7b9e12493e231402f566740438f761f78022fb0a49eb28f6.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x06o">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fa232d22bf846bc43a78084d7968add08cb245a7af1321f2b42a3a22e21983e5.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x06p">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/35a0c7571be7261c97daa24662c2961042e63a9a9fcea67abae743c7c034803d.png" class="cardimage">
+						</div>
+					</div>
+				</div>
+				<!-- 도적 -->
+				<div id="tab_07" class="tab-content" style="border-color:Black;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x07a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f036f6edd1ed42ea8fd9cee4ec0c5edff4d71bd5997b78ca1c3d8c917dbc8574.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x07b">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0bfdb61a88eb30f1b6a74daec85b9c1b4942916cd8beee1f19ec03e808f66b54.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x07c">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d63a89c348a1e5c206753b9a6fba6b0c919f191f79369fcb8957ad39071ae5bc.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x07d">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/baa0e28bac1a8f387adb8dde22eb299f8288a74fcf9a83cc06285b3f7e2a2a58.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x07e">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30fcf2bf092a12f89f44c5d6c843daca900e6014ae421c77b8db88f9f4c9c6e1.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x07f">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/70d8ff4147f397af55316b1c3a72cc194ad2e4e9a63d88c8395a7ba6c3d11191.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x07g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d4cad1f06d8d3747fb3a06db34a1c808aaa0e0aab772f95142f503fbe1df41b2.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x07h">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3cc56205d462a1ecacc25fbabea74db2a412e5174e16f16f37e74bd6d4a5bb2.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x07i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/885771d92e48d9b7ca5d176db38849df0885fa5553cc908a60227e811cdbc8e0.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x07j">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d944ad83d907d6c9594ffe52a392f7111d17c006d605a87de6015ff31970e1f.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x07k">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3ed26131f811395cd16e94e003ca091544139c03679ba94c8ac25a01e9c69d4.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x07l">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c014660a99fd6745077c9d8ac6b10fc37b8d5778343a4b4d59c399625e6e6c4.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x07m">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6de7a89bf1c1d2b287b86f01a2872d32b7e2bf803b6d2b041b23ea610c03089c.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 특급 & 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x07n">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c2b8e1a87d79823fb1066af432b5d9013d604573b88ad5e5af2b2bebe82b0f5.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x07o">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8ee4ba043c81e1bfebc22c258b33e801da20e52e3fa8ec5d2fd145aa0bd4d61.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x07p">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a29d891c31dc14ee48dc9cfe4bd4848294d1b141bb5cd085a3528fafc79a230.png" class="cardimage">
+						</div>
+					</div>
+				</div>
+				<!-- 주술사 -->
+				<div id="tab_08" class="tab-content" style="border-color:DarkBlue;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x08a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5965c7a9280927e4b28028d9e53be81324449b000f11b372ae42ab63c3b30c0b.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x08b">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bdb7eeba55df486058e6cf91ecab02689ec8605491b8083ac295ce289b3da1db.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x08c">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/71d8fa157c09922b0ca71a648f8db221fd946c2bb489c0c8dd13122b0339222e.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x08d">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/069f764bdedef40e430b0e088201f499a785972686836e6f8d2069d4ef7e8cdf.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x08e">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77e5416850705a8328c59bddd26472cd59ff9732290d339dd6da3b42824661a8.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x08f">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/747387f623015e206284c6569f3d2942f375f3fbb0de8ff080fb78214150f2be.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x08g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d3c7b09789b749b5400537396633e3db584468f1285dcf6dacce4a8331e7fd9e.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x08h">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b0624d19fdf327cd49ca5cc8c2f6878ab4a29abb8c117f82e886ab46965a8a9.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x08i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/535a46367ca03e2fea717fb0ef44f5ab562774e239b894e416e88a4ec914b3c0.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x08j">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af81e6e7864e7dddbe90447d5384568b24239a18c33a8617c930623d0c8528a6.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x08k">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e0135d688298e9cbf5f40e08f7cad9013227e35f84eed23614b11ffc3d3f6240.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x08l">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/634b0426391884c3d880ca014301fa05e33a0eade0b5056fea6fc13c962dfefe.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x08m">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/918bebfa239c9aa807f8d953e39e43376a18adb572741c6775318e276d7562a0.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 특급 & 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x08n">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3803ad8b0e818e271f479ffdddc058a3d1c7c5d64cc80fa9de6c516693fe092a.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x08o">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/620f7ad0ee1b9e24459fe6a4b0f34c2af21eef9b836416741fdaadc4dae9e5e9.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x08p">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d59c6d2473366bc7d021571413c38c967a5749ee6b97830d161e041317e3f9f9.png" class="cardimage">
+						</div>
+					</div>
+				</div>
+				<!-- 흑마법사 -->
+				<div id="tab_09" class="tab-content" style="border-color:Indigo;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x09a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb6fadce2191bff8bc92cc43ff1187d57c4d83446de03d67cbfc64e95c2faa4f.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x09b">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ba2e85916cb377e389f6654876952dd59bcd677b8144a63855074be195d79a89.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x09c">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/855f2ceb90063dc49d7ae22811bcbe331f862c16440453f18cd8849906d70518.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x09d">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/67d3ef18e84caa48b2828e6e2ad2a5ca1759ccad916fd006d807f9f52b093349.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x09e">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb3b07f3004964c76ac770bf3997c89676453d8d8e309d802466475de9772a28.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x09f">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/512b8203ebaa64a69a2c906fd986b3b9b3c9e95e4d9411357a0f240923b389aa.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x09g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d3f9aee010ea03c58c90dddea03091933ea25c80258c9534b8f8736bf950180.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x09h">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5442b71f35fb5100d7e102358782fca6dbb5f73378d7a8dbb49fd0e81ce68ea3.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x09i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1737685bfcfb75dd643fe1f6918b30f0f9a48d7ad10e7da5739aecb67d338fc6.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x09j">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0b99edb6a9b2a66b366b4133626eb7ae490b8369094874791006d10f22bf5a6c.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x09k">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/796e8eba32546c064f71f03886547a0578f046840bd21dbedde10ac0bdda0e1c.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x09l">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40337e1ebab64c05612f9665edaa333d7b89c2cf7ce0ade610ea4d0394bfffd2.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x09m">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5071e3a4fb2b0a6fdddd2e9449317d46646ff2dc0a14190d0b245d732f68363.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 특급 & 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x09n">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc2ca099720f1534720672bf069ee44ba322682602d75bcb5a3c1d18106d741d.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x09o">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fbc671787042ceb57fd12921e26d7d5bafe3c0aa94905c3845fd91702428eae6.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x09p">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19f801a3fb911e5dabcfb4838111517e11aa1208ee0769ee47c337137ce5b6bb.png" class="cardimage">
+						</div>
+					</div>
+				</div>
+				<!-- 전사 -->
+				<div id="tab_10" class="tab-content" style="border-color:FireBrick;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10a">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a37be74ae88ab64f774af674ae7cf919c76337e53884d5a461d18165cf7a441.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10b">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b56a13ac631d5b73b014d768bd4d816025eba597e0585821668e2c785894928f.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10c">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e31a365ed5f3b8eff26c374485ea2cc768c413d719623c4de4bb36d73346d0c3.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x10d">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0816eb5d45f7dfccf4d1c4151846ee5eab9e3bac41f54d48634b8fe4b01a1f06.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10e">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/346cc5ecb948684bb8fe5fad9d3b8b233bf1c6ef27e30da46d7d74f685b17212.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x10f">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eaa41034d255d1ebb02b4d4fa208b0959b7fe373f74dc8ca82745a0a65114e11.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10g">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73a3d064f17638bd4f8d37bc27758e29709e64d6c2141e5957db2a4fef70cf0b.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card common" data-toggle="x10h">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ad83111e69d11b1fddbf7e01f76807238ae2b84a13971ced2976f3c1d37f687.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x10i">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/efaa34aab39bf4dbc20ddd550f50bbd6b0a6de837f5f64cc6c7f84b3fba36fe9.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x10j">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf3a4216378fdd10fe648029a3b961a6d6ad80ed1ed14e68e5aff64cc01303de.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x10k">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ceb9a8e5869470a20fdbe8e800dad27724b68158f3964308d92f7ffb680e2b9f.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+						<div class="card rare" data-toggle="x10l">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5080edb73ef7fb63d37ec62da7442af27d58ab84328cfe9099f72cb4849ce5ba.png" class="cardimage">
+						</div>
+						<div style="width:11vw;"></div>
+					</div>
+					<!-- 특급 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x10m">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3b8750ca50ca2f254f48cf43adabdd32d5a37a9d3917653a1af7dea51933e39.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10n">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f384a0e819e2e4deed8f4b16ca62dba62a7e69b9d28bb4b10a7724c197a11d78.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x10o">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f6c30533a3464b7db91ea70b3ad3e53c4c79e6b0a872653e67500a729625fe0f.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 전설 카드 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div style="width:33vw;"></div>
+						<div class="card legendary" data-toggle="x10p">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f25f7336f685598f4c10500b6b5ef0bf0ae976813f555887613a75bec1b58315.png" class="cardimage">
+						</div>
+						<div style="width:33vw;"></div>
+					</div>
+				</div>
+				<!-- 중립 -->
+				<div id="tab_11" class="tab-content" style="border-color:DarkOrange;">
+					<!-- 일반 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11aa">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f637d73d215a2ce321a2a5502930c36feb818543028aa65e9b3306e2d47e508c.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11ab">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ccc60fbd97fe5bbae4316992baadf144a866e404f6500f1fc09d9d8041b660de.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11ac">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/286a9a2a0c22272e28ccf01b2a41706b1a29d5941285205345332dfce4f36fc3.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11ad">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d20bddfac997fac39525f8149d94f5bdb7e768232a77bf7fd87e19baf71c309.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11ae">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15bf3f625416a8d6e569b8e09dfaaca17578f015ae0ae42340473da218813640.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11af">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7aed80521a879801ec6ae1e408ee1b52dcf3a9d3f7096a54c670e887d118d185.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11ag">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3688b42ad6a5b8ad6270e644d2f416f3868742cd29d02b2113555e18471fa3df.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11ah">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f59c1efb29f4c8862f33db0988f0ede1bc0ebc758e3c33fae0618613a905936.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11ai">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/abd166f8ae9658e1fbadffe511a114d1b28afa6aaf8498796366882d74402166.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 넷째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11aj">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3da2acf743381a2458fe86ed8916511ad926cee069dd3a072626c3d1d355e4cb.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11ak">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/025d9671f9b072494afefcf8e45c987e87e84984ea94dca49af61dafd80356fc.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11al">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6fe6960c0c103fe5faac8808ff1589d0c50c062ffeb5abe2ac78e04860d359a1.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 다섯째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11am">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df27253d5585ab532f69535c9a874f6d302c0eaea52b275554c485c17e3f47b0.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11an">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d8b1e177804eaa12cb2c4bb4ee9253fa099624fa99ee0d59af971d179d7e6335.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11ao">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ecf1cacd31dedd5b400b9aeac1058e3dfbe35ad699fe9b5acb460c3f21f345a0.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 여섯째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11ap">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6f07888855e9120a20f07e1511b42f423e3204bf8c9d5b1e7c152bce893c457e.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11aq">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9513280d3aad1859539ef856d109b06bd0aa1ef690f092a15cfc1e61725cff29.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11ar">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/446b8f613f811950503cf0597cd8f23f7ccc2f565256004198ac4c7727515db8.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 일곱째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11as">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ed125ca792061d8b8dbcf8f5b7764feedaf39d786765c8ae09e1b70f75c8645.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11at">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8690bb1e20cfee78ba3bafdd3625040ff1309884b3bdc5533d845ffb07ff4264.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11au">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e7e5eddea953bcef3afe9582a4f24ea6baa6100695665e0c54dc0364a3ea4b1b.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 여덟째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11av">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/829c42aba7a8aa78a940d7ee74027d8f1b107c3a2c53a9f2c2d2e25219f77b3e.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11aw">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38480cc44b44aaaa384e473c63ac18dd1a6ecf7a9538bdfc2e946224b98d7cc5.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11ax">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4224a580cbf4f10adddd3370c6b94cb7fd7ca0cf76b465b6ca98eed0c1c5d80.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 아홉째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11ay">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1917692479a371b0e879d40c32f1e28c097f08c57cb0a21de2242c8dc8140529.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11az">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22d95d6578917518e8ff75d680fc32e4ffae747c5bb49d3834b9aaa5a1f2c209.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11ba">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/82c2d5cabe30de11f32d7eab1a90afb25e3b427f484b19827e3ad6e00a28b73c.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 열번째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11bb">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c302dc1881d619a809ff284b7359ef27e2cf8d2e63f6659e824e8a05e63f6c8f.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11bc">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be4c34144e64a91fd838fe088893618833706d4f48b8e0e668337c325080e6e8.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11bd">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c9e6a43c601e0c7a0269a14cf9ed6f10694001ddf994a49d7674a327614bb26.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 열한번째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11be">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/074eb3aaf65e2e25c3f340dccfb3e46201f6d0b999e1e73169d95a396647ac00.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11bf">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fcd9d349aa56db7f2705634f8416c0a718106c382704d5a779bb95add134a2c5.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11bg">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39d7a570901740cb622fd948eae9840f41b8e72324c2b46e6705c6781b6fbbce.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 열두번째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11bh">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e170888d9202e1dc552911449e7c525bf8453e43ab33a120830adfe899ad444.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11bi">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa4fae03444a0f83ad40dd3537f3917008e4a33a0b7f61d752c00eb8289d90a8.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11bj">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/052e43ccccff42dc50073c85e6c0f463f48afc2282d33c657fa719d29143cdf4.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 일반 카드 열세번째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card common" data-toggle="x11bk">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01096b795fbb459eed286a6a325d823121745433e94a824f4748997cfdc6d40d.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11bl">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6da120eee1d22f9b430bf95d539cc8b7624d0f7f54cfb29b3d661bbfa8d59540.png" class="cardimage">
+						</div>
+						<div class="card common" data-toggle="x11bm">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/570027da9ac09327f3e5eefeb4b3ff0bc71ef57a02a185a526c290469ec18751.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x11bn">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e133b60c615e18f656ae2d804649f6f51496a0eb67ff343c2cb07a47e1419543.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11bo">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45bb7b3380a3e7bd34de2e4f805bb5de28a1ec28bdd08900521e9e79cbb26b2f.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11bp">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1fb2e27fa5070547a9cf52493b1cc34213232ba642bb39116574d99c365a376.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x11bq">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b68e43bcf6fe2126da4ef6461e985de9df1390e7cac9899f16ac416ae65a6101.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11br">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc248ee6283ec9cd711b5f4f2df07d609672e67429b76598a10e431fd1366cac.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11bs">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc60b16f7d7b4c0e53fb0cc260206ad81f44c0cad109c4b5daaf32daa1b96c7e.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x11bt">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f93cfb75beea8e036ccd6ff72f42b1aa096ff2031194ac9c053ff81aced31c7a.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11bu">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45becaf24f6c02907868604d2388dd261e0b72adff9d937533c821e9cfc7a842.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11bv">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1182c503c671cbfb316c75defdb56e440570308090a5b212df5651061201ca9d.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 넷째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x11bw">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b61cff0a035f6fbfd3d9af8b30186766e9edf305c7acc0ef7b25e10e5696627f.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11bx">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1bf3cb741744e1aa2e90210569d4ef8156d8aa92214f55da07737c30a9581858.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11by">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7da131f447ff8a76ee3fa1aae56420d6bd4a72f4f4a1d01e1b626353e0d941e8.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 희귀 카드 다섯째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card rare" data-toggle="x11bz">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d2c3d7fc8c5ecd7c4e326c0f1304c04c616b3902a3c643fc5e1e53660167d457.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11ca">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8429683c6b5cb7e52ef86cb0c22bbb491363809d0c980cdd038e2b8df4bb3d5e.png" class="cardimage">
+						</div>
+						<div class="card rare" data-toggle="x11cb">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34d7710e7fcc124ff54c38a1146459dd84a3e4e2050d047d94cdb1b655ebf67e.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x11cc">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b382f80ae76b275ab029256a33bc80120b14e2f623f5e1ed979c3b4eeaa3393.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x11cd">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1db3782206cfd197581fbd9da601d378b8210433a58c0de700ad4d89cf6df69.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x11ce">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/729a7beac1b6de317b1da0d806f0054627b537a39ce5997a6bc7b249854055ba.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 특급 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card epic" data-toggle="x11cf">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b287bc4a727cfe249c9476bba872a9816ea68253e64edf9cac6a839dec564739.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x11cg">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f2590835e524bc46b724a92482c8e8b6313662caaca4ccdba76f5b9b421a2b8e.png" class="cardimage">
+						</div>
+						<div class="card epic" data-toggle="x11ch">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/806e9fdc64c4aabcaf2b0f2fe4548827e94751664bb3c39bae41b7cd5850f1df.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 전설 카드 첫째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card legendary" data-toggle="x11ci">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/514c02b804fe5bfbc1c45d7c4920fd108c3021881001b23428b1f3bc0f75ca29.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x11cj">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45f18303fdd8e3267f186d16f41eb058470df7dad809782f27d056d72bd631c4.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x11ck">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d161631a8833674b53937c906ae722fe6a4618abbbf0efe5c4c6645d210a53d5.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 전설 카드 둘째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card legendary" data-toggle="x11cl">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7984cc88a5608b9db6df5131de140d1813229157506198d230650e1625579517.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x11cm">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4cfc68e6716fb80001495349ffc07bd8aea845c141fa817711e79ab763657cec.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x11cn">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6975564f0f1070756e1efe48270b5347786c572224ac08cae61a4f9c7fe0422.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 전설 카드 셋째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card legendary" data-toggle="x11co">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e2dac8dc592fa72bad207c488bc1fd1f6319673b4f29f0bb33cf8d474f6198ed.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x11cp">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5187d388ae345ec0a0c65a0ac8e7b1eda2ababb81c341327f65ea66d49ec0683.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x11cq">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8dd13b9333cb1a9f6169c4ac8d38f545bb4f2025d5851062c824cd187221afeb.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 전설 카드 넷째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card legendary" data-toggle="x11cr">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6cd04b2ab5102a300be53e29ab6ad853f5ca84455cb7826eb788fd783807252e.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x11cs">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9964e77cf47921c97b6581ecf64a215e93d2f100194da03e238fccf492230ef7.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x11ct">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df9e33afeb2ae30f20caafea146e8562e26b49f5d6818c4289f2754a231e5db4.png" class="cardimage">
+						</div>
+					</div>
+					<!-- 전설 카드 다섯째 줄 -->
+					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+						<div class="card legendary" data-toggle="x11cu">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aac0139c0ec5e063b6aaabe322093e2ce221620eee4ce9174c53f89a06f41032.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x11cv">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3403d61aa0c0f28e03a7ba79dba9f8e965c4b85347cf5adfa087ef213e9cae72.png" class="cardimage">
+						</div>
+						<div class="card legendary" data-toggle="x11cw">
+							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b838631c876ed1184c148b2f37d764a5c0c96a667158b22c6850012e363734a4.png" class="cardimage">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Script -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+  			$(document).ready(function(){   
+				$('ul.tabs li').click(function(){
+					var tab_id = $(this).attr('data-tab');
+					var imgurl = $(this).data("bgimage");
+					$('ul.tabs li').removeClass('current');
+					$('ul.tabs li').css("background-image", "");
+					$('.tab-content').removeClass('current');
+					$(this).addClass('current');
+					$(this).css("background-image", "url(" + imgurl + ")");
+					$("#"+tab_id).addClass('current');
+				})
+				$(".card").on("click", function() {
+					var cls = "." + $(this).attr("data-toggle");
+					if($(".token" + cls).is(':visible')){
+						$(".token" + cls).hide()
+					}
+					else{
+						$(".token:not(" + cls + ")").hide();
+						$(".token" + cls).show();
+					}
+				})
+				$(document).on('show.bs.modal','.modal',function(event){
+					var zIndex = 1040 + (10 * $('.modal:visible').length);
+					$(this).css('z-index', zIndex);
+					setTimeout(function() {
+						$('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+					},0)
+				})
+			})
+		</script>
+	</body>
+</html>
