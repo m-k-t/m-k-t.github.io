@@ -307,7 +307,7 @@
 						<div class="card common" data-toggle="x02h">
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2741770ee7f367e486b3b1d9c66f3b75a665b6d169c8222a877e3bc88c08c84c.png" class="cardimage">
 						</div>
-						<div class="card common" data-toggle="x02i">
+						<div class="card common button" data-toggle="modal" data-target="#x02i">
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8379e9ca81b073a54b04529f1c38fd02332997cb8d79b28d4304c5ba23f57ecd.png" class="cardimage">
 						</div>
 					</div>
@@ -318,6 +318,68 @@
 								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9fc5acec4ad80b45e1eb684b92c3c5769ce13e2bf5a1557c7f1bcf480ed17de0.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
+						</div>
+						<!-- 02i 관련 토큰 카드 (Modal) -->
+						<div id="x02i" class="modal" data-backdrop="false">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<!-- Modal 상단부 -->
+									<div class="modal-header">
+										<div class="modal-header-text">발톱의 드루이드 선택지</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+									</div>
+									<!-- Modal 내용 -->
+									<div class="modal-body">
+										<!-- 토큰 카드 첫째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div style="padding:2vmin;font-family:'Noto Sans KR',sans-serif;text-align:center;font-size:2vmin;font-weight:bold;">
+												각 선택지(또는 판드랄)를 누르시면 변신 시 이미지가 아래에 나타납니다.
+											</div>
+										</div>
+										<!-- 토큰 카드 둘째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card common" data-toggle="x01i1">
+												<img src="https://lh3.googleusercontent.com/yCXX-9d-EOIJrfIadCFsakOGVdA5h9e9QS07wMm8NbyDUDDm-PfXaYza7cy8Jvwgbn7V9h0xXOPTHBH30HpmYRq5_3c_mcYQ-z3o1BkEDAq2Jx0_EbYTA4zDbm__w_hTY0lcq0Sd_Q=s0" class="cardimage">
+											</div>
+											<div class="card common" data-toggle="x01i2">
+												<img src="https://lh3.googleusercontent.com/ASnFH9CviV9Xbqk121829grmCvVMgCUFVrOcORzHrbvuzv-vcM4lEqjC_IlhU2tM5FIpD2sTJL9TbcCDKQb6s-lfwSWFF8olfVyzLu8otJDWvl6ClzIBXANdWO9th55gjvgTaQTR5g=s0" class="cardimage">
+											</div>
+											<div class="card legendary" data-toggle="x01i3">
+												<img src="https://lh3.googleusercontent.com/-GxBV3D7kqdXSvEMCY-GN9otOMHbeaJvWJuwycUUmYp-T_T1ytgkb3rGGMQaW1753k5_H4A1BusFdtsVU82SQQcYUh65FkC-IqOVLPChBCnDDhPcWSP1e3O5xp3fiMiUoT9O_a6TZA=s0" class="cardimage">
+											</div>
+										</div>
+											<!-- 01i1 관련 토큰 카드 -->
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+												<div style="width:33vw;"></div>
+												<div class="card token x01i1 common" data-toggle="x01i1a" style="display:none;">
+													<img src="https://lh3.googleusercontent.com/aHsY1LJucgiqy-cPs6stCfvY826t4nzmUTVrFg85rNY123RrPj9XdjYHps2CK64OKqS4430LFLhd_IoddjxGxb-HN5cvB6PucyReZzQQu--oBs3hyWNK-LJ0lHiI8BJG_ejYKQ6Ynw=s0" class="cardimage">
+												</div>
+												<div style="width:33vw;"></div>
+											</div>
+											<!-- 01i2 관련 토큰 카드 -->
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+												<div style="width:33vw;"></div>
+												<div class="card token x01i2 common" data-toggle="x01i2a" style="display:none;">
+													<img src="https://lh3.googleusercontent.com/yCy2E2X6jw16Q9zpErWKhnytay-ldapoTkbme3Ic6cHygODXQcqKFhdFMeYi8qb4VzTG0Un-_klEGzLxK5OwejxFfZzjnE6-CobaeJoxjDnV6jethGK1e5lYUl2-Fo0BHobcb2HK8g=s0" class="cardimage">
+												</div>
+												<div style="width:33vw;"></div>
+											</div>
+											<!-- 01i3 관련 토큰 카드 -->
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+												<div style="width:33vw;"></div>
+												<div class="card token x01i3 common" data-toggle="x01i3a" style="display:none;">
+													<img src="https://lh3.googleusercontent.com/Qzh1drApavFOIS6IAisG6qa2ZNcpxWlVcMbC3UrDips5j1mCm1aFpQz7_l-zmqjJv9nZfqSIz5Qf1pU5mksPV957P15odapgGHz8u8vxCYZESlIPxxKjkxGQJQqpf9j7fw-_I1L2sg=s0" class="cardimage">
+												</div>
+												<div style="width:33vw;"></div>
+											</div>
+									</div>
+									<!-- Modal 하단부 -->
+									<div class="modal-footer">
+										<div class="modal-footer-text">발톱의 드루이드 선택지</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					<!-- 희귀 카드 첫째 줄 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
@@ -374,6 +436,18 @@
 								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/224a00be6d7fdd726012996f52f1f3c91ebff4f634159e2f946a897d01e29ad6.png" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
+						</div>
+						<!-- 02o 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:11vw;"></div>
+							<div class="card token x02o relative" data-toggle="x02o1" style="display:none;">
+								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/868c6e7e8101c8b3bc8771724a575360fe08e47d660471623bd03bdb908d51a7.png" class="cardimage">
+							</div>
+							<div style="width:11vw;"></div>
+							<div class="card token x02o relative" data-toggle="x02o2" style="display:none;">
+								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/66a425ba44d5f8df882fe9684249764dd65a51dffbfcd893afa80bacaaacce14.png" class="cardimage">
+							</div>
+							<div style="width:11vw;"></div>
 						</div>
 						<!-- 02p 관련 토큰 카드 -->
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
@@ -644,11 +718,11 @@
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc1c5ab1a65b63e1ab74499714585f2f5fa6afee33a526fabe3297a4f7705f30.png" class="cardimage">
 						</div>
 					</div>
-						<!-- 05i 관련 토큰 카드 -->
+						<!-- 05p 관련 토큰 카드 -->
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
-							<div class="card token x05i relative" data-toggle="x05i1" style="display:none;">
-								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d4e84fae3b8073810e8ff845231430aa079ed00b3aa4cbeb23620c4f60c9a262.png" class="cardimage">
+							<div class="card token x05p legendary" data-toggle="x05p1" style="display:none;">
+								<img src="https://lh3.googleusercontent.com/Bu31IdHViK98PG-MtJ07GobPtdhZpRnZG1l507TA0rFr0Zy3IBeZ6LyOa5M9MBJs-m1JNiCOqtvVtVW9MaxGYOsq8f3w6FVX3doqZG3pc2KwS1tL-W7QhC5DOebnnpbve3Yi6P0edQ=s0" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -928,7 +1002,7 @@
 						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 							<div style="width:33vw;"></div>
 							<div class="card token x09a relative" data-toggle="x09a1" style="display:none;">
-								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b780faad1f0c194240c5ce5833c9ceaa7dad804dda6ddef53064f11ad324743.png" class="cardimage">
+								<img src="https://lh3.googleusercontent.com/FhUXh3yaNQrU7C-GsAaibWNHykRMw70vlf6c3LOtWNn4L5eRCVG_4BfyszjoDgOuFwUB66oKG_tRJJ_SvvcaLrCjT3M_jc5CCpSE1zsjh8YrOuT8HF-xRo_rhmjukbQcdqMGi807Rg=s0" class="cardimage">
 							</div>
 							<div style="width:33vw;"></div>
 						</div>
@@ -1008,6 +1082,18 @@
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19f801a3fb911e5dabcfb4838111517e11aa1208ee0769ee47c337137ce5b6bb.png" class="cardimage">
 						</div>
 					</div>
+						<!-- 09p 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div class="card token x09p relative" data-toggle="x09p1" style="display:none;">
+								<img src="https://lh3.googleusercontent.com/AzRugJ6JZk5YtL36SHndwQsJSxhWbLhw9YxCImQSoTwjscVwF2OIEUfian67K943xsj-DSVMNZzKONwOV6FAr66FKVfLAQZZmRElNm2PjLk3U1OcNU4exnZ0BogT8vAQG-hgIHbq9A=s0" class="cardimage">
+							</div>
+							<div class="card token x09p relative" data-toggle="x09p1" style="display:none;">
+								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/536612b922a1364139604022853daf19b0a6ad07ec4cdc7781b756a80ea34092.png" class="cardimage">
+							</div>
+							<div class="card token x09p relative" data-toggle="x09p1" style="display:none;">
+								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce0af61850086c9743431c2abe6caed96fef7cc7cc93705627c0684e9d03de6a.png" class="cardimage">
+							</div>
+						</div>
 				</div>
 				<!-- 전사 -->
 				<div id="tab_10" class="tab-content" style="border-color:FireBrick;">
@@ -1410,18 +1496,70 @@
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8dd13b9333cb1a9f6169c4ac8d38f545bb4f2025d5851062c824cd187221afeb.png" class="cardimage">
 						</div>
 					</div>
+						<!-- 11cp 관련 토큰 카드 -->
+						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+							<div style="width:33vw;"></div>
+							<div class="card token x11cp legendary" data-toggle="x11cp1" style="display:none;">
+								<img src="https://lh3.googleusercontent.com/LqLO9pJcIut79dBu5_5kHUN4QcIE44SGUIRqk_vU6uFOjQ26GXHUz5FDH2xpROJ0YtbNpxvZWtbp2EW7OCOnXQ2PAQkhGQnQ50Fzc_KuX8LmdNyIkJkt26fI9q3kKVcBqL1uSOMjhQ=s0" class="cardimage">
+							</div>
+							<div style="width:33vw;"></div>
+						</div>
 					<!-- 전설 카드 넷째 줄 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div class="card legendary" data-toggle="x11cr">
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6cd04b2ab5102a300be53e29ab6ad853f5ca84455cb7826eb788fd783807252e.png" class="cardimage">
 						</div>
-						<div class="card legendary" data-toggle="x11cs">
+						<div class="card legendary button" data-toggle="modal" data-target="#x11cs">
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9964e77cf47921c97b6581ecf64a215e93d2f100194da03e238fccf492230ef7.png" class="cardimage">
 						</div>
 						<div class="card legendary" data-toggle="x11ct">
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df9e33afeb2ae30f20caafea146e8562e26b49f5d6818c4289f2754a231e5db4.png" class="cardimage">
 						</div>
 					</div>
+						<!-- 11cs 관련 토큰 카드 (Modal) -->
+						<div id="x11cs" class="modal" data-backdrop="false">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<!-- Modal 상단부 -->
+									<div class="modal-header">
+										<div class="modal-header-text">꿈 카드</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+									</div>
+									<!-- Modal 내용 -->
+									<div class="modal-body">
+										<!-- 토큰 카드 첫째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card relative" data-toggle="x11cs1">
+												<img src="https://lh3.googleusercontent.com/1nrpY7L0qxcY7jsAaYzEmsNHXyUdvp_Zpuk0LvTqkratDrJeK31Ca6e1Iq9lcH34M2Apem4oyO1THqPowCTLbvY0P2VcYJ4sehiQrUyyKMeTKb7rgfWDUGVTZA0iqLBIJrBCyRpJrA=s0" class="cardimage">
+											</div>
+											<div class="card relative" data-toggle="x11cs2">
+												<img src="https://lh3.googleusercontent.com/EhU9bZn2c9fYgTx3LcibAbi7JQ4-diBX80de-wnkt55NxzEaMgg12QDz0gbNDiFO2P4axZvts8YQGrP-Ghv2IOkVJn0AALFB3g7K2pZ08z64CR830MXtHWK9c2wGSkoBV6QmSUYARQ=s0" class="cardimage">
+											</div>
+											<div class="card relative" data-toggle="x11cs3">
+												<img src="https://lh3.googleusercontent.com/vuA9Eh9omvLvE0VpLVQ2jC5PFnAHv69115Wjl6b0j5K6ydR3kJ8AVDnH8R9Xrjl4UwRWNBA8vzZKDjEWtk1DP7r8N-64Ix7zsC--gXZ23TNfOLFqM304TUP55z0RqBTCXKG_8-dA6g=s0" class="cardimage">
+											</div>
+										</div>
+										<!-- 토큰 카드 둘째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div style="width:11vw;"></div>
+											<div class="card relative" data-toggle="x11cs4">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ba6bbd792cd7a621551a9cb44332a2c582ca41229efcb1fb47853ef08936f34.png" class="cardimage">
+											</div>
+											<div style="width:11vw;"></div>
+											<div class="card relative" data-toggle="x11cs5">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4356d393f3af763359d4d5ee54a39fad1906b6711c8bcd0fd8a3d8a5b17b640.png" class="cardimage">
+											</div>
+											<div style="width:11vw;"></div>
+										</div>
+									</div>
+									<!-- Modal 하단부 -->
+									<div class="modal-footer">
+										<div class="modal-footer-text">꿈 카드</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					<!-- 전설 카드 다섯째 줄 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div class="card legendary" data-toggle="x11cu">
