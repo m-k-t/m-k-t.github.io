@@ -876,18 +876,18 @@
 											</div>
 											<div style="width:11vw;"></div>
 											<div class="card common" data-toggle="x07j2">
-												<img src="https://lh3.googleusercontent.com/V-B1c3NChWxJIvvKUbUapjE-p_tBs6bAkA3pnujEheHUvnj46AJNP6q7KRYZN0f4OmoumV0-HdkkqiyCtT_GeRkwv6y7T6RvdS86s5PetON3q6UXbM660FqgEwsdwlZhNb7WrUlW0g=s0" class="cardimage">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a05233326990a16ce682cb0f128f57d2fbd8846cdfea226bfbcbc7885d92458.png" class="cardimage">
 											</div>
 											<div style="width:11vw;"></div>
 										</div>
 											<!-- 07j2 관련 토큰 카드 -->
-											<!-- div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 												<div style="width:33vw;"></div>
 												<div class="card token x07j2 common" data-toggle="x07j2a" style="display:none;">
-													<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3cb70a53a92139c6931f376fb7616144f472c6a7f7d519aa422e4183b5028df9.png" class="cardimage">
+													<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9ab4e1f8cacc86e7ff971c0bbb03ecf49ea9da2810711c32defd2840986c1c9.png" class="cardimage">
 												</div>
 												<div style="width:33vw;"></div>
-											</div -->
+											</div>
 										<!-- 토큰 카드 셋째 줄 -->
 										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 											<div style="width:11vw;"></div>
@@ -903,7 +903,7 @@
 										<!-- 토큰 카드 넷째 줄 -->
 										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px;border-color:#888;">
 											<div style="padding:2vmin;font-family:'Noto Sans KR',sans-serif;text-align:center;font-size:2.5vmin;font-weight:bold;">
-													야생 독 카드
+												야생 독 카드
 											</div>
 										</div>
 										<!-- 토큰 카드 다섯째 줄 -->
@@ -1335,7 +1335,7 @@
 						<div class="card legendary" data-toggle="x11bf">
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cb229765adbeed03da083352df640f06759946e101e5a64835493f1412f1d82.png" class="cardimage">
 						</div>
-						<div class="card legendary" data-toggle="x11bg">
+						<div class="card legendary button" data-toggle="modal" data-target="#x11bg">
 							<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e6f22f5ac89e2cf724aaf27f9c019748236ff3866da8f4d156907e6a0e54987.png" class="cardimage">
 						</div>
 					</div>
@@ -1351,18 +1351,94 @@
 							</div>
 							<div style="width:11vw;"></div>
 						</div>
-						<!-- 11bg 관련 토큰 카드 -->
-						<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
-							<div class="card token x11bg relative" data-toggle="x11bg1" style="display:none;">
-								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4dde07a930655b0ef56d60cbaa2529a7f32d4f39c2e377852c8da5656208040d.png" class="cardimage">
-							</div>
-							<div class="card token x11bg relative" data-toggle="x11bg2" style="display:none;">
-								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dcdd610f16ca5294db40ec088a2ee2469d5c45be0b2ac4e6128f1184d83811d6.png" class="cardimage">
-							</div>
-							<div class="card token x11bg relative" data-toggle="x11bg3" style="display:none;">
-								<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bdb23ed95c335579be3dc9830a369a7bf2d40b2bb6fa45b42bda60e2738255cc.png" class="cardimage">
+						<!-- 11bg 관련 토큰 카드 (Modal) -->
+						<div id="x11bg" class="modal" data-backdrop="false">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<!-- Modal 상단부 -->
+									<div class="modal-header">
+										<div class="modal-header-text">골렘술사 카자쿠스 골렘 선택지</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+									</div>
+									<!-- Modal 내용 -->
+									<div class="modal-body">
+										<!-- 토큰 카드 첫째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div style="padding:2vmin;font-family:'Noto Sans KR',sans-serif;text-align:center;font-size:2.5vmin;font-weight:bold;">
+													각 코스트의 골렘을 누르시면 해당 골렘에 적용하는 선택지가 나타납니다.
+												</div>
+										</div>
+										<!-- 토큰 카드 둘째 줄 -->
+										<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+											<div class="card relative button" data-toggle="modal" data-target="#x11bg1">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4dde07a930655b0ef56d60cbaa2529a7f32d4f39c2e377852c8da5656208040d.png" class="cardimage">
+											</div>
+											<div class="card relative button" data-toggle="modal" data-target="#x11bg2">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dcdd610f16ca5294db40ec088a2ee2469d5c45be0b2ac4e6128f1184d83811d6.png" class="cardimage">
+											</div>
+											<div class="card relative button" data-toggle="modal" data-target="#x11bg3">
+												<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bdb23ed95c335579be3dc9830a369a7bf2d40b2bb6fa45b42bda60e2738255cc.png" class="cardimage">
+											</div>
+										</div>
+									</div>
+									<!-- Modal 하단부 -->
+									<div class="modal-footer">
+										<div class="modal-footer-text">골렘술사 카자쿠스 골렘 선택지</div>
+										<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+									</div>
+								</div>
 							</div>
 						</div>
+							<!-- 11bg1 관련 토큰 카드 (Modal) -->
+							<div id="x11bg1" class="modal" data-backdrop="false">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<!-- Modal 상단부 -->
+										<div class="modal-header">
+											<div class="modal-header-text">하급 골렘 선택지</div>
+											<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+										</div>
+										<!-- Modal 내용 -->
+										<div class="modal-body">
+											<!-- 토큰 카드 넷째 줄 -->
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;border-style:solid;border-width:1px 0px;border-color:#888;">
+												<div style="padding:2vmin;font-family:'Noto Sans KR',sans-serif;text-align:center;font-size:2.5vmin;font-weight:bold;">
+													첫 번째 선택지
+												</div>
+											</div>
+											<!-- 토큰 카드 첫째 줄 -->
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+												<div class="card relative" data-toggle="x11bg1a">
+													<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/924977d493d0f0339298c15447d5b592d9ed22a80bbed690a5206242a078f87c.png" class="cardimage">
+												</div>
+												<div class="card relative" data-toggle="x11bg1b">
+													<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4480fd5b80b89bbd271b905cf1f343b179b97572b5a683f53eef7414baf11fca.png" class="cardimage">
+												</div>
+												<div class="card relative" data-toggle="x11bg1c">
+													<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d89462635e08b444dc0fbf84a6263f884f0bdf380931cabdd26fd2286d96d47d.png" class="cardimage">
+												</div>
+											</div>
+											<!-- 토큰 카드 둘째 줄 -->
+											<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
+												<div style="width:11vw;"></div>
+												<div class="card relative" data-toggle="x11bg1c">
+													<img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d89462635e08b444dc0fbf84a6263f884f0bdf380931cabdd26fd2286d96d47d.png" class="cardimage">
+												</div>
+												<div style="width:11vw;"></div>
+												<div class="card relative" data-toggle="x11bg1d">
+													<img src="http://dda.ac/static/img/fb/2021-03-18-5-20-zmk93iLdp0vwL31XClEx.png" class="cardimage">
+												</div>
+												<div style="width:11vw;"></div>
+											</div>
+										</div>
+										<!-- Modal 하단부 -->
+										<div class="modal-footer">
+											<div class="modal-footer-text">토템 소환 토큰</div>
+											<div class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+										</div>
+									</div>
+								</div>
+							</div>
 					<!-- 전설 카드 둘째 줄 -->
 					<div style="display:flex;justify-content:center;align-items:center;max-width:100vw;text-align:center;">
 						<div style="width:11vw;"></div>
